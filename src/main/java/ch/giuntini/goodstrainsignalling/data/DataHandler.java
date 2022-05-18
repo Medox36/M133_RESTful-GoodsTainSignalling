@@ -4,6 +4,7 @@ import ch.giuntini.goodstrainsignalling.model.FreightWagon;
 import ch.giuntini.goodstrainsignalling.model.Locomotive;
 import ch.giuntini.goodstrainsignalling.model.SignalBox;
 import ch.giuntini.goodstrainsignalling.service.Config;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
