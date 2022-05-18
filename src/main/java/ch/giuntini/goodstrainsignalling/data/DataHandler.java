@@ -65,7 +65,7 @@ public class DataHandler {
      *
      * @return list of freight wagons
      */
-    public List<FreightWagon> readAllBooks() {
+    public List<FreightWagon> readAllFreightWagons() {
         return getFreightWagonList();
     }
 
@@ -86,12 +86,12 @@ public class DataHandler {
     }
 
     /**
-     * reads all freight wagons
+     * reads all signal boxes
      *
-     * @return list of freight wagons
+     * @return list of signal boxes
      */
-    public List<FreightWagon> readAllSignalBoxes() {
-        return getFreightWagonList();
+    public List<SignalBox> readAllSignalBoxes() {
+        return getSignalBoxList();
     }
 
     /**
