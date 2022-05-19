@@ -1,0 +1,167 @@
+[
+  {
+    "waggonNumber":"53 04 2344 920-8",
+    "lastMaintenance":"2022-05-19T20:57:00",
+    "handbrakeIsOn":true
+  },
+  {
+    "waggonNumber":"82 54 2522 589-8",
+    "lastMaintenance":"2022-01-02T10:57:00",
+    "handbrakeIsOn":true
+  },
+  {
+    "waggonNumber":"74 72 8320 597-7",
+    "lastMaintenance":"2021-02-28T15:00:00",
+    "handbrakeIsOn":true
+  },
+  {
+    "waggonNumber":"13 67 4082 947-9",
+    "lastMaintenance":"2004-07-05T14:30:00",
+    "handbrakeIsOn":true
+  },
+  {
+    "waggonNumber":"51 11 5610 617-3",
+    "lastMaintenance":"2022-05-19T20:57:00",
+    "handbrakeIsOn":true
+  },
+  {
+    "waggonNumber":"36 57 5536 972-1",
+    "lastMaintenance":"2022-01-02T10:57:00",
+    "handbrakeIsOn":true
+  },
+  {
+    "waggonNumber":"37 71 3870 946-2",
+    "lastMaintenance":"2021-02-28T15:00:00",
+    "handbrakeIsOn":true
+  },
+  {
+    "waggonNumber":"64 96 0430 151-3",
+    "lastMaintenance":"2004-07-05T14:30:00",
+    "handbrakeIsOn":true
+  },
+  {
+    "waggonNumber":"52 96 4817 502-4",
+    "lastMaintenance":"2022-05-19T20:57:00",
+    "handbrakeIsOn":true
+  },
+  {
+    "waggonNumber":"42 55 0145 551-0",
+    "lastMaintenance":"2022-01-02T10:57:00",
+    "handbrakeIsOn":true
+  },
+  {
+    "waggonNumber":"44 38 6874 966-1",
+    "lastMaintenance":"2021-02-28T15:00:00",
+    "handbrakeIsOn":true
+  },
+  {
+    "waggonNumber":"19 85 4914 866-7",
+    "lastMaintenance":"2004-07-05T14:30:00",
+    "handbrakeIsOn":true
+  },
+  {
+    "waggonNumber":"06 34 6831 620-0",
+    "lastMaintenance":"2022-05-19T20:57:00",
+    "handbrakeIsOn":true
+  },
+  {
+    "waggonNumber":"07 40 8912 222-9",
+    "lastMaintenance":"2022-01-02T10:57:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"71 38 4487 691-4",
+    "lastMaintenance":"2021-02-28T15:00:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"32 33 9014 226-9",
+    "lastMaintenance":"2004-07-05T14:30:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"36 27 5114 964-6",
+    "lastMaintenance":"2022-05-19T20:57:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"72 12 8294 965-6",
+    "lastMaintenance":"2022-01-02T10:57:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"84 19 6650 275-8",
+    "lastMaintenance":"2021-02-28T15:00:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"70 92 2245 081-4",
+    "lastMaintenance":"2004-07-05T14:30:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"12 16 6613 408-2",
+    "lastMaintenance":"2022-05-19T20:57:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"85 14 9580 505-0",
+    "lastMaintenance":"2022-01-02T10:57:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"20 50 0186 201-5",
+    "lastMaintenance":"2021-02-28T15:00:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"99 26 6462 650-6",
+    "lastMaintenance":"2004-07-05T14:30:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"96 21 8305 249-0",
+    "lastMaintenance":"2022-05-19T20:57:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"67 62 6477 538-7",
+    "lastMaintenance":"2022-01-02T10:57:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"86 28 8577 085-1",
+    "lastMaintenance":"2021-02-28T15:00:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"42 08 6758 376-2",
+    "lastMaintenance":"2004-07-05T14:30:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"36 89 8163 154-9",
+    "lastMaintenance":"2022-05-19T20:57:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"61 42 5155 153-6",
+    "lastMaintenance":"2022-01-02T10:57:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"30 63 9442 598-8",
+    "lastMaintenance":"2021-02-28T15:00:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"35 23 7531 283-4",
+    "lastMaintenance":"2004-07-05T14:30:00",
+    "handbrakeIsOn":false
+  },
+  {
+    "waggonNumber":"77 46 6291 932-5",
+    "lastMaintenance":"2022-05-19T20:57:00",
+    "handbrakeIsOn":false
+  }
+]

@@ -1,0 +1,235 @@
+[
+  {
+    "series":"A 2\/4",
+    "operationNumber":102,
+    "railwayCompany":"SBB",
+    "commissioningDate":"1894-02-20",
+    "signalBox":{
+      "trackSection":"Bern",
+      "workingSignalmen":73
+    },
+    "freightWagons":[
+        {
+          "waggonNumber":"53 04 2344 920-8",
+          "lastMaintenance":"2022-05-19T20:57:00",
+          "handbrakeIsOn":true
+        },
+        {
+          "waggonNumber":"82 54 2522 589-8",
+          "lastMaintenance":"2022-01-02T10:57:00",
+          "handbrakeIsOn":true
+        },
+        {
+          "waggonNumber":"74 72 8320 597-7",
+          "lastMaintenance":"2021-02-28T15:00:00",
+          "handbrakeIsOn":true
+        }
+      ]
+    },
+    {
+      "series":"A 2\/4",
+      "operationNumber":402,
+      "railwayCompany":"SBB",
+      "commissioningDate":"1896-01-05",
+      "signalBox":{
+        "trackSection":"Basel",
+        "workingSignalmen":118
+      },
+      "freightWagons":[
+        {
+          "waggonNumber":"13 67 4082 947-9",
+          "lastMaintenance":"2004-07-05T14:30:00",
+          "handbrakeIsOn":true
+        },
+        {
+          "waggonNumber":"51 11 5610 617-3",
+          "lastMaintenance":"2022-05-19T20:57:00",
+          "handbrakeIsOn":true
+        }
+      ]
+    },
+    {
+      "series":"A 3\/5",
+      "operationNumber":702,
+      "railwayCompany":"SBB",
+      "commissioningDate":"1903-03-23",
+      "signalBox":{
+        "trackSection":"Basel",
+        "workingSignalmen":118
+      },
+      "freightWagons":[
+        {
+          "waggonNumber":"36 57 5536 972-1",
+          "lastMaintenance":"2022-01-02T10:57:00",
+          "handbrakeIsOn":true
+        },
+        {
+          "waggonNumber":"37 71 3870 946-2",
+          "lastMaintenance":"2021-02-28T15:00:00",
+          "handbrakeIsOn":true
+        },
+        {
+          "waggonNumber":"64 96 0430 151-3",
+          "lastMaintenance":"2004-07-05T14:30:00",
+          "handbrakeIsOn":true
+        }
+      ]
+    },
+    {
+      "series":"D 3\/3",
+      "operationNumber":3416,
+      "railwayCompany":"SBB",
+      "commissioningDate":"1894-01-15",
+      "signalBox":{
+        "trackSection":"Zürich",
+        "workingSignalmen":49
+      },
+      "freightWagons":[
+        {
+          "waggonNumber":"07 40 8912 222-9",
+          "lastMaintenance":"2022-01-02T10:57:00",
+          "handbrakeIsOn":false
+        },
+        {
+          "waggonNumber":"71 38 4487 691-4",
+          "lastMaintenance":"2021-02-28T15:00:00",
+          "handbrakeIsOn":false
+        },
+        {
+          "waggonNumber":"32 33 9014 226-9",
+          "lastMaintenance":"2004-07-05T14:30:00",
+          "handbrakeIsOn":false
+        },
+        {
+          "waggonNumber":"36 27 5114 964-6",
+          "lastMaintenance":"2022-05-19T20:57:00",
+          "handbrakeIsOn":false
+        },
+        {
+          "waggonNumber":"72 12 8294 965-6",
+          "lastMaintenance":"2022-01-02T10:57:00",
+          "handbrakeIsOn":false
+        }
+      ]
+    },
+    {
+      "series":"Ed 2x2\/2",
+      "operationNumber":6996,
+      "railwayCompany":"SBB",
+      "commissioningDate":"1892-07-12",
+      "signalBox":{
+        "trackSection":"Lenzburg",
+        "workingSignalmen":21
+      },
+      "freightWagons":[
+        {
+          "waggonNumber":"70 92 2245 081-4",
+          "lastMaintenance":"2004-07-05T14:30:00",
+          "handbrakeIsOn":false
+        },
+        {
+          "waggonNumber":"12 16 6613 408-2",
+          "lastMaintenance":"2022-05-19T20:57:00",
+          "handbrakeIsOn":false
+        },
+        {
+          "waggonNumber":"85 14 9580 505-0",
+          "lastMaintenance":"2022-01-02T10:57:00",
+          "handbrakeIsOn":false
+        }
+      ]
+    },
+    {
+      "series":"Am 4\/4",
+      "operationNumber":18466,
+      "railwayCompany":"DB",
+      "commissioningDate":"1957-06-24",
+      "signalBox":{
+        "trackSection":"Tessin-Biasca",
+        "workingSignalmen":92
+      },
+      "freightWagons":[]
+    },
+    {
+      "series":"Ae 3\/6^II",
+      "operationNumber":10434,
+      "railwayCompany":"SBB",
+      "commissioningDate":"1924-02-28",
+      "signalBox":{
+        "trackSection":"Tessin-Biasca",
+        "workingSignalmen":92
+      },
+      "freightWagons":[]
+    },
+    {
+      "series":"Fc 2x3\/3",
+      "operationNumber":14101,
+      "railwayCompany":"SBB",
+      "commissioningDate":"1912-12-19",
+      "signalBox":{
+        "trackSection":"Tessin-Como",
+        "workingSignalmen":97
+      },
+      "freightWagons":[]
+    },
+    {
+      "series":"Ce 6\/8^III",
+      "operationNumber":14305,
+      "railwayCompany":"SBB",
+      "commissioningDate":"1926-01-03",
+      "signalBox":{
+        "trackSection":"Rothrist",
+        "workingSignalmen":134
+      },
+      "freightWagons":[
+        {
+          "waggonNumber":"30 63 9442 598-8",
+          "lastMaintenance":"2021-02-28T15:00:00",
+          "handbrakeIsOn":false
+        },
+        {
+          "waggonNumber":"35 23 7531 283-4",
+          "lastMaintenance":"2004-07-05T14:30:00",
+          "handbrakeIsOn":false
+        },
+        {
+          "waggonNumber":"77 46 6291 932-5",
+          "lastMaintenance":"2022-05-19T20:57:00",
+          "handbrakeIsOn":false
+        }
+      ]
+    },
+    {
+      "series":"Re 4\/4^I",
+      "operationNumber":10010,
+      "railwayCompany":"SBB",
+      "commissioningDate":"1950-11-04",
+      "signalBox":{
+        "trackSection":"Vaadt-Montreux",
+        "workingSignalmen":122
+      },
+      "freightWagons":[]
+    },
+    {
+      "series":"Re 4\/4^II",
+      "operationNumber":11243,
+      "railwayCompany":"SBB",
+      "commissioningDate":"1979-03-04",
+      "signalBox":{
+        "trackSection":"Genf",
+        "workingSignalmen":119
+      },
+      "freightWagons":[]
+    },
+    {
+      "series":"Am 4\/4",
+      "operationNumber":18462,
+      "railwayCompany":"DB",
+      "commissioningDate":"1958-04-04",
+      "signalBox":{
+        "trackSection":"Zürich",
+        "workingSignalmen":49
+      },
+      "freightWagons":[]
+    }
+  ]

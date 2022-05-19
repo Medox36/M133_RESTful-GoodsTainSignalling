@@ -1,5 +1,9 @@
 package ch.giuntini.goodstrainsignalling.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -10,6 +14,9 @@ public class Locomotive {
     private String series;
     private Integer operationNumber;
     private String railwayCompany;
+
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate commissioningDate;
     private SignalBox signalBox;
     private List<FreightWagon> freightWagons;
