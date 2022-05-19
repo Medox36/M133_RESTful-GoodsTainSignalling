@@ -15,7 +15,7 @@ import java.util.List;
 public class LocomotiveService {
 
     @GET
-    @Path("test")
+    @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response list() {
         List<Locomotive> locomotives = DataHandler.getInstance().readAllLocomotives();
@@ -26,7 +26,7 @@ public class LocomotiveService {
     }
 
     @GET
-    @Path("test")
+    @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response read(@QueryParam("series") String series, @QueryParam("opn") Integer operationNumber) {
         if (!series.matches("([A-Za-z]{1,5}) (([1-9]+[x]?[1-9]*/[1-9]+)|([0-9]{1,3})|(TEE))([\\^]?)([IV]{0,3})")
