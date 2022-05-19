@@ -115,9 +115,9 @@ public class DataHandler {
      */
     private void readLocomotiveJSON() {
         try {
+            String path = Config.getProperty("locomotiveJSON");
             byte[] jsonData = Files.readAllBytes(
-                    Paths.get(Config.getProperty("locomotiveJSON")
-                    )
+                    Paths.get(path)
             );
             ObjectMapper objectMapper = new ObjectMapper();
             Locomotive[] locomotives = objectMapper.readValue(jsonData, Locomotive[].class);
