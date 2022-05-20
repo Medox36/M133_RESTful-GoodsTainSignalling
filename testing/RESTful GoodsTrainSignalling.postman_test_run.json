@@ -1,0 +1,238 @@
+{
+	"id": "9a09c8f4-6dbf-48a2-80ee-14d34ea72827",
+	"name": "RESTful GoodsTrainSignalling",
+	"timestamp": "2022-05-20T21:09:18.517Z",
+	"collection_id": "b853991e-0bdc-402a-ba2c-a6a8ddb601a3",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "428d24f5-c6eb-4b85-8b90-3c47fbf1f12a",
+			"name": "Testservice",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/test/test",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				13
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4c3a971b-48c0-4ec7-b5a9-982af33987c7",
+			"name": "listFreightWagon",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/list",
+			"time": 54,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				54
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6b7aeaa6-af87-4537-ba38-3f519c1d1b27",
+			"name": "listLocomotive",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/list",
+			"time": 19,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				19
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "dcca1e8b-1f6d-4184-bc69-2d2f87dba1bd",
+			"name": "listSignalBox",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/list",
+			"time": 19,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				19
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "0a84150e-5093-4ba4-95b3-d22b74422042",
+			"name": "readFreightWagon_correctParams",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/read?wn=53%2004%202344%20920-8",
+			"time": 20,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				20
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ce616b51-bd69-4c75-b10f-65c56978c0ee",
+			"name": "readLocomotive_correctParams",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/read?series=Ce%206/8^III&opn=14305",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				9
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "fbfa58d5-5c84-4a8a-b7a0-2b1616b00e72",
+			"name": "readSignalBox_correctParams",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/read?section=Z%C3%BCrich",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				7
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "120d8a2f-0ca9-405c-9300-962b532193c5",
+			"name": "readFreightWagon_wrongParams",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/read?wn=530423-4-4%20920-8--",
+			"time": 9,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				9
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6a480ccd-c5b8-46d0-be4c-c04d7e905267",
+			"name": "readLocomotive_wrongParams",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/read?series=Ce6//8^^I8I&opn=10",
+			"time": 13,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				13
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e390b88c-1202-40ff-8302-e20e6cfc3b36",
+			"name": "readSignalBox_wrongParams",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/read?section=",
+			"time": 20,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				20
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 183,
+	"collection": {
+		"requests": [
+			{
+				"id": "428d24f5-c6eb-4b85-8b90-3c47fbf1f12a",
+				"method": "GET"
+			},
+			{
+				"id": "4c3a971b-48c0-4ec7-b5a9-982af33987c7",
+				"method": "GET"
+			},
+			{
+				"id": "6b7aeaa6-af87-4537-ba38-3f519c1d1b27",
+				"method": "GET"
+			},
+			{
+				"id": "dcca1e8b-1f6d-4184-bc69-2d2f87dba1bd",
+				"method": "GET"
+			},
+			{
+				"id": "0a84150e-5093-4ba4-95b3-d22b74422042",
+				"method": "GET"
+			},
+			{
+				"id": "ce616b51-bd69-4c75-b10f-65c56978c0ee",
+				"method": "GET"
+			},
+			{
+				"id": "fbfa58d5-5c84-4a8a-b7a0-2b1616b00e72",
+				"method": "GET"
+			},
+			{
+				"id": "120d8a2f-0ca9-405c-9300-962b532193c5",
+				"method": "GET"
+			},
+			{
+				"id": "6a480ccd-c5b8-46d0-be4c-c04d7e905267",
+				"method": "GET"
+			},
+			{
+				"id": "e390b88c-1202-40ff-8302-e20e6cfc3b36",
+				"method": "GET"
+			}
+		]
+	}
+}
