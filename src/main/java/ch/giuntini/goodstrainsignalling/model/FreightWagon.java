@@ -23,26 +23,56 @@ public class FreightWagon {
 
 
     // getters and setters
+    /**
+     * gets waggonNumber
+     *
+     * @return value of waggonNumber
+     */
     public String getWaggonNumber() {
         return waggonNumber;
     }
 
+    /**
+     * sets waggonNumber
+     *
+     * @param waggonNumber the value to set
+     */
     public void setWaggonNumber(String waggonNumber) {
         this.waggonNumber = waggonNumber;
     }
 
+    /**
+     * gets lastMaintenance
+     *
+     * @return value of lastMaintenance
+     */
     public LocalDateTime getLastMaintenance() {
         return lastMaintenance;
     }
 
+    /**
+     * sets lastMaintenance
+     *
+     * @param lastMaintenance the value to set
+     */
     public void setLastMaintenance(LocalDateTime lastMaintenance) {
         this.lastMaintenance = lastMaintenance;
     }
 
+    /**
+     * gets trackSection
+     *
+     * @return value of trackSection
+     */
     public Boolean getHandbrakeIsOn() {
         return handbrakeIsOn;
     }
 
+    /**
+     * sets handbrakeIsOn
+     *
+     * @param handbrakeIsOn the value to set
+     */
     public void setHandbrakeIsOn(Boolean handbrakeIsOn) {
         this.handbrakeIsOn = handbrakeIsOn;
     }

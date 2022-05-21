@@ -11,9 +11,17 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * locomotive service
+ */
 @Path("locomotive")
 public class LocomotiveService {
 
+    /**
+     * service to get all locomotives
+     *
+     * @return list of locomotives
+     */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
@@ -25,6 +33,13 @@ public class LocomotiveService {
                 .build();
     }
 
+    /**
+     * service to get a specific locomotive by its series and operation number
+     *
+     * @param series of the locomotive
+     * @param operationNumber of the locomotive
+     * @return a locomotive that matches the parameters if there is one
+     */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)

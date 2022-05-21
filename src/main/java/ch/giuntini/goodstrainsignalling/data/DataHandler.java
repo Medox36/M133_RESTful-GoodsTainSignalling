@@ -221,6 +221,11 @@ public class DataHandler {
         this.signalBoxList = signalBoxList;
     }
 
+    /**
+     * gets the only instance of this class
+     *
+     * @return only instance of this class
+     */
     public static DataHandler getInstance() {
         if (instance == null) {
             instance = new DataHandler();

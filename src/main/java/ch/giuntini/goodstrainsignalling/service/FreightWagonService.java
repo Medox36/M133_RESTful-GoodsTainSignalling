@@ -11,9 +11,17 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * freight wagon service
+ */
 @Path("freightwagon")
 public class FreightWagonService {
 
+    /**
+     * service to get all freight wagons
+     *
+     * @return list of freight wagons
+     */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
@@ -25,6 +33,12 @@ public class FreightWagonService {
                 .build();
     }
 
+    /**
+     * service to get a specific freight wagon by its operation number
+     *
+     * @param wagonNumber of the freight wagon
+     * @return a freight wagon that matches the parameter if there is one
+     */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)

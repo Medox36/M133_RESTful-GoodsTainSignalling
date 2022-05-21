@@ -11,9 +11,17 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * signal box service
+ */
 @Path("signalbox")
 public class SignalBoxService {
 
+    /**
+     * service to get all signal boxes
+     *
+     * @return list of signal boxes
+     */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
@@ -25,6 +33,12 @@ public class SignalBoxService {
                 .build();
     }
 
+    /**
+     * service to get a specific signal box by its track section
+     *
+     * @param trackSection of the signal box
+     * @return a signal box that matches the parameter if there is one
+     */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
