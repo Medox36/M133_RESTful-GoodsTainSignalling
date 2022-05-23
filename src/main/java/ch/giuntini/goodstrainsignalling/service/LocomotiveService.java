@@ -9,6 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -20,13 +21,39 @@ public class LocomotiveService {
     /**
      * service to get all locomotives
      *
+     * locomotives can be filtered an sorted ascending and descending
+     * by their series
+     *
+     * @param filter
+     * @param sort "a" for ascending or "d" for descending
      * @return list of locomotives
      */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response list() {
+    public Response list(@QueryParam("contains") String filter, @QueryParam("sort") String sort) {
         List<Locomotive> locomotives = DataHandler.getInstance().readAllLocomotives();
+        if (filter != null && !filter.isEmpty()) {
+            for (int i = 0; i < locomotives.size(); i++) {
+                locomotives.removeIf(
+                        freightWagon -> !freightWagon.getSeries().toUpperCase().contains(filter.toUpperCase())
+                );
+            }
+        }
+        if (sort != null && !sort.isEmpty()) {
+            if (!sort.equals("a") && !sort.equals("d")) {
+                return Response
+                        .status(400)
+                        .build();
+            }
+            if (sort.equals("a")) {
+                locomotives.sort(Comparator.comparing(Locomotive::getSeries));
+            } else if (sort.equals("d")) {
+                locomotives.sort(
+                        (freightWagon, t1) -> t1.getSeries().compareToIgnoreCase(freightWagon.getSeries())
+                );
+            }
+        }
         return Response
                 .status(200)
                 .entity(locomotives)

@@ -9,6 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -20,13 +21,39 @@ public class FreightWagonService {
     /**
      * service to get all freight wagons
      *
+     * freight wagons can fe filtered and sorted ascending and descending
+     * by their wagon number
+     *
+     * @param filter
+     * @param sort "a" for ascending or "d" for descending
      * @return list of freight wagons
      */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response list() {
+    public Response list(@QueryParam("contains") String filter, @QueryParam("sort") String sort) {
         List<FreightWagon> freightWagons = DataHandler.getInstance().readAllFreightWagons();
+        if (filter != null && !filter.isEmpty()) {
+            for (int i = 0; i < freightWagons.size(); i++) {
+                freightWagons.removeIf(
+                        freightWagon -> !freightWagon.getWaggonNumber().toUpperCase().contains(filter.toUpperCase())
+                );
+            }
+        }
+        if (sort != null && !sort.isEmpty()) {
+            if (!sort.equals("a") && !sort.equals("d")) {
+                return Response
+                        .status(400)
+                        .build();
+            }
+            if (sort.equals("a")) {
+                freightWagons.sort(Comparator.comparing(FreightWagon::getWaggonNumber));
+            } else if (sort.equals("d")) {
+                freightWagons.sort(
+                        (freightWagon, t1) -> t1.getWaggonNumber().compareToIgnoreCase(freightWagon.getWaggonNumber())
+                );
+            }
+        }
         return Response
                 .status(200)
                 .entity(freightWagons)
