@@ -52,6 +52,11 @@ public class LocomotiveService {
         }
         Locomotive locomotive = DataHandler.getInstance()
                 .readLocomotiveBySeriesAndProductionNumber(series, operationNumber);
+        if (locomotive == null) {
+            return Response
+                    .status(404)
+                    .build();
+        }
         return Response
                 .status(200)
                 .entity(locomotive)

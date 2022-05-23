@@ -49,6 +49,11 @@ public class SignalBoxService {
                     .build();
         }
         SignalBox signalBox = DataHandler.getInstance().readSignalBoxByTrackSection(trackSection);
+        if (signalBox == null) {
+            return Response
+                    .status(404)
+                    .build();
+        }
         return Response
                 .status(200)
                 .entity(signalBox)

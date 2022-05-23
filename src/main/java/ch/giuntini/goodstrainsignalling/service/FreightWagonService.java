@@ -49,6 +49,11 @@ public class FreightWagonService {
                     .build();
         }
         FreightWagon freightWagon = DataHandler.getInstance().readFreightWagonByWaggonNumber(wagonNumber);
+        if (freightWagon == null) {
+            return Response
+                    .status(404)
+                    .build();
+        }
         return Response
                 .status(200)
                 .entity(freightWagon)
