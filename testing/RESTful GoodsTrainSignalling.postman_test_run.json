@@ -1,8 +1,8 @@
 {
-	"id": "9a09c8f4-6dbf-48a2-80ee-14d34ea72827",
+	"id": "4612c23a-f666-4d43-ba83-4f99c655ad33",
 	"name": "RESTful GoodsTrainSignalling",
-	"timestamp": "2022-05-20T21:09:18.517Z",
-	"collection_id": "b853991e-0bdc-402a-ba2c-a6a8ddb601a3",
+	"timestamp": "2022-05-23T19:52:27.756Z",
+	"collection_id": "0-b853991e-0bdc-402a-ba2c-a6a8ddb601a3",
 	"folder_id": 0,
 	"environment_id": "0",
 	"totalPass": 0,
@@ -12,7 +12,7 @@
 			"id": "428d24f5-c6eb-4b85-8b90-3c47fbf1f12a",
 			"name": "Testservice",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/test/test",
-			"time": 13,
+			"time": 73,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -20,7 +20,7 @@
 			"tests": {},
 			"testPassFailCounts": {},
 			"times": [
-				13
+				73
 			],
 			"allTests": [
 				{}
@@ -30,7 +30,7 @@
 			"id": "4c3a971b-48c0-4ec7-b5a9-982af33987c7",
 			"name": "listFreightWagon",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/list",
-			"time": 54,
+			"time": 256,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -38,7 +38,7 @@
 			"tests": {},
 			"testPassFailCounts": {},
 			"times": [
-				54
+				256
 			],
 			"allTests": [
 				{}
@@ -48,7 +48,7 @@
 			"id": "6b7aeaa6-af87-4537-ba38-3f519c1d1b27",
 			"name": "listLocomotive",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/list",
-			"time": 19,
+			"time": 25,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -56,7 +56,7 @@
 			"tests": {},
 			"testPassFailCounts": {},
 			"times": [
-				19
+				25
 			],
 			"allTests": [
 				{}
@@ -66,7 +66,7 @@
 			"id": "dcca1e8b-1f6d-4184-bc69-2d2f87dba1bd",
 			"name": "listSignalBox",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/list",
-			"time": 19,
+			"time": 15,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -74,7 +74,7 @@
 			"tests": {},
 			"testPassFailCounts": {},
 			"times": [
-				19
+				15
 			],
 			"allTests": [
 				{}
@@ -84,7 +84,7 @@
 			"id": "0a84150e-5093-4ba4-95b3-d22b74422042",
 			"name": "readFreightWagon_correctParams",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/read?wn=53%2004%202344%20920-8",
-			"time": 20,
+			"time": 18,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -92,7 +92,7 @@
 			"tests": {},
 			"testPassFailCounts": {},
 			"times": [
-				20
+				18
 			],
 			"allTests": [
 				{}
@@ -102,7 +102,7 @@
 			"id": "ce616b51-bd69-4c75-b10f-65c56978c0ee",
 			"name": "readLocomotive_correctParams",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/read?series=Ce%206/8^III&opn=14305",
-			"time": 9,
+			"time": 10,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -110,7 +110,7 @@
 			"tests": {},
 			"testPassFailCounts": {},
 			"times": [
-				9
+				10
 			],
 			"allTests": [
 				{}
@@ -120,7 +120,7 @@
 			"id": "fbfa58d5-5c84-4a8a-b7a0-2b1616b00e72",
 			"name": "readSignalBox_correctParams",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/read?section=Z%C3%BCrich",
-			"time": 7,
+			"time": 15,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -128,7 +128,7 @@
 			"tests": {},
 			"testPassFailCounts": {},
 			"times": [
-				7
+				15
 			],
 			"allTests": [
 				{}
@@ -156,7 +156,7 @@
 			"id": "6a480ccd-c5b8-46d0-be4c-c04d7e905267",
 			"name": "readLocomotive_wrongParams",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/read?series=Ce6//8^^I8I&opn=10",
-			"time": 13,
+			"time": 16,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -164,7 +164,7 @@
 			"tests": {},
 			"testPassFailCounts": {},
 			"times": [
-				13
+				16
 			],
 			"allTests": [
 				{}
@@ -174,7 +174,7 @@
 			"id": "e390b88c-1202-40ff-8302-e20e6cfc3b36",
 			"name": "readSignalBox_wrongParams",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/read?section=",
-			"time": 20,
+			"time": 12,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -182,7 +182,61 @@
 			"tests": {},
 			"testPassFailCounts": {},
 			"times": [
-				20
+				12
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c9519e35-f859-4b6f-936a-db391519906d",
+			"name": "readLocomotive_notExistingParams",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/read?series=Ce%206/8^IV&opn=14405",
+			"time": 15,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				15
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2bbd3c67-f63c-4257-bc12-ef9aa9350801",
+			"name": "readFreightWagon_notExistingParams",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/read?wn=53%2004%202344%20920-7",
+			"time": 10,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				10
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cd9419f1-1c7e-4cb0-a345-5a18896767ed",
+			"name": "readSignalBox_notExistingParams",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/read?section=Konstanz",
+			"time": 9,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				9
 			],
 			"allTests": [
 				{}
@@ -190,7 +244,7 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 183,
+	"totalTime": 483,
 	"collection": {
 		"requests": [
 			{
@@ -231,6 +285,18 @@
 			},
 			{
 				"id": "e390b88c-1202-40ff-8302-e20e6cfc3b36",
+				"method": "GET"
+			},
+			{
+				"id": "c9519e35-f859-4b6f-936a-db391519906d",
+				"method": "GET"
+			},
+			{
+				"id": "2bbd3c67-f63c-4257-bc12-ef9aa9350801",
+				"method": "GET"
+			},
+			{
+				"id": "cd9419f1-1c7e-4cb0-a345-5a18896767ed",
 				"method": "GET"
 			}
 		]
