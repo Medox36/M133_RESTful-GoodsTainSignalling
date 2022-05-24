@@ -6,8 +6,11 @@ import ch.giuntini.goodstrainsignalling.model.SignalBox;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * signal box service
@@ -30,30 +33,33 @@ public class SignalBoxService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response list(@QueryParam("contains") String filter, @QueryParam("sort") String sort) {
         List<SignalBox> signalBoxes = DataHandler.getInstance().readAllSignalBoxes();
+        List<SignalBox> copy = new ArrayList<>(signalBoxes.size());
+        Collections.copy(copy, signalBoxes);
+
         if (filter != null && !filter.isEmpty()) {
-            for (int i = 0; i < signalBoxes.size(); i++) {
-                signalBoxes.removeIf(
-                        signalBox -> !signalBox.getTrackSection().toUpperCase().contains(filter.toUpperCase())
+            for (int i = 0; i < copy.size(); i++) {
+                copy.removeIf(
+                        signalBox -> !signalBox.getTrackSection().contains(filter)
                 );
             }
         }
         if (sort != null && !sort.isEmpty()) {
-            if (!sort.equals("a") && !sort.equals("d")) {
+            if (sort.equals("a")) {
+                copy.sort(Comparator.comparing(SignalBox::getTrackSection));
+            } else if (sort.equals("d")) {
+                copy.sort(
+                        (signalBox, t1) -> t1.getTrackSection().compareToIgnoreCase(signalBox.getTrackSection())
+                );
+            } else {
                 return Response
                         .status(400)
                         .build();
             }
-            if (sort.equals("a")) {
-                signalBoxes.sort(Comparator.comparing(SignalBox::getTrackSection));
-            } else if (sort.equals("d")) {
-                signalBoxes.sort(
-                        (freightWagon, t1) -> t1.getTrackSection().compareToIgnoreCase(freightWagon.getTrackSection())
-                );
-            }
         }
+
         return Response
                 .status(200)
-                .entity(signalBoxes)
+                .entity(copy)
                 .build();
     }
 
