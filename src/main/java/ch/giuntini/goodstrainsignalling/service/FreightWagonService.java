@@ -23,8 +23,7 @@ public class FreightWagonService {
     /**
      * service to get all freight wagons
      *
-     * freight wagons can fe filtered and sorted ascending and descending
-     * by their wagon number
+     * freight wagons can fe filtered and sorted by a attribute of the class in ascending and descending order
      *
      * @param filter for the wagon Number
      * @param sortBy a attribute of the class FreightWagon

@@ -23,8 +23,7 @@ public class SignalBoxService {
     /**
      * service to get all signal boxes
      *
-     * signal boxes can be filtered and sorted ascending and descending
-     * by their track section
+     * signal boxes can be filtered and sorted by a attribute of the class in ascending and descending order
      *
      * @param filter for the track section
      * @param sortBy a attribute in the class SignalBox

@@ -23,8 +23,7 @@ public class LocomotiveService {
     /**
      * service to get all locomotives
      *
-     * locomotives can be filtered an sorted ascending and descending
-     * by their series
+     * locomotives can be filtered an sorted by a attribute of the class in ascending and descending order
      *
      * @param filter for the series
      * @param sortBy a attribute of the class Locomotive
