@@ -126,7 +126,7 @@
 					"response": []
 				},
 				{
-					"name": "listLocomotive_sortWrongParams",
+					"name": "listLocomotive_sortWrongParam",
 					"event": [
 						{
 							"listen": "test",
@@ -332,6 +332,235 @@
 								{
 									"key": "sort",
 									"value": "d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listLocomotive_filterAndSortByAndSortAscending",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/list?contains=A&sortBy=commissioningDate&sort=a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"list"
+							],
+							"query": [
+								{
+									"key": "contains",
+									"value": "A"
+								},
+								{
+									"key": "sortBy",
+									"value": "commissioningDate"
+								},
+								{
+									"key": "sort",
+									"value": "a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listLocomotive_filterAndSortByAndSortDescending",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/list?contains=A&sortBy=commissioningDate&sort=d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"list"
+							],
+							"query": [
+								{
+									"key": "contains",
+									"value": "A"
+								},
+								{
+									"key": "sortBy",
+									"value": "commissioningDate"
+								},
+								{
+									"key": "sort",
+									"value": "d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listLocomotive_sortByAndSortAscending",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/list?sortBy=commissioningDate&sort=a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"list"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "commissioningDate"
+								},
+								{
+									"key": "sort",
+									"value": "a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listLocomotive_sortByAndSortDescending",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/list?sortBy=commissioningDate&sort=d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"list"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "commissioningDate"
+								},
+								{
+									"key": "sort",
+									"value": "d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listLocomotive_sortByWrongParam",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/list?sortBy=weelCount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"list"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "weelCount"
 								}
 							]
 						}
@@ -596,7 +825,7 @@
 					"response": []
 				},
 				{
-					"name": "listFreightWagon_sortWrongParams",
+					"name": "listFreightWagon_sortWrongParam",
 					"event": [
 						{
 							"listen": "test",
@@ -809,6 +1038,235 @@
 					"response": []
 				},
 				{
+					"name": "listFreightWagon_filterAndSortByAndSortAscending",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/list?contains=12&sortBy=lastMainenance&sort=a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"list"
+							],
+							"query": [
+								{
+									"key": "contains",
+									"value": "12"
+								},
+								{
+									"key": "sortBy",
+									"value": "lastMainenance"
+								},
+								{
+									"key": "sort",
+									"value": "a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listFreightWagon_filterAndSortByAndSortDescending",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/list?contains=12&sortBy=lastMainenance&sort=d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"list"
+							],
+							"query": [
+								{
+									"key": "contains",
+									"value": "12"
+								},
+								{
+									"key": "sortBy",
+									"value": "lastMainenance"
+								},
+								{
+									"key": "sort",
+									"value": "d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listFreightWagon_sortByAndSortAscending",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/list?sortBy=lastMainenance&sort=a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"list"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "lastMainenance"
+								},
+								{
+									"key": "sort",
+									"value": "a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listFreightWagon_sortByAndSortDescending",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/list?sortBy=lastMainenance&sort=d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"list"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "lastMainenance"
+								},
+								{
+									"key": "sort",
+									"value": "d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listFreightWagon_sortByWrongParam",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/list?sortBy=weelCount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"list"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "weelCount"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "readFreightWagon_correctParams",
 					"event": [
 						{
@@ -1013,7 +1471,7 @@
 					"response": []
 				},
 				{
-					"name": "listSignalBox_sortDescending Copy",
+					"name": "listSignalBox_sortDescending",
 					"event": [
 						{
 							"listen": "test",
@@ -1260,6 +1718,235 @@
 								{
 									"key": "sort",
 									"value": "d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listSignalBox_filterAndSortByAndSortAscending",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/list?contains=B&sortBy=workingSignalmen&sort=a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"list"
+							],
+							"query": [
+								{
+									"key": "contains",
+									"value": "B"
+								},
+								{
+									"key": "sortBy",
+									"value": "workingSignalmen"
+								},
+								{
+									"key": "sort",
+									"value": "a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listSignalBox_filterAndSortByAndSortDescending",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/list?contains=B&sortBy=workingSignalmen&sort=d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"list"
+							],
+							"query": [
+								{
+									"key": "contains",
+									"value": "B"
+								},
+								{
+									"key": "sortBy",
+									"value": "workingSignalmen"
+								},
+								{
+									"key": "sort",
+									"value": "d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listSignalBox_sortByAndSortAscending",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/list?sortBy=workingSignalmen&sort=a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"list"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "workingSignalmen"
+								},
+								{
+									"key": "sort",
+									"value": "a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listSignalBox_sortByAndSortDescending",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/list?sortBy=workingSignalmen&sort=d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"list"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "workingSignalmen"
+								},
+								{
+									"key": "sort",
+									"value": "d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listSignalBox_sortByWrongParam",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/list?sortBy=numberOfSwitches",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"list"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "numberOfSwitches"
 								}
 							]
 						}
