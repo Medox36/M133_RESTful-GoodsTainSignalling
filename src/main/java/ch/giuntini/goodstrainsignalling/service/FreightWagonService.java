@@ -10,6 +10,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -26,13 +27,18 @@ public class FreightWagonService {
      * by their wagon number
      *
      * @param filter for the wagon Number
-     * @param sort "a" for ascending or "d" for descending
+     * @param sortBy a attribute of the class FreightWagon
+     * @param sort the parameter sortBy with"a" for ascending or "d" for descending
      * @return list of freight wagons
      */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response list(@QueryParam("contains") String filter, @QueryParam("sort") String sort) {
+    public Response list(
+            @QueryParam("contains") String filter,
+            @QueryParam("sortBy") String sortBy,
+            @QueryParam("sort") String sort
+    ) {
         List<FreightWagon> freightWagons = DataHandler.getInstance().readAllFreightWagons();
         List<FreightWagon> copy = new ArrayList<>(freightWagons);
 
@@ -43,13 +49,27 @@ public class FreightWagonService {
                 );
             }
         }
-        if (sort != null && !sort.isEmpty()) {
-            if (sort.equals("a")) {
-                copy.sort(Comparator.comparing(FreightWagon::getWaggonNumber));
-            } else if (sort.equals("d")) {
-                copy.sort(
-                        (freightWagon, t1) -> t1.getWaggonNumber().compareToIgnoreCase(freightWagon.getWaggonNumber())
-                );
+        if (sortBy != null) {
+            if (sort == null) {
+                sort = "a";
+            }
+            if (sort.isEmpty() || (!sort.equals("a") && !sort.equals("d"))) {
+                return Response
+                        .status(400)
+                        .build();
+            }
+            if (sortBy.matches("waggonNumber") || sortBy.isEmpty()) {
+                if (sort.equals("a")) {
+                    copy.sort(Comparator.comparing(FreightWagon::getWaggonNumber));
+                } else {
+                    copy.sort(Collections.reverseOrder(Comparator.comparing(FreightWagon::getWaggonNumber)));
+                }
+            } else if (sortBy.matches("lastMainenance")) {
+                if (sort.equals("a")) {
+                    copy.sort(Comparator.comparing(FreightWagon::getLastMaintenance));
+                } else {
+                    copy.sort(Collections.reverseOrder(Comparator.comparing(FreightWagon::getLastMaintenance)));
+                }
             } else {
                 return Response
                         .status(400)

@@ -10,6 +10,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -26,13 +27,18 @@ public class SignalBoxService {
      * by their track section
      *
      * @param filter for the track section
-     * @param sort "a" for ascending or "d" for descending
+     * @param sortBy a attribute in the class SignalBox
+     * @param sort the parameter sortBy with "a" for ascending or "d" for descending
      * @return list of signal boxes
      */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response list(@QueryParam("contains") String filter, @QueryParam("sort") String sort) {
+    public Response list(
+            @QueryParam("contains") String filter,
+            @QueryParam("sortBy") String sortBy,
+            @QueryParam("sort") String sort
+    ) {
         List<SignalBox> signalBoxes = DataHandler.getInstance().readAllSignalBoxes();
         List<SignalBox> copy = new ArrayList<>(signalBoxes);
 
@@ -43,13 +49,27 @@ public class SignalBoxService {
                 );
             }
         }
-        if (sort != null && !sort.isEmpty()) {
-            if (sort.equals("a")) {
-                copy.sort(Comparator.comparing(SignalBox::getTrackSection));
-            } else if (sort.equals("d")) {
-                copy.sort(
-                        (signalBox, t1) -> t1.getTrackSection().compareToIgnoreCase(signalBox.getTrackSection())
-                );
+        if (sortBy != null) {
+            if (sort == null) {
+                sort = "a";
+            }
+            if (sort.isEmpty() || (!sort.equals("a") && !sort.equals("d"))) {
+                return Response
+                        .status(400)
+                        .build();
+            }
+            if (sortBy.matches("trackSection") || sortBy.isEmpty()) {
+                if (sort.equals("a")) {
+                    copy.sort(Comparator.comparing(SignalBox::getTrackSection));
+                } else {
+                    copy.sort(Collections.reverseOrder(Comparator.comparing(SignalBox::getTrackSection)));
+                }
+            } else if (sortBy.matches("workingSignalmen")) {
+                if (sort.equals("a")) {
+                    copy.sort(Comparator.comparing(SignalBox::getWorkingSignalmen));
+                } else {
+                    copy.sort(Collections.reverseOrder(Comparator.comparing(SignalBox::getWorkingSignalmen)));
+                }
             } else {
                 return Response
                         .status(400)

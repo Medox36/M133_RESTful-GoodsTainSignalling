@@ -10,6 +10,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -26,13 +27,16 @@ public class LocomotiveService {
      * by their series
      *
      * @param filter for the series
-     * @param sort "a" for ascending or "d" for descending
+     * @param sortBy a attribute of the class Locomotive
+     * @param sort the parameter sortBy with "a" for ascending or "d" for descending
      * @return list of locomotives
      */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response list(@QueryParam("contains") String filter, @QueryParam("sort") String sort) {
+    public Response list(@QueryParam("contains") String filter,
+                         @QueryParam("sortBy") String sortBy,
+                         @QueryParam("sort") String sort) {
         List<Locomotive> locomotives = DataHandler.getInstance().readAllLocomotives();
         List<Locomotive> copy = new ArrayList<>(locomotives);
 
@@ -43,13 +47,39 @@ public class LocomotiveService {
                 );
             }
         }
-        if (sort != null && !sort.isEmpty()) {
-            if (sort.equals("a")) {
-                copy.sort(Comparator.comparing(Locomotive::getSeries));
-            } else if (sort.equals("d")) {
-                copy.sort(
-                        (locomotive, t1) -> t1.getSeries().compareToIgnoreCase(locomotive.getSeries())
-                );
+        if (sortBy != null) {
+            if (sort == null) {
+                sort = "a";
+            }
+            if (sort.isEmpty() || (!sort.equals("a") && !sort.equals("d"))) {
+                return Response
+                        .status(400)
+                        .build();
+            }
+            if (sortBy.matches("series") || sortBy.isEmpty()) {
+                if (sort.equals("a")) {
+                    copy.sort(Comparator.comparing(Locomotive::getSeries));
+                } else {
+                    copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getSeries)));
+                }
+            } else if (sortBy.matches("operationNumber")) {
+                if (sort.equals("a")) {
+                    copy.sort(Comparator.comparing(Locomotive::getOperationNumber));
+                } else {
+                    copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getOperationNumber)));
+                }
+            } else if (sortBy.matches("railwayCompany")) {
+                if (sort.equals("a")) {
+                    copy.sort(Comparator.comparing(Locomotive::getOperationNumber));
+                } else {
+                    copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getOperationNumber)));
+                }
+            } else if (sortBy.matches("commissioningDate")) {
+                if (sort.equals("a")) {
+                    copy.sort(Comparator.comparing(Locomotive::getCommissioningDate));
+                } else {
+                    copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getCommissioningDate)));
+                }
             } else {
                 return Response
                         .status(400)
