@@ -25,7 +25,7 @@ public class FreightWagonService {
      * freight wagons can fe filtered and sorted ascending and descending
      * by their wagon number
      *
-     * @param filter
+     * @param filter for the wagon Number
      * @param sort "a" for ascending or "d" for descending
      * @return list of freight wagons
      */
