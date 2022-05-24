@@ -33,7 +33,7 @@ public class SignalBoxService {
         if (filter != null && !filter.isEmpty()) {
             for (int i = 0; i < signalBoxes.size(); i++) {
                 signalBoxes.removeIf(
-                        freightWagon -> !freightWagon.getTrackSection().toUpperCase().contains(filter.toUpperCase())
+                        signalBox -> !signalBox.getTrackSection().toUpperCase().contains(filter.toUpperCase())
                 );
             }
         }

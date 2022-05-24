@@ -36,7 +36,7 @@ public class LocomotiveService {
         if (filter != null && !filter.isEmpty()) {
             for (int i = 0; i < locomotives.size(); i++) {
                 locomotives.removeIf(
-                        freightWagon -> !freightWagon.getSeries().toUpperCase().contains(filter.toUpperCase())
+                        locomotive -> !locomotive.getSeries().toUpperCase().contains(filter.toUpperCase())
                 );
             }
         }
