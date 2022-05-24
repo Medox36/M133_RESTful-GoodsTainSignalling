@@ -47,44 +47,45 @@ public class LocomotiveService {
                 );
             }
         }
-        if (sortBy != null) {
-            if (sort == null) {
-                sort = "a";
-            }
-            if (sort.isEmpty() || (!sort.equals("a") && !sort.equals("d"))) {
-                return Response
-                        .status(400)
-                        .build();
-            }
-            if (sortBy.matches("series") || sortBy.isEmpty()) {
-                if (sort.equals("a")) {
-                    copy.sort(Comparator.comparing(Locomotive::getSeries));
-                } else {
-                    copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getSeries)));
-                }
-            } else if (sortBy.matches("operationNumber")) {
-                if (sort.equals("a")) {
-                    copy.sort(Comparator.comparing(Locomotive::getOperationNumber));
-                } else {
-                    copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getOperationNumber)));
-                }
-            } else if (sortBy.matches("railwayCompany")) {
-                if (sort.equals("a")) {
-                    copy.sort(Comparator.comparing(Locomotive::getOperationNumber));
-                } else {
-                    copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getOperationNumber)));
-                }
-            } else if (sortBy.matches("commissioningDate")) {
-                if (sort.equals("a")) {
-                    copy.sort(Comparator.comparing(Locomotive::getCommissioningDate));
-                } else {
-                    copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getCommissioningDate)));
-                }
+        if (sortBy == null) {
+            sortBy = "series";
+        }
+        if (sort == null) {
+            sort = "a";
+        }
+        if (sort.isEmpty() || (!sort.equals("a") && !sort.equals("d"))) {
+            return Response
+                    .status(400)
+                    .build();
+        }
+        if (sortBy.matches("series") || sortBy.isEmpty()) {
+            if (sort.equals("a")) {
+                copy.sort(Comparator.comparing(Locomotive::getSeries));
             } else {
-                return Response
-                        .status(400)
-                        .build();
+                copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getSeries)));
             }
+        } else if (sortBy.matches("operationNumber")) {
+            if (sort.equals("a")) {
+                copy.sort(Comparator.comparing(Locomotive::getOperationNumber));
+            } else {
+                copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getOperationNumber)));
+            }
+        } else if (sortBy.matches("railwayCompany")) {
+            if (sort.equals("a")) {
+                copy.sort(Comparator.comparing(Locomotive::getOperationNumber));
+            } else {
+                copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getOperationNumber)));
+            }
+        } else if (sortBy.matches("commissioningDate")) {
+            if (sort.equals("a")) {
+                copy.sort(Comparator.comparing(Locomotive::getCommissioningDate));
+            } else {
+                copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getCommissioningDate)));
+            }
+        } else {
+            return Response
+                    .status(400)
+                    .build();
         }
 
         return Response

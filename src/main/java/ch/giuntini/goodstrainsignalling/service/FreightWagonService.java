@@ -49,32 +49,33 @@ public class FreightWagonService {
                 );
             }
         }
-        if (sortBy != null) {
-            if (sort == null) {
-                sort = "a";
-            }
-            if (sort.isEmpty() || (!sort.equals("a") && !sort.equals("d"))) {
-                return Response
-                        .status(400)
-                        .build();
-            }
-            if (sortBy.matches("waggonNumber") || sortBy.isEmpty()) {
-                if (sort.equals("a")) {
-                    copy.sort(Comparator.comparing(FreightWagon::getWaggonNumber));
-                } else {
-                    copy.sort(Collections.reverseOrder(Comparator.comparing(FreightWagon::getWaggonNumber)));
-                }
-            } else if (sortBy.matches("lastMainenance")) {
-                if (sort.equals("a")) {
-                    copy.sort(Comparator.comparing(FreightWagon::getLastMaintenance));
-                } else {
-                    copy.sort(Collections.reverseOrder(Comparator.comparing(FreightWagon::getLastMaintenance)));
-                }
+        if (sortBy == null) {
+            sortBy = "waggonNumber";
+        }
+        if (sort == null) {
+            sort = "a";
+        }
+        if (sort.isEmpty() || (!sort.equals("a") && !sort.equals("d"))) {
+            return Response
+                    .status(400)
+                    .build();
+        }
+        if (sortBy.matches("waggonNumber") || sortBy.isEmpty()) {
+            if (sort.equals("a")) {
+                copy.sort(Comparator.comparing(FreightWagon::getWaggonNumber));
             } else {
-                return Response
-                        .status(400)
-                        .build();
+                copy.sort(Collections.reverseOrder(Comparator.comparing(FreightWagon::getWaggonNumber)));
             }
+        } else if (sortBy.matches("lastMainenance")) {
+            if (sort.equals("a")) {
+                copy.sort(Comparator.comparing(FreightWagon::getLastMaintenance));
+            } else {
+                copy.sort(Collections.reverseOrder(Comparator.comparing(FreightWagon::getLastMaintenance)));
+            }
+        } else {
+            return Response
+                    .status(400)
+                    .build();
         }
 
         return Response

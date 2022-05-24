@@ -49,32 +49,33 @@ public class SignalBoxService {
                 );
             }
         }
-        if (sortBy != null) {
-            if (sort == null) {
-                sort = "a";
-            }
-            if (sort.isEmpty() || (!sort.equals("a") && !sort.equals("d"))) {
-                return Response
-                        .status(400)
-                        .build();
-            }
-            if (sortBy.matches("trackSection") || sortBy.isEmpty()) {
-                if (sort.equals("a")) {
-                    copy.sort(Comparator.comparing(SignalBox::getTrackSection));
-                } else {
-                    copy.sort(Collections.reverseOrder(Comparator.comparing(SignalBox::getTrackSection)));
-                }
-            } else if (sortBy.matches("workingSignalmen")) {
-                if (sort.equals("a")) {
-                    copy.sort(Comparator.comparing(SignalBox::getWorkingSignalmen));
-                } else {
-                    copy.sort(Collections.reverseOrder(Comparator.comparing(SignalBox::getWorkingSignalmen)));
-                }
+        if (sortBy == null) {
+            sortBy = "trackSection";
+        }
+        if (sort == null) {
+            sort = "a";
+        }
+        if (sort.isEmpty() || (!sort.equals("a") && !sort.equals("d"))) {
+            return Response
+                    .status(400)
+                    .build();
+        }
+        if (sortBy.matches("trackSection") || sortBy.isEmpty()) {
+            if (sort.equals("a")) {
+                copy.sort(Comparator.comparing(SignalBox::getTrackSection));
             } else {
-                return Response
-                        .status(400)
-                        .build();
+                copy.sort(Collections.reverseOrder(Comparator.comparing(SignalBox::getTrackSection)));
             }
+        } else if (sortBy.matches("workingSignalmen")) {
+            if (sort.equals("a")) {
+                copy.sort(Comparator.comparing(SignalBox::getWorkingSignalmen));
+            } else {
+                copy.sort(Collections.reverseOrder(Comparator.comparing(SignalBox::getWorkingSignalmen)));
+            }
+        } else {
+            return Response
+                    .status(400)
+                    .build();
         }
 
         return Response
