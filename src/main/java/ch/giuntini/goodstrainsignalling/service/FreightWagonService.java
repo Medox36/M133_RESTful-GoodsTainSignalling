@@ -10,7 +10,6 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -35,8 +34,7 @@ public class FreightWagonService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response list(@QueryParam("contains") String filter, @QueryParam("sort") String sort) {
         List<FreightWagon> freightWagons = DataHandler.getInstance().readAllFreightWagons();
-        List<FreightWagon> copy = new ArrayList<>(freightWagons.size());
-        Collections.copy(copy, freightWagons);
+        List<FreightWagon> copy = new ArrayList<>(freightWagons);
 
         if (filter != null && !filter.isEmpty()) {
             for (int i = 0; i < copy.size(); i++) {

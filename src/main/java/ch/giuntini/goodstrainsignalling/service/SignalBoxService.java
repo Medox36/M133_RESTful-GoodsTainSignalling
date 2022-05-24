@@ -10,7 +10,6 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -35,8 +34,7 @@ public class SignalBoxService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response list(@QueryParam("contains") String filter, @QueryParam("sort") String sort) {
         List<SignalBox> signalBoxes = DataHandler.getInstance().readAllSignalBoxes();
-        List<SignalBox> copy = new ArrayList<>(signalBoxes.size());
-        Collections.copy(copy, signalBoxes);
+        List<SignalBox> copy = new ArrayList<>(signalBoxes);
 
         if (filter != null && !filter.isEmpty()) {
             for (int i = 0; i < copy.size(); i++) {
