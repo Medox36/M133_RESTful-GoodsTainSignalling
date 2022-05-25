@@ -33,9 +33,11 @@ public class LocomotiveService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response list(@QueryParam("contains") String filter,
-                         @QueryParam("sortBy") String sortBy,
-                         @QueryParam("sort") String sort) {
+    public Response list(
+            @QueryParam("contains") String filter,
+            @QueryParam("sortBy") String sortBy,
+            @QueryParam("sort") String sort
+    ) {
         List<Locomotive> locomotives = DataHandler.getInstance().readAllLocomotives();
         List<Locomotive> copy = new ArrayList<>(locomotives);
 
