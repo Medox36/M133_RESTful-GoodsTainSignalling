@@ -16,22 +16,15 @@ import java.util.List;
 /**
  * reads and writes the data in the JSON-files
  */
-public class DataHandler {
-    private static DataHandler instance = null;
-    private List<Locomotive> locomotiveList;
-    private List<FreightWagon> freightWagonList;
-    private List<SignalBox> signalBoxList;
+public final class DataHandler {
+    private static List<Locomotive> locomotiveList;
+    private static List<FreightWagon> freightWagonList;
+    private static List<SignalBox> signalBoxList;
 
     /**
      * private constructor defeats instantiation
      */
     private DataHandler() {
-        setLocomotiveList(new ArrayList<>());
-        readLocomotiveJSON();
-        setFreightWagonList(new ArrayList<>());
-        readFreightWagonJSON();
-        setSignalBoxList(new ArrayList<>());
-        readSignalBoxJSON();
     }
 
     /**
@@ -39,7 +32,11 @@ public class DataHandler {
      *
      * @return list of locomotives
      */
-    public List<Locomotive> readAllLocomotives() {
+    public static List<Locomotive> readAllLocomotives() {
+        if (locomotiveList == null) {
+            setLocomotiveList(new ArrayList<>());
+            readLocomotiveJSON();
+        }
         return getLocomotiveList();
     }
 
@@ -50,7 +47,7 @@ public class DataHandler {
      * @param operationNumber of the locomotive
      * @return the Publisher (null=not found)
      */
-    public Locomotive readLocomotiveBySeriesAndProductionNumber(String series, Integer operationNumber) {
+    public static Locomotive readLocomotiveBySeriesAndProductionNumber(String series, Integer operationNumber) {
         Locomotive locomotive = null;
         for (Locomotive entry : getLocomotiveList()) {
             if (entry.getSeries().equals(series) && entry.getOperationNumber().equals(operationNumber)) {
@@ -65,7 +62,11 @@ public class DataHandler {
      *
      * @return list of freight wagons
      */
-    public List<FreightWagon> readAllFreightWagons() {
+    public static List<FreightWagon> readAllFreightWagons() {
+        if (freightWagonList == null) {
+            setFreightWagonList(new ArrayList<>());
+            readFreightWagonJSON();
+        }
         return getFreightWagonList();
     }
 
@@ -75,7 +76,7 @@ public class DataHandler {
      * @param waggonNumber of the freight waggon
      * @return the freight wagon (null=not found)
      */
-    public FreightWagon readFreightWagonByWaggonNumber(String waggonNumber) {
+    public static FreightWagon readFreightWagonByWaggonNumber(String waggonNumber) {
         FreightWagon freightWagon = null;
         for (FreightWagon entry : getFreightWagonList()) {
             if (entry.getWaggonNumber().equals(waggonNumber)) {
@@ -90,7 +91,11 @@ public class DataHandler {
      *
      * @return list of signal boxes
      */
-    public List<SignalBox> readAllSignalBoxes() {
+    public static List<SignalBox> readAllSignalBoxes() {
+        if (signalBoxList == null) {
+            setSignalBoxList(new ArrayList<>());
+            readSignalBoxJSON();
+        }
         return getSignalBoxList();
     }
 
@@ -100,7 +105,7 @@ public class DataHandler {
      * @param trackSection of the signalbox
      * @return the signal box
      */
-    public SignalBox readSignalBoxByTrackSection(String trackSection) {
+    public static SignalBox readSignalBoxByTrackSection(String trackSection) {
         SignalBox signalBox = null;
         for (SignalBox entry : getSignalBoxList()) {
             if (entry.getTrackSection().equals(trackSection)) {
@@ -113,7 +118,7 @@ public class DataHandler {
     /**
      * reads the locomotives from the JSON-file
      */
-    private void readLocomotiveJSON() {
+    private static void readLocomotiveJSON() {
         try {
             String path = Config.getProperty("locomotiveJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -132,7 +137,7 @@ public class DataHandler {
     /**
      * reads the freight wagons from the JSON-file
      */
-    private void readFreightWagonJSON() {
+    private static void readFreightWagonJSON() {
         try {
             String path = Config.getProperty("freightWagonJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -151,7 +156,7 @@ public class DataHandler {
     /**
      * reads the signal boxes from the JSON-file
      */
-    private void readSignalBoxJSON() {
+    private static void readSignalBoxJSON() {
         try {
             String path = Config.getProperty("signalBoxJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -172,7 +177,7 @@ public class DataHandler {
      *
      * @return value of locomotiveList
      */
-    private List<Locomotive> getLocomotiveList() {
+    private static List<Locomotive> getLocomotiveList() {
         return locomotiveList;
     }
 
@@ -181,8 +186,8 @@ public class DataHandler {
      *
      * @param locomotiveList the value to set
      */
-    private void setLocomotiveList(List<Locomotive> locomotiveList) {
-        this.locomotiveList = locomotiveList;
+    private static void setLocomotiveList(List<Locomotive> locomotiveList) {
+        DataHandler.locomotiveList = locomotiveList;
     }
 
     /**
@@ -190,7 +195,7 @@ public class DataHandler {
      *
      * @return value of freightWagonList
      */
-    private List<FreightWagon> getFreightWagonList() {
+    private static List<FreightWagon> getFreightWagonList() {
         return freightWagonList;
     }
 
@@ -199,8 +204,8 @@ public class DataHandler {
      *
      * @param freightWagonList the value to set
      */
-    private void setFreightWagonList(List<FreightWagon> freightWagonList) {
-        this.freightWagonList = freightWagonList;
+    private static void setFreightWagonList(List<FreightWagon> freightWagonList) {
+        DataHandler.freightWagonList = freightWagonList;
     }
 
     /**
@@ -208,7 +213,7 @@ public class DataHandler {
      *
      * @return value of freightWagonList
      */
-    private List<SignalBox> getSignalBoxList() {
+    private static List<SignalBox> getSignalBoxList() {
         return signalBoxList;
     }
 
@@ -217,19 +222,7 @@ public class DataHandler {
      *
      * @param signalBoxList the value to set
      */
-    private void setSignalBoxList(List<SignalBox> signalBoxList) {
-        this.signalBoxList = signalBoxList;
-    }
-
-    /**
-     * gets the only instance of this class
-     *
-     * @return only instance of this class
-     */
-    public static DataHandler getInstance() {
-        if (instance == null) {
-            instance = new DataHandler();
-        }
-        return instance;
+    private static void setSignalBoxList(List<SignalBox> signalBoxList) {
+        DataHandler.signalBoxList = signalBoxList;
     }
 }

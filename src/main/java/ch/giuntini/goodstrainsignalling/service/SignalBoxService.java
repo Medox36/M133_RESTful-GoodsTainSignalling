@@ -38,7 +38,7 @@ public class SignalBoxService {
             @QueryParam("sortBy") String sortBy,
             @QueryParam("sort") String sort
     ) {
-        List<SignalBox> signalBoxes = DataHandler.getInstance().readAllSignalBoxes();
+        List<SignalBox> signalBoxes = DataHandler.readAllSignalBoxes();
         List<SignalBox> copy = new ArrayList<>(signalBoxes);
 
         if (filter != null && !filter.isEmpty()) {
@@ -98,7 +98,7 @@ public class SignalBoxService {
                     .status(400)
                     .build();
         }
-        SignalBox signalBox = DataHandler.getInstance().readSignalBoxByTrackSection(trackSection);
+        SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(trackSection);
         if (signalBox == null) {
             return Response
                     .status(404)

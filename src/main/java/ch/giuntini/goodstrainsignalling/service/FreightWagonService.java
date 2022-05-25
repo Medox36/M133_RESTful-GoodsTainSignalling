@@ -38,7 +38,7 @@ public class FreightWagonService {
             @QueryParam("sortBy") String sortBy,
             @QueryParam("sort") String sort
     ) {
-        List<FreightWagon> freightWagons = DataHandler.getInstance().readAllFreightWagons();
+        List<FreightWagon> freightWagons = DataHandler.readAllFreightWagons();
         List<FreightWagon> copy = new ArrayList<>(freightWagons);
 
         if (filter != null && !filter.isEmpty()) {
@@ -98,7 +98,7 @@ public class FreightWagonService {
                     .status(400)
                     .build();
         }
-        FreightWagon freightWagon = DataHandler.getInstance().readFreightWagonByWaggonNumber(wagonNumber);
+        FreightWagon freightWagon = DataHandler.readFreightWagonByWaggonNumber(wagonNumber);
         if (freightWagon == null) {
             return Response
                     .status(404)

@@ -38,7 +38,7 @@ public class LocomotiveService {
             @QueryParam("sortBy") String sortBy,
             @QueryParam("sort") String sort
     ) {
-        List<Locomotive> locomotives = DataHandler.getInstance().readAllLocomotives();
+        List<Locomotive> locomotives = DataHandler.readAllLocomotives();
         List<Locomotive> copy = new ArrayList<>(locomotives);
 
         if (filter != null && !filter.isEmpty()) {
@@ -112,8 +112,7 @@ public class LocomotiveService {
                     .status(400)
                     .build();
         }
-        Locomotive locomotive = DataHandler.getInstance()
-                .readLocomotiveBySeriesAndProductionNumber(series, operationNumber);
+        Locomotive locomotive = DataHandler.readLocomotiveBySeriesAndProductionNumber(series, operationNumber);
         if (locomotive == null) {
             return Response
                     .status(404)
