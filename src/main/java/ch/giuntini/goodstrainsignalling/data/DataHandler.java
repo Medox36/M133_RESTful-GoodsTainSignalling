@@ -5,9 +5,12 @@ import ch.giuntini.goodstrainsignalling.model.Locomotive;
 import ch.giuntini.goodstrainsignalling.model.SignalBox;
 import ch.giuntini.goodstrainsignalling.service.Config;
 
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -41,7 +44,7 @@ public final class DataHandler {
     }
 
     /**
-     * reads a locomotive by its uuid
+     * reads a locomotive by its series ans operation number
      *
      * @param series of the locomotive
      * @param operationNumber of the locomotive
@@ -55,6 +58,63 @@ public final class DataHandler {
             }
         }
         return locomotive;
+    }
+
+    /**
+     * inserts a new locomotive into the locomotiveList
+     *
+     * @param locomotive the locomotive to be saved
+     * @return true if insert is successful otherwise false
+     */
+    public static boolean insertLocomotive(Locomotive locomotive) {
+        if (!locomotiveExists(locomotive)) {
+            getLocomotiveList().add(locomotive);
+            writeLocomotiveJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * checks if there is already a locomotive with a given series and operationNumber
+     *
+     * @param locomotive to be checked before adding
+     * @return true if there is already a locomotive with the given series and operationNumber otherwise false
+     */
+    private static boolean locomotiveExists(Locomotive locomotive) {
+        for (Locomotive lo : getLocomotiveList()) {
+            if (locomotive.getSeries().equalsIgnoreCase(lo.getSeries())
+                    && locomotive.getOperationNumber().equals(lo.getOperationNumber())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * updates the locomotiveList
+     */
+    public static void updateLocomotive() {
+        writeLocomotiveJSON();
+    }
+
+    /**
+     * deletes a locomotive identified by the series and operationNumber
+     *
+     * @param series of the locomotive
+     * @param operationNumber of the locomotive
+     * @return success=true/false
+     */
+    public static boolean deleteLocomotive(String series, Integer operationNumber) {
+        Locomotive locomotive = readLocomotiveBySeriesAndProductionNumber(series, operationNumber);
+        if (locomotive != null) {
+            getLocomotiveList().remove(locomotive);
+            writeLocomotiveJSON();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -87,6 +147,61 @@ public final class DataHandler {
     }
 
     /**
+     * inserts a new freight wagon into the freightWagonList
+     *
+     * @param freightWagon the freight wagon to be saved
+     * @return true if insert is successful otherwise false
+     */
+    public static boolean insertFreightWagon(FreightWagon freightWagon) {
+        if (!freightWagonExists(freightWagon)) {
+            getFreightWagonList().add(freightWagon);
+            writeFreightWagonJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * checks if there is already a freight wagon with a given waggon number
+     *
+     * @param freightWagon to be checked before adding
+     * @return true if there is already a freight wagon with the given waggonNumber otherwise false
+     */
+    private static boolean freightWagonExists(FreightWagon freightWagon) {
+        for (FreightWagon fW : getFreightWagonList()) {
+            if (freightWagon.getWaggonNumber().equalsIgnoreCase(fW.getWaggonNumber())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * updates the freightWagonList
+     */
+    public static void updateFreightWagon() {
+        writeFreightWagonJSON();
+    }
+
+    /**
+     * deletes a freight wagon identified by the waggonNumber
+     *
+     * @param waggonNumber of the freightWagon
+     * @return success=true/false
+     */
+    public static boolean deleteFreightWagon(String waggonNumber) {
+        FreightWagon freightWagon = readFreightWagonByWaggonNumber(waggonNumber);
+        if (freightWagon != null) {
+            getFreightWagonList().remove(freightWagon);
+            writeFreightWagonJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * reads all signal boxes
      *
      * @return list of signal boxes
@@ -113,6 +228,61 @@ public final class DataHandler {
             }
         }
         return signalBox;
+    }
+
+    /**
+     * inserts a new signal box into the signalBoxList
+     *
+     * @param signalBox the signal box to be saved
+     * @return true if insert is successful otherwise false
+     */
+    public static boolean insertSignalBox(SignalBox signalBox) {
+        if (!signalBoxExists(signalBox)) {
+            getSignalBoxList().add(signalBox);
+            writeSignalBoxJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * checks if there is already a signal box with a given track section
+     *
+     * @param signalBox to be checked before adding
+     * @return true if there is already a signal box with the given track section otherwise false
+     */
+    private static boolean signalBoxExists(SignalBox signalBox) {
+        for (SignalBox sB : getSignalBoxList()) {
+            if (signalBox.getTrackSection().equalsIgnoreCase(sB.getTrackSection())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * updates the signalBoxList
+     */
+    public static void updateSignalBox() {
+        writeSignalBoxJSON();
+    }
+
+    /**
+     * deletes a signal box identified by the trackSection
+     *
+     * @param trackSection of the signalBox
+     * @return success=true/false
+     */
+    public static boolean deleteSignalBox(String trackSection) {
+        SignalBox signalBox = readSignalBoxByTrackSection(trackSection);
+        if (signalBox != null) {
+            getSignalBoxList().remove(signalBox);
+            writeSignalBoxJSON();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -167,6 +337,63 @@ public final class DataHandler {
             for (SignalBox signalBox : signalBoxes) {
                 getSignalBoxList().add(signalBox);
             }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * writes the locomotiveList to the JSON-file
+     */
+    private static void writeLocomotiveJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream;
+        Writer fileWriter;
+
+        String bookPath = Config.getProperty("locomotiveJSON");
+        try {
+            fileOutputStream = new FileOutputStream(bookPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getLocomotiveList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * writes the freightWagonList to the JSON-file
+     */
+    private static void writeFreightWagonJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream;
+        Writer fileWriter;
+
+        String bookPath = Config.getProperty("freightWagonJSON");
+        try {
+            fileOutputStream = new FileOutputStream(bookPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getFreightWagonList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * writes the signalBoxList to the JSON-file
+     */
+    private static void writeSignalBoxJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream;
+        Writer fileWriter;
+
+        String bookPath = Config.getProperty("signalBoxJSON");
+        try {
+            fileOutputStream = new FileOutputStream(bookPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getSignalBoxList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }

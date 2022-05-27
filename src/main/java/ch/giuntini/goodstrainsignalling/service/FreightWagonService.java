@@ -3,12 +3,12 @@ package ch.giuntini.goodstrainsignalling.service;
 import ch.giuntini.goodstrainsignalling.data.DataHandler;
 import ch.giuntini.goodstrainsignalling.model.FreightWagon;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.time.DateTimeException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -107,6 +107,79 @@ public class FreightWagonService {
         return Response
                 .status(200)
                 .entity(freightWagon)
+                .build();
+    }
+
+    @POST
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response create(
+            @FormParam("waggonNumber") String waggonNumber,
+            @FormParam("lastMaintenance") String lastMaintenance,
+            @FormParam("handbrakeIsOn") Boolean handbrakeIsOn
+    ) {
+        int status = 200;
+
+        try {
+            FreightWagon freightWagon = new FreightWagon();
+            freightWagon.setWaggonNumber(waggonNumber);
+            freightWagon.setLastMaintenance(
+                    LocalDateTime.parse(lastMaintenance, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"))
+            );
+            freightWagon.setHandbrakeIsOn(handbrakeIsOn);
+            if (!DataHandler.insertFreightWagon(freightWagon)) {
+                status = 400;
+            }
+        } catch (DateTimeException e) {
+            status = 400;
+        }
+
+        return Response
+                .status(status)
+                .entity("")
+                .build();
+    }
+
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response update(
+            @FormParam("waggonNumber") String waggonNumber,
+            @FormParam("lastMaintenance") String lastMaintenance,
+            @FormParam("handbrakeIsOn") Boolean handbrakeIsOn
+    ) {
+        int status = 200;
+        FreightWagon freightWagon = DataHandler.readFreightWagonByWaggonNumber(waggonNumber);
+        if (freightWagon != null) {
+            try {
+                freightWagon.setLastMaintenance(
+                        LocalDateTime.parse(lastMaintenance, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"))
+                );
+                freightWagon.setHandbrakeIsOn(handbrakeIsOn);
+                DataHandler.updateFreightWagon();
+            } catch (DateTimeException e) {
+                status = 400;
+            }
+        }
+
+        return Response
+                .status(status)
+                .entity("")
+                .build();
+    }
+
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response delete(@QueryParam("waggonNumber") String waggonNumber) {
+        int status = 200;
+        if (!DataHandler.deleteFreightWagon(waggonNumber)) {
+            status = 400;
+        }
+
+        return Response
+                .status(status)
+                .entity("")
                 .build();
     }
 }

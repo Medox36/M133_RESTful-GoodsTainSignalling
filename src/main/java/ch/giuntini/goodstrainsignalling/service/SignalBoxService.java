@@ -3,10 +3,7 @@ package ch.giuntini.goodstrainsignalling.service;
 import ch.giuntini.goodstrainsignalling.data.DataHandler;
 import ch.giuntini.goodstrainsignalling.model.SignalBox;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
@@ -107,6 +104,63 @@ public class SignalBoxService {
         return Response
                 .status(200)
                 .entity(signalBox)
+                .build();
+    }
+
+    @POST
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response create(
+            @FormParam("trackSection") String trackSection,
+            @FormParam("workingSignalmen") Integer workingSignalmen
+    ) {
+        int status = 200;
+        SignalBox signalBox = new SignalBox();
+        signalBox.setTrackSection(trackSection);
+        signalBox.setWorkingSignalmen(workingSignalmen);
+        if (!DataHandler.insertSignalBox(signalBox)) {
+            status = 400;
+        }
+
+        return Response
+                .status(status)
+                .entity("")
+                .build();
+    }
+
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response update(
+            @FormParam("trackSection") String trackSection,
+            @FormParam("workingSignalmen") Integer workingSignalmen
+    ) {
+        int status = 200;
+        SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(trackSection);
+        if (signalBox != null) {
+            signalBox.setTrackSection(trackSection);
+            DataHandler.updateSignalBox();
+        } else {
+            status = 400;
+        }
+
+        return Response
+                .status(status)
+                .build();
+    }
+
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response delete(@QueryParam("trackSection") String trackSection) {
+        int status = 200;
+        if (!DataHandler.deleteSignalBox(trackSection)) {
+            status = 400;
+        }
+
+        return Response
+                .status(status)
+                .entity("")
                 .build();
     }
 }
