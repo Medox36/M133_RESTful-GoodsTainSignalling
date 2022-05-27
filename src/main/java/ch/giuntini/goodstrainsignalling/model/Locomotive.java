@@ -1,5 +1,7 @@
 package ch.giuntini.goodstrainsignalling.model;
 
+import ch.giuntini.goodstrainsignalling.data.DataHandler;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -115,6 +117,18 @@ public class Locomotive {
      */
     public void setSignalBox(SignalBox signalBox) {
         this.signalBox = signalBox;
+    }
+
+    /**
+     * sets signalBox
+     *
+     * @param trackSection the value to set
+     */
+    public void setSignalBox(String trackSection) {
+        setSignalBox(new SignalBox());
+        SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(trackSection);
+        getSignalBox().setTrackSection(trackSection);
+        getSignalBox().setWorkingSignalmen(signalBox.getWorkingSignalmen());
     }
 
     /**
