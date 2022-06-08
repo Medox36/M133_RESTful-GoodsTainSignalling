@@ -126,6 +126,13 @@ public class LocomotiveService {
                 .build();
     }
 
+    /**
+     * inserts a new locomotive
+     *
+     * @param locomotive to be inserted
+     * @param signalBoxTrackSection the track section of the signal box
+     * @return Response
+     */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
@@ -152,6 +159,13 @@ public class LocomotiveService {
                 .build();
     }
 
+    /**
+     * updates a locomotive
+     *
+     * @param locomotive the updated locomotive
+     * @param signalBoxTrackSection the track section of the new/updated signal box
+     * @return Response
+     */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
@@ -182,6 +196,13 @@ public class LocomotiveService {
                 .build();
     }
 
+    /**
+     * deletes a locomotive identified by its series and operation number
+     *
+     * @param series of the locomotive
+     * @param operationNumber of the locomotive
+     * @return Response
+     */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)

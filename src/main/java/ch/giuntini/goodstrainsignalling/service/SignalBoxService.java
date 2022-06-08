@@ -109,6 +109,12 @@ public class SignalBoxService {
                 .build();
     }
 
+    /**
+     * inserts a new book
+     *
+     * @param signalBox to be inserted
+     * @return Response
+     */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
@@ -124,6 +130,12 @@ public class SignalBoxService {
                 .build();
     }
 
+    /**
+     * updates a signal box
+     *
+     * @param signalBox the updated signal box
+     * @return Response
+     */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
@@ -143,6 +155,12 @@ public class SignalBoxService {
                 .build();
     }
 
+    /**
+     * deletes a signal box identified by its track section
+     *
+     * @param trackSection of the signal box
+     * @return Response
+     */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)

@@ -109,6 +109,12 @@ public class FreightWagonService {
                 .build();
     }
 
+    /**
+     * inserts a new freight wagon
+     *
+     * @param freightWagon to be inserted
+     * @return Response
+     */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
@@ -123,6 +129,12 @@ public class FreightWagonService {
                 .build();
     }
 
+    /**
+     * updates a freight wagon
+     *
+     * @param freightWagon the updated freight wagon
+     * @return Response
+     */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
@@ -145,6 +157,12 @@ public class FreightWagonService {
                 .build();
     }
 
+    /**
+     * deletes a freight wagon identified by its waggon number
+     *
+     * @param waggonNumber of the freight wagon
+     * @return Response
+     */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
