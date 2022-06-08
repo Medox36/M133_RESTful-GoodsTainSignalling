@@ -11,6 +11,7 @@ public class SignalBox {
     @NotBlank
     @Size(min = 3, max = 120)
     private String trackSection;
+
     @FormParam("workingSignalmen")
     @NotEmpty
     @Min(0)

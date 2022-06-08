@@ -83,7 +83,7 @@ public class SignalBoxService {
     }
 
     /**
-     * inserts a new singal box
+     * inserts a new signal box
      *
      * @param signalBox to be inserted
      * @return Response

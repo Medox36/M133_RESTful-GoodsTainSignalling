@@ -67,7 +67,7 @@ public class FreightWagonService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response read(
             @QueryParam("wn")
-            @Pattern(regexp = "([0-9]{2} ){2}[0-9]{4} [0-9]{3}-[0-9]{1}")
+            @Pattern(regexp = "([0-9]{2} ){2}[0-9]{4} [0-9]{3}-[0-9]")
             String wagonNumber
     ) {
         FreightWagon freightWagon = DataHandler.readFreightWagonByWaggonNumber(wagonNumber);
@@ -141,7 +141,7 @@ public class FreightWagonService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response delete(
             @QueryParam("waggonNumber")
-            @Pattern(regexp = "([0-9]{2} ){2}[0-9]{4} [0-9]{3}-[0-9]{1}")
+            @Pattern(regexp = "([0-9]{2} ){2}[0-9]{4} [0-9]{3}-[0-9]")
             @NotBlank
             String waggonNumber
     ) {
