@@ -8,6 +8,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
+import javax.validation.constraints.*;
+import javax.ws.rs.FormParam;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -15,14 +17,27 @@ import java.util.List;
  * a Locomotive belonging to a railway company that can pull 0 or more freight wagons
  */
 public class Locomotive {
+    @FormParam("series")
+    @Pattern(regexp = "([A-Za-z]{1,5}) (([1-9]+[x]?[1-9]*/[1-9]+)|([0-9]{1,3})|(TEE))([\\^]?)([IV]{0,3})")
+    @NotBlank
     private String series;
+
+    @FormParam("operationNumber")
+    @Min(101)
+    @Max(18841)
     private Integer operationNumber;
+
+    @FormParam("railwayCompany")
+    @NotBlank
+    @Size(min = 3, max = 10)
     private String railwayCompany;
 
+    @FormParam("commissioningDate")
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate commissioningDate;
+
     private SignalBox signalBox;
     private List<FreightWagon> freightWagons;
 

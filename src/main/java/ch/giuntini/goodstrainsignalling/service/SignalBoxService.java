@@ -3,6 +3,9 @@ package ch.giuntini.goodstrainsignalling.service;
 import ch.giuntini.goodstrainsignalling.data.DataHandler;
 import ch.giuntini.goodstrainsignalling.model.SignalBox;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -89,20 +92,19 @@ public class SignalBoxService {
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response read(@QueryParam("section") String trackSection) {
-        if (trackSection.isEmpty()) {
-            return Response
-                    .status(400)
-                    .build();
-        }
+    public Response read(
+            @QueryParam("section")
+            @Size(min = 3, max = 120)
+            @NotBlank
+            String trackSection
+    ) {
+        int status = 200;
         SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(trackSection);
         if (signalBox == null) {
-            return Response
-                    .status(404)
-                    .build();
+            status = 404;
         }
         return Response
-                .status(200)
+                .status(status)
                 .entity(signalBox)
                 .build();
     }
@@ -110,14 +112,8 @@ public class SignalBoxService {
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response create(
-            @FormParam("trackSection") String trackSection,
-            @FormParam("workingSignalmen") Integer workingSignalmen
-    ) {
+    public Response create(@Valid @BeanParam SignalBox signalBox) {
         int status = 200;
-        SignalBox signalBox = new SignalBox();
-        signalBox.setTrackSection(trackSection);
-        signalBox.setWorkingSignalmen(workingSignalmen);
         if (!DataHandler.insertSignalBox(signalBox)) {
             status = 400;
         }
@@ -131,28 +127,30 @@ public class SignalBoxService {
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response update(
-            @FormParam("trackSection") String trackSection,
-            @FormParam("workingSignalmen") Integer workingSignalmen
-    ) {
+    public Response update(@Valid @BeanParam SignalBox signalBox) {
         int status = 200;
-        SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(trackSection);
-        if (signalBox != null) {
-            signalBox.setTrackSection(trackSection);
+        SignalBox oldSignalBox = DataHandler.readSignalBoxByTrackSection(signalBox.getTrackSection());
+        if (oldSignalBox != null) {
+            oldSignalBox.setWorkingSignalmen(signalBox.getWorkingSignalmen());
             DataHandler.updateSignalBox();
         } else {
-            status = 400;
+            status = 410;
         }
 
         return Response
                 .status(status)
+                .entity("")
                 .build();
     }
 
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response delete(@QueryParam("trackSection") String trackSection) {
+    public Response delete(
+            @QueryParam("trackSection")
+            @Size(min = 3, max = 120)
+            String trackSection
+    ) {
         int status = 200;
         if (!DataHandler.deleteSignalBox(trackSection)) {
             status = 400;

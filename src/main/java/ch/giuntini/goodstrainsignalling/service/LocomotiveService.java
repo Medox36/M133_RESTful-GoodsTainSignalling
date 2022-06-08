@@ -3,12 +3,11 @@ package ch.giuntini.goodstrainsignalling.service;
 import ch.giuntini.goodstrainsignalling.data.DataHandler;
 import ch.giuntini.goodstrainsignalling.model.Locomotive;
 
+import javax.validation.Valid;
+import javax.validation.constraints.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.time.DateTimeException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -105,13 +104,16 @@ public class LocomotiveService {
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response read(@QueryParam("series") String series, @QueryParam("opn") Integer operationNumber) {
-        if (!series.matches("([A-Za-z]{1,5}) (([1-9]+[x]?[1-9]*/[1-9]+)|([0-9]{1,3})|(TEE))([\\^]?)([IV]{0,3})")
-                || (operationNumber < 100 || operationNumber > 18841)) {
-            return Response
-                    .status(400)
-                    .build();
-        }
+    public Response read(
+            @QueryParam("series")
+            @Pattern(regexp = "([A-Za-z]{1,5}) (([1-9]+[x]?[1-9]*/[1-9]+)|([0-9]{1,3})|(TEE))([\\^]?)([IV]{0,3})")
+            String series,
+
+            @QueryParam("opn")
+            @Min(101)
+            @Max(18841)
+            Integer operationNumber
+    ) {
         Locomotive locomotive = DataHandler.readLocomotiveBySeriesAndProductionNumber(series, operationNumber);
         if (locomotive == null) {
             return Response
@@ -128,27 +130,19 @@ public class LocomotiveService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response create(
-            @FormParam("series") String series,
-            @FormParam("operationNumber") Integer operationNumber,
-            @FormParam("railwayCompany") String railwayCompany,
-            @FormParam("commissioningDate") String commissioningDate,
-            @FormParam("signalBoxTrackSection") String signalBoxTrackSection
+            @Valid
+            @BeanParam
+            Locomotive locomotive,
+
+            @FormParam("signalBoxTrackSection")
+            @Size(min = 3, max = 120)
+            @NotBlank
+            String signalBoxTrackSection
     ) {
         int status = 200;
 
-        try {
-            Locomotive locomotive = new Locomotive();
-            locomotive.setSeries(series);
-            locomotive.setOperationNumber(operationNumber);
-            locomotive.setRailwayCompany(railwayCompany);
-            locomotive.setCommissioningDate(
-                    LocalDate.parse(commissioningDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-            );
-            locomotive.setSignalBox(signalBoxTrackSection);
-            if (!DataHandler.insertLocomotive(locomotive)) {
-                status = 400;
-            }
-        } catch (DateTimeException e) {
+        locomotive.setSignalBox(signalBoxTrackSection);
+        if (!DataHandler.insertLocomotive(locomotive)) {
             status = 400;
         }
 
@@ -162,25 +156,24 @@ public class LocomotiveService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response update(
-            @FormParam("series") String series,
-            @FormParam("operationNumber") Integer operationNumber,
-            @FormParam("railwayCompany") String railwayCompany,
-            @FormParam("commissioningDate") String commissioningDate,
-            @FormParam("signalBoxTrackSection") String signalBoxTrackSection
+            @Valid
+            @BeanParam
+            Locomotive locomotive,
+
+            @FormParam("signalBoxTrackSection")
+            @Size(min = 3, max = 120)
+            @NotBlank
+            String signalBoxTrackSection
     ) {
         int status = 200;
-        Locomotive locomotive = DataHandler.readLocomotiveBySeriesAndProductionNumber(series, operationNumber);
-        if (locomotive != null) {
-            try {
-                locomotive.setRailwayCompany(railwayCompany);
-                locomotive.setCommissioningDate(
-                        LocalDate.parse(commissioningDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-                );
-                locomotive.setSignalBox(signalBoxTrackSection);
-                DataHandler.updateLocomotive();
-            } catch (DateTimeException e) {
-                status = 400;
-            }
+        Locomotive oldLocomotive = DataHandler
+                .readLocomotiveBySeriesAndProductionNumber(locomotive.getSeries(), locomotive.getOperationNumber());
+        if (oldLocomotive != null) {
+            oldLocomotive.setRailwayCompany(locomotive.getRailwayCompany());
+            oldLocomotive.setCommissioningDate(locomotive.getCommissioningDate());
+            oldLocomotive.setSignalBox(signalBoxTrackSection);
+        } else {
+            status = 410;
         }
 
         return Response
@@ -193,8 +186,16 @@ public class LocomotiveService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response delete(
-            @QueryParam("series") String series,
-            @QueryParam("operationNumber") Integer operationNumber
+            @QueryParam("series")
+            @Pattern(regexp = "([A-Za-z]{1,5}) (([1-9]+[x]?[1-9]*/[1-9]+)|([0-9]{1,3})|(TEE))([\\^]?)([IV]{0,3})")
+            @NotBlank
+            String series,
+
+            @QueryParam("operationNumber")
+            @Min(101)
+            @Max(18841)
+            @NotBlank
+            Integer operationNumber
     ) {
         int status = 200;
         if (!DataHandler.deleteLocomotive(series, operationNumber)) {
