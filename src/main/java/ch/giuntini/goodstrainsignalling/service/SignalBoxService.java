@@ -9,9 +9,6 @@ import javax.validation.constraints.Size;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -34,52 +31,28 @@ public class SignalBoxService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response list(
-            @QueryParam("contains") String filter,
-            @QueryParam("sortBy") String sortBy,
-            @QueryParam("sort") String sort
-    ) {
-        List<SignalBox> signalBoxes = DataHandler.readAllSignalBoxes();
-        List<SignalBox> copy = new ArrayList<>(signalBoxes);
+            @QueryParam("contains")
+            String filter,
 
-        if (filter != null && !filter.isEmpty()) {
-            for (int i = 0; i < copy.size(); i++) {
-                copy.removeIf(
-                        signalBox -> !signalBox.getTrackSection().contains(filter)
-                );
-            }
-        }
-        if (sortBy == null) {
-            sortBy = "trackSection";
-        }
-        if (sort == null) {
-            sort = "a";
-        }
-        if (sort.isEmpty() || (!sort.equals("a") && !sort.equals("d"))) {
+            @QueryParam("sortBy")
+            @DefaultValue("trackSection")
+            String sortBy,
+
+            @QueryParam("sort")
+            @DefaultValue("a")
+            String sort
+    ) {
+        if ((sort.isEmpty() || (!sort.equals("a") && !sort.equals("d")))
+                || (!sortBy.matches("trackSection") && !sortBy.matches("workingSignalmen"))) {
             return Response
                     .status(400)
                     .build();
         }
-        if (sortBy.matches("trackSection") || sortBy.isEmpty()) {
-            if (sort.equals("a")) {
-                copy.sort(Comparator.comparing(SignalBox::getTrackSection));
-            } else {
-                copy.sort(Collections.reverseOrder(Comparator.comparing(SignalBox::getTrackSection)));
-            }
-        } else if (sortBy.matches("workingSignalmen")) {
-            if (sort.equals("a")) {
-                copy.sort(Comparator.comparing(SignalBox::getWorkingSignalmen));
-            } else {
-                copy.sort(Collections.reverseOrder(Comparator.comparing(SignalBox::getWorkingSignalmen)));
-            }
-        } else {
-            return Response
-                    .status(400)
-                    .build();
-        }
+        List<SignalBox> list = DataHandler.readAllSignalBoxesWithFilterAndSort(filter, sortBy, sort);
 
         return Response
                 .status(200)
-                .entity(copy)
+                .entity(list)
                 .build();
     }
 
@@ -110,7 +83,7 @@ public class SignalBoxService {
     }
 
     /**
-     * inserts a new book
+     * inserts a new singal box
      *
      * @param signalBox to be inserted
      * @return Response

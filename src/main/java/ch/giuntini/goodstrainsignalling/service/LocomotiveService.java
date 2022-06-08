@@ -8,9 +8,6 @@ import javax.validation.constraints.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -33,64 +30,30 @@ public class LocomotiveService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response list(
-            @QueryParam("contains") String filter,
-            @QueryParam("sortBy") String sortBy,
-            @QueryParam("sort") String sort
-    ) {
-        List<Locomotive> locomotives = DataHandler.readAllLocomotives();
-        List<Locomotive> copy = new ArrayList<>(locomotives);
+            @QueryParam("contains")
+            String filter,
 
-        if (filter != null && !filter.isEmpty()) {
-            for (int i = 0; i < copy.size(); i++) {
-                copy.removeIf(
-                        locomotive -> !locomotive.getSeries().contains(filter)
-                );
-            }
-        }
-        if (sortBy == null) {
-            sortBy = "series";
-        }
-        if (sort == null) {
-            sort = "a";
-        }
-        if (sort.isEmpty() || (!sort.equals("a") && !sort.equals("d"))) {
+            @QueryParam("sortBy")
+            @DefaultValue("series")
+            String sortBy,
+
+            @QueryParam("sort")
+            @DefaultValue("a")
+            String sort
+    ) {
+        if ((sort.isEmpty() || (!sort.equals("a") && !sort.equals("d")))
+                || ((!sortBy.matches("series") && !sortBy.matches("operationNumber")
+                    && !sortBy.matches("railwayCompany") && !sortBy.matches("commissioningDate")))
+        ) {
             return Response
                     .status(400)
                     .build();
         }
-        if (sortBy.matches("series") || sortBy.isEmpty()) {
-            if (sort.equals("a")) {
-                copy.sort(Comparator.comparing(Locomotive::getSeries));
-            } else {
-                copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getSeries)));
-            }
-        } else if (sortBy.matches("operationNumber")) {
-            if (sort.equals("a")) {
-                copy.sort(Comparator.comparing(Locomotive::getOperationNumber));
-            } else {
-                copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getOperationNumber)));
-            }
-        } else if (sortBy.matches("railwayCompany")) {
-            if (sort.equals("a")) {
-                copy.sort(Comparator.comparing(Locomotive::getOperationNumber));
-            } else {
-                copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getOperationNumber)));
-            }
-        } else if (sortBy.matches("commissioningDate")) {
-            if (sort.equals("a")) {
-                copy.sort(Comparator.comparing(Locomotive::getCommissioningDate));
-            } else {
-                copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getCommissioningDate)));
-            }
-        } else {
-            return Response
-                    .status(400)
-                    .build();
-        }
+        List<Locomotive> list = DataHandler.readAllLocomotivesWithFilterAndSort(filter, sortBy, sort);
 
         return Response
                 .status(200)
-                .entity(copy)
+                .entity(list)
                 .build();
     }
 
@@ -186,6 +149,8 @@ public class LocomotiveService {
             oldLocomotive.setRailwayCompany(locomotive.getRailwayCompany());
             oldLocomotive.setCommissioningDate(locomotive.getCommissioningDate());
             oldLocomotive.setSignalBox(signalBoxTrackSection);
+
+            DataHandler.updateLocomotive();
         } else {
             status = 410;
         }

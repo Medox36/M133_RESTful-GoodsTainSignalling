@@ -14,6 +14,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -41,6 +43,54 @@ public final class DataHandler {
             readLocomotiveJSON();
         }
         return getLocomotiveList();
+    }
+
+    /**
+     * reads all locomotives, filters and sorts them
+     *
+     * @param filter for the series
+     * @param sortBy a attribute of the class Locomotive
+     * @param sort the parameter sortBy with "a" for ascending or "d" for descending
+     * @return list of locomotives
+     */
+    public static List<Locomotive> readAllLocomotivesWithFilterAndSort(String filter, String sortBy, String sort) {
+        List<Locomotive> copy = new ArrayList<>(readAllLocomotives());
+
+        if (filter != null && !filter.isEmpty()) {
+            for (int i = 0; i < copy.size(); i++) {
+                copy.removeIf(
+                        locomotive -> !locomotive.getSeries().contains(filter)
+                );
+            }
+        }
+
+        if (sortBy.matches("series")) {
+            if (sort.equals("a")) {
+                copy.sort(Comparator.comparing(Locomotive::getSeries));
+            } else {
+                copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getSeries)));
+            }
+        } else if (sortBy.matches("operationNumber")) {
+            if (sort.equals("a")) {
+                copy.sort(Comparator.comparing(Locomotive::getOperationNumber));
+            } else {
+                copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getOperationNumber)));
+            }
+        } else if (sortBy.matches("railwayCompany")) {
+            if (sort.equals("a")) {
+                copy.sort(Comparator.comparing(Locomotive::getOperationNumber));
+            } else {
+                copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getOperationNumber)));
+            }
+        } else if (sortBy.matches("commissioningDate")) {
+            if (sort.equals("a")) {
+                copy.sort(Comparator.comparing(Locomotive::getCommissioningDate));
+            } else {
+                copy.sort(Collections.reverseOrder(Comparator.comparing(Locomotive::getCommissioningDate)));
+            }
+        }
+
+        return copy;
     }
 
     /**
@@ -131,6 +181,42 @@ public final class DataHandler {
     }
 
     /**
+     * reads all freight wagons, filters and sorts them
+     *
+     * @param filter for the wagon Number
+     * @param sortBy a attribute of the class FreightWagon
+     * @param sort the parameter sortBy with"a" for ascending or "d" for descending
+     * @return ist of freight wagons
+     */
+    public static List<FreightWagon> readAllFreightWagonsWithFilterAndSort(String filter, String sortBy, String sort) {
+        List<FreightWagon> copy = new ArrayList<>(readAllFreightWagons());
+
+        if (filter != null && !filter.isEmpty()) {
+            for (int i = 0; i < copy.size(); i++) {
+                copy.removeIf(
+                        freightWagon -> !freightWagon.getWaggonNumber().contains(filter)
+                );
+            }
+        }
+
+        if (sortBy.matches("waggonNumber")) {
+            if (sort.equals("a")) {
+                copy.sort(Comparator.comparing(FreightWagon::getWaggonNumber));
+            } else {
+                copy.sort(Collections.reverseOrder(Comparator.comparing(FreightWagon::getWaggonNumber)));
+            }
+        } else if (sortBy.matches("lastMainenance")) {
+            if (sort.equals("a")) {
+                copy.sort(Comparator.comparing(FreightWagon::getLastMaintenance));
+            } else {
+                copy.sort(Collections.reverseOrder(Comparator.comparing(FreightWagon::getLastMaintenance)));
+            }
+        }
+
+        return copy;
+    }
+
+    /**
      * reads a freight wagon by its waggon number
      *
      * @param waggonNumber of the freight waggon
@@ -212,6 +298,42 @@ public final class DataHandler {
             readSignalBoxJSON();
         }
         return getSignalBoxList();
+    }
+
+    /**
+     * reads all signal boxes, filters and sorts them
+     *
+     * @param filter for the track section
+     * @param sortBy a attribute in the class SignalBox
+     * @param sort the parameter sortBy with "a" for ascending or "d" for descending
+     * @return list of signal boxes
+     */
+    public static List<SignalBox> readAllSignalBoxesWithFilterAndSort(String filter, String sortBy, String sort) {
+        List<SignalBox> copy = new ArrayList<>(readAllSignalBoxes());
+
+        if (filter != null && !filter.isEmpty()) {
+            for (int i = 0; i < copy.size(); i++) {
+                copy.removeIf(
+                        signalBox -> !signalBox.getTrackSection().contains(filter)
+                );
+            }
+        }
+
+        if (sortBy.matches("trackSection")) {
+            if (sort.equals("a")) {
+                copy.sort(Comparator.comparing(SignalBox::getTrackSection));
+            } else {
+                copy.sort(Collections.reverseOrder(Comparator.comparing(SignalBox::getTrackSection)));
+            }
+        } else if (sortBy.matches("workingSignalmen")) {
+            if (sort.equals("a")) {
+                copy.sort(Comparator.comparing(SignalBox::getWorkingSignalmen));
+            } else {
+                copy.sort(Collections.reverseOrder(Comparator.comparing(SignalBox::getWorkingSignalmen)));
+            }
+        }
+
+        return copy;
     }
 
     /**

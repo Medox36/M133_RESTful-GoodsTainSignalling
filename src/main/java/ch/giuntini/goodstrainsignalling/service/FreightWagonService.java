@@ -9,9 +9,6 @@ import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -34,52 +31,28 @@ public class FreightWagonService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response list(
-            @QueryParam("contains") String filter,
-            @QueryParam("sortBy") String sortBy,
-            @QueryParam("sort") String sort
-    ) {
-        List<FreightWagon> freightWagons = DataHandler.readAllFreightWagons();
-        List<FreightWagon> copy = new ArrayList<>(freightWagons);
+            @QueryParam("contains")
+            String filter,
 
-        if (filter != null && !filter.isEmpty()) {
-            for (int i = 0; i < copy.size(); i++) {
-                copy.removeIf(
-                        freightWagon -> !freightWagon.getWaggonNumber().contains(filter)
-                );
-            }
-        }
-        if (sortBy == null) {
-            sortBy = "waggonNumber";
-        }
-        if (sort == null) {
-            sort = "a";
-        }
-        if (sort.isEmpty() || (!sort.equals("a") && !sort.equals("d"))) {
+            @QueryParam("sortBy")
+            @DefaultValue("waggonNumber")
+            String sortBy,
+
+            @QueryParam("sort")
+            @DefaultValue("a")
+            String sort
+    ) {
+        if ((sort.isEmpty() || (!sort.equals("a") && !sort.equals("d")))
+                || (!sortBy.matches("waggonNumber") && !sortBy.matches("lastMainenance"))) {
             return Response
                     .status(400)
                     .build();
         }
-        if (sortBy.matches("waggonNumber") || sortBy.isEmpty()) {
-            if (sort.equals("a")) {
-                copy.sort(Comparator.comparing(FreightWagon::getWaggonNumber));
-            } else {
-                copy.sort(Collections.reverseOrder(Comparator.comparing(FreightWagon::getWaggonNumber)));
-            }
-        } else if (sortBy.matches("lastMainenance")) {
-            if (sort.equals("a")) {
-                copy.sort(Comparator.comparing(FreightWagon::getLastMaintenance));
-            } else {
-                copy.sort(Collections.reverseOrder(Comparator.comparing(FreightWagon::getLastMaintenance)));
-            }
-        } else {
-            return Response
-                    .status(400)
-                    .build();
-        }
+        List<FreightWagon> list = DataHandler.readAllFreightWagonsWithFilterAndSort(filter, sortBy, sort);
 
         return Response
                 .status(200)
-                .entity(copy)
+                .entity(list)
                 .build();
     }
 
