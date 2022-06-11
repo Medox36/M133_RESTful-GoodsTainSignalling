@@ -3,6 +3,7 @@ package ch.giuntini.goodstrainsignalling.model;
 import ch.giuntini.goodstrainsignalling.data.DataHandler;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
@@ -29,7 +30,7 @@ public class Locomotive {
 
     @FormParam("railwayCompany")
     @NotBlank
-    @Size(min = 3, max = 10)
+    @Size(min = 2, max = 10)
     private String railwayCompany;
 
     @FormParam("commissioningDate")
@@ -140,6 +141,7 @@ public class Locomotive {
      *
      * @param trackSection the value to set
      */
+    @JsonIgnore
     public void setSignalBox(String trackSection) {
         setSignalBox(new SignalBox());
         SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(trackSection);
