@@ -33,6 +33,7 @@ public class Locomotive {
     private String railwayCompany;
 
     @FormParam("commissioningDate")
+    @Past
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
