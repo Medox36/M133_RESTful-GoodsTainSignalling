@@ -559,6 +559,10 @@ public final class DataHandler {
      * @return value of freightWagonList
      */
     private static List<SignalBox> getSignalBoxList() {
+        if (signalBoxList == null) {
+            setSignalBoxList(new ArrayList<>());
+            readSignalBoxJSON();
+        }
         return signalBoxList;
     }
 
@@ -568,10 +572,6 @@ public final class DataHandler {
      * @param signalBoxList the value to set
      */
     private static void setSignalBoxList(List<SignalBox> signalBoxList) {
-        if (signalBoxList == null) {
-            setSignalBoxList(new ArrayList<>());
-            readSignalBoxJSON();
-        }
         DataHandler.signalBoxList = signalBoxList;
     }
 }
