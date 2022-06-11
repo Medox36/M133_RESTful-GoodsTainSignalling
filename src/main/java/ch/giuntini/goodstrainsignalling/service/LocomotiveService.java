@@ -2,6 +2,7 @@ package ch.giuntini.goodstrainsignalling.service;
 
 import ch.giuntini.goodstrainsignalling.data.DataHandler;
 import ch.giuntini.goodstrainsignalling.model.Locomotive;
+import ch.giuntini.goodstrainsignalling.model.SignalBox;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -111,8 +112,13 @@ public class LocomotiveService {
     ) {
         int status = 200;
 
-        locomotive.setSignalBox(signalBoxTrackSection);
-        if (!DataHandler.insertLocomotive(locomotive)) {
+        SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(signalBoxTrackSection);
+        if (signalBox != null) {
+            locomotive.setSignalBox(signalBoxTrackSection);
+            if (!DataHandler.insertLocomotive(locomotive)) {
+                status = 400;
+            }
+        } else {
             status = 400;
         }
 
@@ -146,11 +152,16 @@ public class LocomotiveService {
         Locomotive oldLocomotive = DataHandler
                 .readLocomotiveBySeriesAndProductionNumber(locomotive.getSeries(), locomotive.getOperationNumber());
         if (oldLocomotive != null) {
-            oldLocomotive.setRailwayCompany(locomotive.getRailwayCompany());
-            oldLocomotive.setCommissioningDate(locomotive.getCommissioningDate());
-            oldLocomotive.setSignalBox(signalBoxTrackSection);
+            SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(signalBoxTrackSection);
+            if (signalBox != null) {
+                oldLocomotive.setRailwayCompany(locomotive.getRailwayCompany());
+                oldLocomotive.setCommissioningDate(locomotive.getCommissioningDate());
+                oldLocomotive.setSignalBox(signalBoxTrackSection);
 
-            DataHandler.updateLocomotive();
+                DataHandler.updateLocomotive();
+            } else {
+                status = 400;
+            }
         } else {
             status = 410;
         }
