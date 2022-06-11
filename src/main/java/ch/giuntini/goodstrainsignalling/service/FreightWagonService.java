@@ -1,10 +1,12 @@
 package ch.giuntini.goodstrainsignalling.service;
 
+import ch.giuntini.goodstrainsignalling.constraint.OnlyTrueOrFalse;
 import ch.giuntini.goodstrainsignalling.data.DataHandler;
 import ch.giuntini.goodstrainsignalling.model.FreightWagon;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -86,13 +88,24 @@ public class FreightWagonService {
      * inserts a new freight wagon
      *
      * @param freightWagon to be inserted
+     * @param aBoolean String representing a Boolean value
      * @return Response
      */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response create(@Valid @BeanParam FreightWagon freightWagon) {
+    public Response create(
+            @Valid
+            @BeanParam
+            FreightWagon freightWagon,
+
+            @FormParam("handbrakeIsOn")
+            @NotNull
+            @OnlyTrueOrFalse
+            String aBoolean
+    ) {
         int status = 200;
+        freightWagon.setHandbrakeIsOn(Boolean.valueOf(aBoolean));
         if (!DataHandler.insertFreightWagon(freightWagon)) {
             status = 400;
         }
@@ -106,13 +119,25 @@ public class FreightWagonService {
      * updates a freight wagon
      *
      * @param freightWagon the updated freight wagon
+     * @param aBoolean String representing a Boolean value
      * @return Response
      */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response update(@Valid @BeanParam FreightWagon freightWagon) {
+    public Response update(
+            @Valid
+            @BeanParam
+            FreightWagon freightWagon,
+
+            @FormParam("handbrakeIsOn")
+            @NotNull
+            @OnlyTrueOrFalse
+            String aBoolean
+    ) {
         int status = 200;
+
+        freightWagon.setHandbrakeIsOn(Boolean.valueOf(aBoolean));
 
         FreightWagon oldFreightWagon = DataHandler.readFreightWagonByWaggonNumber(freightWagon.getWaggonNumber());
         if (oldFreightWagon != null) {
