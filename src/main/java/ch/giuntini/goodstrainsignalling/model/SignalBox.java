@@ -13,7 +13,6 @@ public class SignalBox {
     private String trackSection;
 
     @FormParam("workingSignalmen")
-    @NotEmpty
     @Min(0)
     @Max(255)
     private Integer workingSignalmen;

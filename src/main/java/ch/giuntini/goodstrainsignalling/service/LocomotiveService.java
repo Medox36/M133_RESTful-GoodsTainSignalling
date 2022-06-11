@@ -191,7 +191,6 @@ public class LocomotiveService {
             @QueryParam("operationNumber")
             @Min(101)
             @Max(18841)
-            @NotBlank
             Integer operationNumber
     ) {
         int status = 200;

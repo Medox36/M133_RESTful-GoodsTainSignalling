@@ -38,10 +38,6 @@ public final class DataHandler {
      * @return list of locomotives
      */
     public static List<Locomotive> readAllLocomotives() {
-        if (locomotiveList == null) {
-            setLocomotiveList(new ArrayList<>());
-            readLocomotiveJSON();
-        }
         return getLocomotiveList();
     }
 
@@ -173,10 +169,6 @@ public final class DataHandler {
      * @return list of freight wagons
      */
     public static List<FreightWagon> readAllFreightWagons() {
-        if (freightWagonList == null) {
-            setFreightWagonList(new ArrayList<>());
-            readFreightWagonJSON();
-        }
         return getFreightWagonList();
     }
 
@@ -293,10 +285,6 @@ public final class DataHandler {
      * @return list of signal boxes
      */
     public static List<SignalBox> readAllSignalBoxes() {
-        if (signalBoxList == null) {
-            setSignalBoxList(new ArrayList<>());
-            readSignalBoxJSON();
-        }
         return getSignalBoxList();
     }
 
@@ -527,6 +515,10 @@ public final class DataHandler {
      * @return value of locomotiveList
      */
     private static List<Locomotive> getLocomotiveList() {
+        if (locomotiveList == null) {
+            setLocomotiveList(new ArrayList<>());
+            readLocomotiveJSON();
+        }
         return locomotiveList;
     }
 
@@ -545,6 +537,10 @@ public final class DataHandler {
      * @return value of freightWagonList
      */
     private static List<FreightWagon> getFreightWagonList() {
+        if (freightWagonList == null) {
+            setFreightWagonList(new ArrayList<>());
+            readFreightWagonJSON();
+        }
         return freightWagonList;
     }
 
@@ -572,6 +568,10 @@ public final class DataHandler {
      * @param signalBoxList the value to set
      */
     private static void setSignalBoxList(List<SignalBox> signalBoxList) {
+        if (signalBoxList == null) {
+            setSignalBoxList(new ArrayList<>());
+            readSignalBoxJSON();
+        }
         DataHandler.signalBoxList = signalBoxList;
     }
 }
