@@ -9,6 +9,7 @@ import javax.validation.constraints.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -115,6 +116,7 @@ public class LocomotiveService {
         SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(signalBoxTrackSection);
         if (signalBox != null) {
             locomotive.setSignalBox(signalBoxTrackSection);
+            locomotive.setFreightWagons(new ArrayList<>());
             if (!DataHandler.insertLocomotive(locomotive)) {
                 status = 400;
             }
