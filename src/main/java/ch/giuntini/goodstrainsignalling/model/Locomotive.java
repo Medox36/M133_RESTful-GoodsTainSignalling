@@ -2,12 +2,12 @@ package ch.giuntini.goodstrainsignalling.model;
 
 import ch.giuntini.goodstrainsignalling.data.DataHandler;
 
+import ch.giuntini.goodstrainsignalling.util.LocalDateDeserializer;
+import ch.giuntini.goodstrainsignalling.util.LocalDateSerializer;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
 import javax.validation.constraints.*;
 import javax.ws.rs.FormParam;
@@ -33,8 +33,6 @@ public class Locomotive {
     @Size(min = 2, max = 10)
     private String railwayCompany;
 
-    @FormParam("commissioningDate")
-    @Past
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
