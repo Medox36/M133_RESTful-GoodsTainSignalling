@@ -8,17 +8,30 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * custom Deserializer for jackson-databind
+ */
 public class LocalDateTimeDeserializer extends StdDeserializer<LocalDateTime> {
 
+    /**
+     * constructor
+     */
     protected LocalDateTimeDeserializer() {
         super(LocalDateTime.class);
     }
 
+    /**
+     * converts data from String to LocalDateTime
+     *
+     * @param jsonParser
+     * @param deserializationContext
+     * @return
+     * @throws IOException
+     */
     @Override
     public LocalDateTime deserialize(JsonParser jsonParser, DeserializationContext deserializationContext)
             throws IOException {
         String value = jsonParser.readValueAs(String.class);
         return LocalDateTime.parse(value, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"));
     }
-
 }

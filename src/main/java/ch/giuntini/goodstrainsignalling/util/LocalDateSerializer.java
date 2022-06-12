@@ -8,12 +8,26 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * custom Serializer for jackson-databind
+ */
 public class LocalDateSerializer extends StdSerializer<LocalDate> {
 
+    /**
+     * constructor
+     */
     public LocalDateSerializer() {
         super(LocalDate.class);
     }
 
+    /**
+     * serializes a LocalDate object
+     *
+     * @param localDate
+     * @param jsonGenerator
+     * @param provider
+     * @throws IOException
+     */
     @Override
     public void serialize(LocalDate localDate, JsonGenerator jsonGenerator, SerializerProvider provider)
             throws IOException {

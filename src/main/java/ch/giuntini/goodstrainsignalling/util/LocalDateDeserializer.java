@@ -20,7 +20,8 @@ public class LocalDateDeserializer extends StdDeserializer<LocalDate> {
     }
 
     /**
-     * converts a data from String to LocalDate
+     * converts data from String to LocalDate
+     *
      * @param jsonParser
      * @param context
      * @return

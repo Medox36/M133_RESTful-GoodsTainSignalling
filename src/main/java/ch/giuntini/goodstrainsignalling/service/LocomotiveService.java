@@ -99,6 +99,7 @@ public class LocomotiveService {
      * inserts a new locomotive
      *
      * @param locomotive to be inserted
+     * @param commissioningDate of the locomotive
      * @param signalBoxTrackSection the track section of the signal box
      * @return Response
      */
@@ -149,6 +150,7 @@ public class LocomotiveService {
      * updates a locomotive
      *
      * @param locomotive the updated locomotive
+     * @param commissioningDate of the locomotive
      * @param signalBoxTrackSection the track section of the new/updated signal box
      * @return Response
      */
