@@ -97,13 +97,12 @@ public final class DataHandler {
      * @return the Publisher (null=not found)
      */
     public static Locomotive readLocomotiveBySeriesAndProductionNumber(String series, Integer operationNumber) {
-        Locomotive locomotive = null;
         for (Locomotive entry : getLocomotiveList()) {
             if (entry.getSeries().equals(series) && entry.getOperationNumber().equals(operationNumber)) {
-                locomotive = entry;
+                return entry;
             }
         }
-        return locomotive;
+        return null;
     }
 
     /**
@@ -331,13 +330,12 @@ public final class DataHandler {
      * @return the signal box
      */
     public static SignalBox readSignalBoxByTrackSection(String trackSection) {
-        SignalBox signalBox = null;
         for (SignalBox entry : getSignalBoxList()) {
             if (entry.getTrackSection().equals(trackSection)) {
-                signalBox = entry;
+                return entry;
             }
         }
-        return signalBox;
+        return null;
     }
 
     /**
