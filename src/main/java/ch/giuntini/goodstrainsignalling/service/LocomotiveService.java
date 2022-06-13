@@ -122,7 +122,7 @@ public class LocomotiveService {
                 status = 400;
             }
         } else {
-            status = 400;
+            status = 410;
         }
 
         return Response
