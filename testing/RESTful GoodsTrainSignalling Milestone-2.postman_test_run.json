@@ -1,18 +1,18 @@
 {
-	"id": "312361cd-0da3-4c9e-bb0e-e5056641a8dc",
+	"id": "38364efe-2f08-4c53-ab9c-b4fd96601591",
 	"name": "RESTful GoodsTrainSignalling Milestone-2",
-	"timestamp": "2022-06-12T14:46:50.210Z",
+	"timestamp": "2022-06-13T19:39:29.337Z",
 	"collection_id": "0-4f4cad2c-bfb2-4d09-9af1-94728469cbc0",
 	"folder_id": 0,
 	"environment_id": "0",
-	"totalPass": 58,
+	"totalPass": 61,
 	"totalFail": 0,
 	"results": [
 		{
 			"id": "23b7aa7e-0c17-4ef9-ae2b-b8b2c72cb8ea",
 			"name": "correctParams",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
-			"time": 2411,
+			"time": 780,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -27,7 +27,7 @@
 				}
 			},
 			"times": [
-				2411
+				780
 			],
 			"allTests": [
 				{
@@ -39,7 +39,7 @@
 			"id": "2ccc362d-2d49-49cb-9946-3fb2fc720d17",
 			"name": "correctParam_alreadyExists",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
-			"time": 14,
+			"time": 28,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -54,7 +54,7 @@
 				}
 			},
 			"times": [
-				14
+				28
 			],
 			"allTests": [
 				{
@@ -66,7 +66,7 @@
 			"id": "b1d9fa3a-e0bf-4fe7-a78f-2aa4ad284693",
 			"name": "wrongParam_series_notMatchingRegex",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
-			"time": 263,
+			"time": 186,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -81,7 +81,7 @@
 				}
 			},
 			"times": [
-				263
+				186
 			],
 			"allTests": [
 				{
@@ -92,60 +92,6 @@
 		{
 			"id": "ceb45533-7fd1-43f2-8f38-9cf8883d2576",
 			"name": "wrongParam_operationNumber_min",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
-			"time": 41,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				41
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "d2c4689a-e300-470a-a5d6-c7d87194fff6",
-			"name": "wrongParam_operationNumber_max",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
-			"time": 30,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				30
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "c655eec0-82d1-4261-8ce0-8e4ae681f3a3",
-			"name": "wrongParam_railwayCompanty_minSize",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
 			"time": 23,
 			"responseCode": {
@@ -171,8 +117,170 @@
 			]
 		},
 		{
+			"id": "d2c4689a-e300-470a-a5d6-c7d87194fff6",
+			"name": "wrongParam_operationNumber_max",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+			"time": 32,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				32
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "c655eec0-82d1-4261-8ce0-8e4ae681f3a3",
+			"name": "wrongParam_railwayCompanty_minSize",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+			"time": 20,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				20
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
 			"id": "3f00550f-aa8f-4c57-a572-451cc92d4359",
 			"name": "wrongParam_railwayCompanty_maxSize",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+			"time": 16,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "8503b412-58f5-4047-a550-11b572beebc9",
+			"name": "wrongParam_signalBoxTrackSection_minSize",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+			"time": 48,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				48
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "997e41cd-9389-4951-b946-41e1ca2aa143",
+			"name": "wrongParam_signalBoxTrackSection_maxSize",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+			"time": 17,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				17
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "f19c0658-1899-4880-9c8d-1bb8818d32a9",
+			"name": "wrongParam_signalBoxTrackSection_notExists",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+			"time": 24,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "5e06c23a-7da7-4ae3-a734-bd330d3af3ef",
+			"name": "wrongParam_comissioningDate_inTheFuture",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
 			"time": 24,
 			"responseCode": {
@@ -198,549 +306,9 @@
 			]
 		},
 		{
-			"id": "76c7756c-5cf7-48e1-8268-8e913a3e0fda",
-			"name": "wrongParam_commissioningDate_inTheFuture",
+			"id": "57b8b430-3a50-42e2-afb4-81af04dfbc41",
+			"name": "wrongParam_comissioningDate_notMatchingPattern",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
-			"time": 33,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				33
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "b5a57af3-4a08-4392-a419-1aea8170efd0",
-			"name": "wrongParam_commissioningDate_notMatchingLocalDatePattern",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
-			"time": 25,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				25
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "8503b412-58f5-4047-a550-11b572beebc9",
-			"name": "wrongParam_signalBoxTrackSection_minSize",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
-			"time": 19,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				19
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "997e41cd-9389-4951-b946-41e1ca2aa143",
-			"name": "wrongParam_signalBoxTrackSection_maxSize",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
-			"time": 33,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				33
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "f19c0658-1899-4880-9c8d-1bb8818d32a9",
-			"name": "wrongParam_signalBoxTrackSection_notExists",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
-			"time": 30,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				30
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "8e50898e-dd20-4423-a37f-d408e9e07904",
-			"name": "correctParams",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
-			"time": 60,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				60
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "169a5d0e-20e4-4aaf-b7bf-3e5891372414",
-			"name": "correctParams_gone",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
-			"time": 23,
-			"responseCode": {
-				"code": 410,
-				"name": "Gone"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				23
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "6b818bd2-4150-4956-b647-a8678a053dc3",
-			"name": "wrongParam_series_notMatchingRegex",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
-			"time": 30,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				30
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "76629f5d-2811-4d8a-8d46-c9467e6bbc36",
-			"name": "wrongParam_operationNumber_min",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
-			"time": 66,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				66
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "4c8c26f1-0c49-4aa1-845f-73ddc7ecbbee",
-			"name": "wrongParam_operationNumber_max",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
-			"time": 38,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				38
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "5268a03c-ebec-4f97-9172-6bfe5348dbb9",
-			"name": "wrongParam_railwayCompanty_minSize",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
-			"time": 73,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				73
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "3240b844-9100-4453-8142-a398b86c6904",
-			"name": "wrongParam_railwayCompanty_maxSize",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
-			"time": 124,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				124
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "d2ad3128-93d7-4acd-b716-7fe4e31166e7",
-			"name": "wrongParam_commissioningDate_notMatchingLocalDatePattern",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
-			"time": 21,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				21
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "30ae8ad6-6885-4062-8b86-ff1c4b6333f2",
-			"name": "wrongParam_signalBoxTrackSection_minSize",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
-			"time": 22,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				22
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "a30179a3-331f-444f-9e2a-1b4262003fbb",
-			"name": "wrongParam_signalBoxTrackSection_maxSize Copy",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
-			"time": 20,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				20
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "eac84650-4f63-42d6-84a7-00d5a383789e",
-			"name": "wrongParam_signalBoxTrackSection_notExists",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
-			"time": 46,
-			"responseCode": {
-				"code": 410,
-				"name": "Gone"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				46
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "96cd1af2-fa1d-4400-971e-6030dabbb65a",
-			"name": "correctParams",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D%203/3&operationNumber=3416",
-			"time": 50,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				50
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "a6d531ff-be12-4f84-a9aa-f1c1448fd4eb",
-			"name": "correctParams_notExisting",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D%203/4&operationNumber=3423",
-			"time": 11,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				11
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "42ab043d-6384-4791-b823-61c3448fe3dc",
-			"name": "wrongParam_series_notMatchingRegex",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D-3/l3444/4.3&operationNumber=3416",
-			"time": 20,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				20
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "ead1b448-aff9-448e-9a5b-3b484b6975d1",
-			"name": "wrongParam_operationNumber_min",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D%203/3&operationNumber=10",
-			"time": 14,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				14
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "575748c1-ee45-4c17-974f-4433b357de3b",
-			"name": "wrongParam_operationNumber_max",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D%203/3&operationNumber=18842",
 			"time": 16,
 			"responseCode": {
 				"code": 400,
@@ -765,10 +333,10 @@
 			]
 		},
 		{
-			"id": "89d8aaf9-eefd-463b-bf26-626be4fd2bb6",
+			"id": "8e50898e-dd20-4423-a37f-d408e9e07904",
 			"name": "correctParams",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
-			"time": 50,
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+			"time": 42,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -783,7 +351,7 @@
 				}
 			},
 			"times": [
-				50
+				42
 			],
 			"allTests": [
 				{
@@ -792,13 +360,13 @@
 			]
 		},
 		{
-			"id": "0980b538-931d-4e8e-90a3-1d96018dc4fb",
-			"name": "correctParam_alreadyExistingTrackSection",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
-			"time": 31,
+			"id": "169a5d0e-20e4-4aaf-b7bf-3e5891372414",
+			"name": "correctParams_gone",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+			"time": 21,
 			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
+				"code": 410,
+				"name": "Gone"
 			},
 			"tests": {
 				"Expected status": true
@@ -810,7 +378,7 @@
 				}
 			},
 			"times": [
-				31
+				21
 			],
 			"allTests": [
 				{
@@ -819,90 +387,9 @@
 			]
 		},
 		{
-			"id": "dd0524c3-ec67-43c9-a900-924025d48d5e",
-			"name": "wrongParam_trackSection_minSize",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
-			"time": 25,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				25
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "738cff7f-4c9d-4c22-a79b-9f30a3933e5b",
-			"name": "wrongParam_trackSection_maxSize",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
-			"time": 19,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				19
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "d481ce62-7b15-4e0e-8f0a-22dec2261f6e",
-			"name": "wrongParam_workingSignalmen_min",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
-			"time": 30,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				30
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "ea679886-b565-4dd0-8be6-71cbcecc39a1",
-			"name": "wrongParam_workingSignalmen_max",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
+			"id": "6b818bd2-4150-4956-b647-a8678a053dc3",
+			"name": "wrongParam_series_notMatchingRegex",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
 			"time": 12,
 			"responseCode": {
 				"code": 400,
@@ -927,13 +414,13 @@
 			]
 		},
 		{
-			"id": "86de9a86-65d0-4cac-81a2-7b1291c224b8",
-			"name": "correctParams",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
-			"time": 28,
+			"id": "76629f5d-2811-4d8a-8d46-c9467e6bbc36",
+			"name": "wrongParam_operationNumber_min",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+			"time": 25,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 400,
+				"name": "Bad Request"
 			},
 			"tests": {
 				"Expected status": true
@@ -945,7 +432,7 @@
 				}
 			},
 			"times": [
-				28
+				25
 			],
 			"allTests": [
 				{
@@ -954,9 +441,171 @@
 			]
 		},
 		{
-			"id": "7a37612b-c038-46f8-9e9c-7fc916d1489f",
-			"name": "correctParams_gone",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
+			"id": "4c8c26f1-0c49-4aa1-845f-73ddc7ecbbee",
+			"name": "wrongParam_operationNumber_max",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+			"time": 24,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "5268a03c-ebec-4f97-9172-6bfe5348dbb9",
+			"name": "wrongParam_railwayCompanty_minSize",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+			"time": 24,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "3240b844-9100-4453-8142-a398b86c6904",
+			"name": "wrongParam_railwayCompanty_maxSize",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+			"time": 27,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				27
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "d2ad3128-93d7-4acd-b716-7fe4e31166e7",
+			"name": "wrongParam_commissioningDate_notMatchingLocalDatePattern",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+			"time": 24,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "30ae8ad6-6885-4062-8b86-ff1c4b6333f2",
+			"name": "wrongParam_signalBoxTrackSection_minSize",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+			"time": 16,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "a30179a3-331f-444f-9e2a-1b4262003fbb",
+			"name": "wrongParam_signalBoxTrackSection_maxSize Copy",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+			"time": 29,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				29
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "eac84650-4f63-42d6-84a7-00d5a383789e",
+			"name": "wrongParam_signalBoxTrackSection_notExists",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
 			"time": 17,
 			"responseCode": {
 				"code": 410,
@@ -981,9 +630,549 @@
 			]
 		},
 		{
+			"id": "97755912-17f9-4a81-ad35-39cf3538c22e",
+			"name": "wrongParam_commissioningDate_inTheFuture",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+			"time": 11,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "ad33ab0c-3a9e-41d2-a0d5-9c087cdad53a",
+			"name": "wrongParam_commissioningDate_notMatchingPattern",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+			"time": 20,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				20
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "96cd1af2-fa1d-4400-971e-6030dabbb65a",
+			"name": "correctParams",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D%203/3&operationNumber=3416",
+			"time": 60,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				60
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "a6d531ff-be12-4f84-a9aa-f1c1448fd4eb",
+			"name": "correctParams_notExisting",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D%203/4&operationNumber=3423",
+			"time": 16,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "42ab043d-6384-4791-b823-61c3448fe3dc",
+			"name": "wrongParam_series_notMatchingRegex",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D-3/l3444/4.3&operationNumber=3416",
+			"time": 12,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "ead1b448-aff9-448e-9a5b-3b484b6975d1",
+			"name": "wrongParam_operationNumber_min",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D%203/3&operationNumber=10",
+			"time": 9,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "575748c1-ee45-4c17-974f-4433b357de3b",
+			"name": "wrongParam_operationNumber_max",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D%203/3&operationNumber=18842",
+			"time": 11,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "89d8aaf9-eefd-463b-bf26-626be4fd2bb6",
+			"name": "correctParams",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
+			"time": 29,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				29
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "0980b538-931d-4e8e-90a3-1d96018dc4fb",
+			"name": "correctParam_alreadyExistingTrackSection",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
+			"time": 13,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "dd0524c3-ec67-43c9-a900-924025d48d5e",
+			"name": "wrongParam_trackSection_minSize",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
+			"time": 13,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "738cff7f-4c9d-4c22-a79b-9f30a3933e5b",
+			"name": "wrongParam_trackSection_maxSize",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
+			"time": 14,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "d481ce62-7b15-4e0e-8f0a-22dec2261f6e",
+			"name": "wrongParam_workingSignalmen_min",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
+			"time": 13,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "ea679886-b565-4dd0-8be6-71cbcecc39a1",
+			"name": "wrongParam_workingSignalmen_max",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
+			"time": 16,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "86de9a86-65d0-4cac-81a2-7b1291c224b8",
+			"name": "correctParams",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
+			"time": 48,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				48
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "7a37612b-c038-46f8-9e9c-7fc916d1489f",
+			"name": "correctParams_gone",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
+			"time": 11,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
 			"id": "c8c5747b-0f8e-4e44-9e46-c91dfbfac65c",
 			"name": "wrongParam_trackSection_minSize",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
+			"time": 13,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "13d30448-e8e6-4742-aa31-27520784ab31",
+			"name": "wrongParam_trackSection_maxSize",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
+			"time": 28,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				28
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "d9efd03b-9510-4f10-b658-027ec4adc8be",
+			"name": "wrongParam_workingSingalmen_min",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
+			"time": 46,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				46
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "697170a6-067c-42c2-9b9d-abe7b46b74b6",
+			"name": "wrongParam_workingSingalmen_max",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
+			"time": 29,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				29
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "890330f1-4115-4132-88b1-7804ed6195e2",
+			"name": "correctParams",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/delete?trackSection=Basel",
+			"time": 43,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				43
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "1bc1ca5d-6760-434e-a6be-1d7c40884227",
+			"name": "correctParams_notExisting",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/delete?trackSection=Basellius",
 			"time": 8,
 			"responseCode": {
 				"code": 400,
@@ -1008,145 +1197,10 @@
 			]
 		},
 		{
-			"id": "13d30448-e8e6-4742-aa31-27520784ab31",
-			"name": "wrongParam_trackSection_maxSize",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
-			"time": 14,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				14
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "d9efd03b-9510-4f10-b658-027ec4adc8be",
-			"name": "wrongParam_workingSingalmen_min",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
-			"time": 19,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				19
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "697170a6-067c-42c2-9b9d-abe7b46b74b6",
-			"name": "wrongParam_workingSingalmen_max",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
-			"time": 18,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				18
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "890330f1-4115-4132-88b1-7804ed6195e2",
-			"name": "correctParams",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/delete?trackSection=Basel",
-			"time": 30,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				30
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "1bc1ca5d-6760-434e-a6be-1d7c40884227",
-			"name": "correctParams_notExisting",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/delete?trackSection=Basellius",
-			"time": 12,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				12
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
 			"id": "ccd25916-36f5-4375-b838-d0e219e2cd9f",
 			"name": "wrongParam_trackSection_minSize",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/delete?trackSection=Ba",
-			"time": 25,
+			"time": 24,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1161,7 +1215,7 @@
 				}
 			},
 			"times": [
-				25
+				24
 			],
 			"allTests": [
 				{
@@ -1173,7 +1227,7 @@
 			"id": "c517fb06-083d-4bba-b1a3-2ea4b61a809f",
 			"name": "wrongParam_trackSection_maxSize",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/delete?trackSection=FraunenfeldFraunenfeldFraunenfeldFraunenfeldFraunenfeldFraunenfeldFraunenfeldFraunenfeldFraunenfeldFraunenfeldFraunenfeld",
-			"time": 12,
+			"time": 32,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1188,7 +1242,7 @@
 				}
 			},
 			"times": [
-				12
+				32
 			],
 			"allTests": [
 				{
@@ -1200,169 +1254,7 @@
 			"id": "63b01b39-237c-4e23-9daf-88c8d9cada0a",
 			"name": "correctParams",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
-			"time": 77,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				77
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "4751e680-8c2e-4359-bd80-453dd1023a9b",
-			"name": "correctParams_alreadyExists",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
-			"time": 33,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				33
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "333a0c1c-4c38-4e17-b51a-0c1bd10214bd",
-			"name": "wrongParams_wagonNumber_notMatchingRegex",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
-			"time": 22,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				22
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "3821e220-144f-479c-875d-215d3c822b3e",
-			"name": "wrongParams_lastMainenance_inTheFuture",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
-			"time": 36,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				36
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "6a908e1e-f161-4a44-aebe-6bbd897c8c62",
-			"name": "wrongParams_lastMainenance_notMatchingLocalDateTimePattern",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
-			"time": 19,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				19
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "f432548c-1e8e-45af-ac1b-6b4ba82dfba2",
-			"name": "wrongParams_handbrakeIsOn_noBooleanValue",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
-			"time": 14,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Expected status": true
-			},
-			"testPassFailCounts": {
-				"Expected status": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				14
-			],
-			"allTests": [
-				{
-					"Expected status": true
-				}
-			]
-		},
-		{
-			"id": "22c61029-5153-4392-aa1b-beb226796b9b",
-			"name": "correctParams",
-			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
-			"time": 63,
+			"time": 15220,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1377,7 +1269,169 @@
 				}
 			},
 			"times": [
-				63
+				15220
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "4751e680-8c2e-4359-bd80-453dd1023a9b",
+			"name": "correctParams_alreadyExists",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
+			"time": 15238,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15238
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "333a0c1c-4c38-4e17-b51a-0c1bd10214bd",
+			"name": "wrongParams_wagonNumber_notMatchingRegex",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
+			"time": 3092,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3092
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "3821e220-144f-479c-875d-215d3c822b3e",
+			"name": "wrongParams_lastMainenance_inTheFuture",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
+			"time": 1536,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1536
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "6a908e1e-f161-4a44-aebe-6bbd897c8c62",
+			"name": "wrongParams_lastMainenance_notMatchingPattern",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
+			"time": 1224,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1224
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "f432548c-1e8e-45af-ac1b-6b4ba82dfba2",
+			"name": "wrongParams_handbrakeIsOn_noBooleanValue",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
+			"time": 527,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				527
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "22c61029-5153-4392-aa1b-beb226796b9b",
+			"name": "correctParams",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
+			"time": 511,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				511
 			],
 			"allTests": [
 				{
@@ -1389,7 +1443,7 @@
 			"id": "6d1aafda-cda9-4acd-9dba-c091ac6d55cb",
 			"name": "correctParams_gone",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
-			"time": 37,
+			"time": 621,
 			"responseCode": {
 				"code": 410,
 				"name": "Gone"
@@ -1404,7 +1458,7 @@
 				}
 			},
 			"times": [
-				37
+				621
 			],
 			"allTests": [
 				{
@@ -1416,7 +1470,7 @@
 			"id": "9cf1294a-a858-4b37-a4be-a20593ba22e3",
 			"name": "wrongParam_waggonNumber_notMatchingRegex",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
-			"time": 30,
+			"time": 597,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1431,7 +1485,34 @@
 				}
 			},
 			"times": [
-				30
+				597
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "2b9148ed-352b-4a9a-b102-3123f7fbb6b8",
+			"name": "wrongParam_lastMainenance_intTheFuture",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
+			"time": 409,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				409
 			],
 			"allTests": [
 				{
@@ -1441,9 +1522,9 @@
 		},
 		{
 			"id": "f59d0809-be1c-402f-b20e-3f2accbcca31",
-			"name": "wrongParam_lastMainenance_notMatchingDateTimePattern",
+			"name": "wrongParam_lastMainenance_notMatchingPattern",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
-			"time": 30,
+			"time": 423,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1458,7 +1539,7 @@
 				}
 			},
 			"times": [
-				30
+				423
 			],
 			"allTests": [
 				{
@@ -1470,7 +1551,7 @@
 			"id": "4854312d-bba5-4b08-88a7-66090fd1ac4c",
 			"name": "wrongParam_handbrakeIsOn_noBooleanValue",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
-			"time": 35,
+			"time": 259,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1485,7 +1566,7 @@
 				}
 			},
 			"times": [
-				35
+				259
 			],
 			"allTests": [
 				{
@@ -1497,7 +1578,7 @@
 			"id": "96c38615-15b7-4d62-9698-15b49bc1ddb1",
 			"name": "correctParams",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/delete?waggonNumber=74%2072%208320%20597-7",
-			"time": 46,
+			"time": 51,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1512,7 +1593,7 @@
 				}
 			},
 			"times": [
-				46
+				51
 			],
 			"allTests": [
 				{
@@ -1524,7 +1605,7 @@
 			"id": "aff8ea0a-5b16-4eb3-9f21-97ea1748c087",
 			"name": "correctParams_notExisting",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/delete?waggonNumber=74%2072%208320%20597-8",
-			"time": 21,
+			"time": 8,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1539,7 +1620,7 @@
 				}
 			},
 			"times": [
-				21
+				8
 			],
 			"allTests": [
 				{
@@ -1551,7 +1632,7 @@
 			"id": "65b99586-9f87-43c4-8b81-ed3b4fed0e64",
 			"name": "wrongParams_waggonNumber_notMatchingRegex",
 			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/delete?waggonNumber=74a7283--597-8",
-			"time": 22,
+			"time": 16,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1566,7 +1647,7 @@
 				}
 			},
 			"times": [
-				22
+				16
 			],
 			"allTests": [
 				{
@@ -1576,7 +1657,7 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 4415,
+	"totalTime": 41726,
 	"collection": {
 		"requests": [
 			{
@@ -1608,14 +1689,6 @@
 				"method": "POST"
 			},
 			{
-				"id": "76c7756c-5cf7-48e1-8268-8e913a3e0fda",
-				"method": "POST"
-			},
-			{
-				"id": "b5a57af3-4a08-4392-a419-1aea8170efd0",
-				"method": "POST"
-			},
-			{
 				"id": "8503b412-58f5-4047-a550-11b572beebc9",
 				"method": "POST"
 			},
@@ -1625,6 +1698,14 @@
 			},
 			{
 				"id": "f19c0658-1899-4880-9c8d-1bb8818d32a9",
+				"method": "POST"
+			},
+			{
+				"id": "5e06c23a-7da7-4ae3-a734-bd330d3af3ef",
+				"method": "POST"
+			},
+			{
+				"id": "57b8b430-3a50-42e2-afb4-81af04dfbc41",
 				"method": "POST"
 			},
 			{
@@ -1669,6 +1750,14 @@
 			},
 			{
 				"id": "eac84650-4f63-42d6-84a7-00d5a383789e",
+				"method": "PUT"
+			},
+			{
+				"id": "97755912-17f9-4a81-ad35-39cf3538c22e",
+				"method": "PUT"
+			},
+			{
+				"id": "ad33ab0c-3a9e-41d2-a0d5-9c087cdad53a",
 				"method": "PUT"
 			},
 			{
@@ -1789,6 +1878,10 @@
 			},
 			{
 				"id": "9cf1294a-a858-4b37-a4be-a20593ba22e3",
+				"method": "PUT"
+			},
+			{
+				"id": "2b9148ed-352b-4a9a-b102-3123f7fbb6b8",
 				"method": "PUT"
 			},
 			{
