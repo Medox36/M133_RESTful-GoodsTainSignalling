@@ -1,5 +1,8 @@
 package ch.giuntini.goodstrainsignalling.service;
 
+import ch.giuntini.goodstrainsignalling.util.LocalDateParamConverterProvider;
+import ch.giuntini.goodstrainsignalling.util.LocalDateTimeParamConverterProvider;
+
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.io.FileInputStream;
@@ -29,6 +32,8 @@ public class Config extends Application {
         providers.add(LocomotiveService.class);
         providers.add(FreightWagonService.class);
         providers.add(SignalBoxService.class);
+        providers.add(LocalDateParamConverterProvider.class);
+        providers.add(LocalDateTimeParamConverterProvider.class);
 
         return providers;
     }
@@ -57,7 +62,7 @@ public class Config extends Application {
         try {
             inputStream = new FileInputStream(PROPERTIES_PATH);
             properties.load(inputStream);
-            if (inputStream != null) inputStream.close();
+            inputStream.close();
         } catch (IOException ex) {
             ex.printStackTrace();
             throw new RuntimeException();

@@ -9,9 +9,6 @@ import javax.validation.constraints.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -98,7 +95,6 @@ public class LocomotiveService {
      * inserts a new locomotive
      *
      * @param locomotive to be inserted
-     * @param commissioningDate of the locomotive
      * @param signalBoxTrackSection the track section of the signal box
      * @return Response
      */
@@ -110,10 +106,6 @@ public class LocomotiveService {
             @BeanParam
             Locomotive locomotive,
 
-            @FormParam("commissioningDate")
-            @NotNull
-            String commissioningDate,
-
             @FormParam("signalBoxTrackSection")
             @Size(min = 3, max = 120)
             @NotBlank
@@ -121,18 +113,12 @@ public class LocomotiveService {
     ) {
         int status = 200;
 
-        LocalDate ld = parse(commissioningDate);
-
-        if (ld != null) {
-            SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(signalBoxTrackSection);
-            if (signalBox != null) {
-                locomotive.setSignalBox(signalBoxTrackSection);
-                locomotive.setCommissioningDate(ld);
-                locomotive.setFreightWagons(new ArrayList<>());
-                if (!DataHandler.insertLocomotive(locomotive)) {
-                    status = 400;
-                }
-            } else {
+        SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(signalBoxTrackSection);
+        if (signalBox != null) {
+            locomotive.setSignalBox(signalBoxTrackSection);
+            locomotive.setCommissioningDate(locomotive.getCommissioningDate());
+            locomotive.setFreightWagons(new ArrayList<>());
+            if (!DataHandler.insertLocomotive(locomotive)) {
                 status = 400;
             }
         } else {
@@ -149,7 +135,6 @@ public class LocomotiveService {
      * updates a locomotive
      *
      * @param locomotive the updated locomotive
-     * @param commissioningDate of the locomotive
      * @param signalBoxTrackSection the track section of the new/updated signal box
      * @return Response
      */
@@ -161,10 +146,6 @@ public class LocomotiveService {
             @BeanParam
             Locomotive locomotive,
 
-            @FormParam("commissioningDate")
-            @NotNull
-            String commissioningDate,
-
             @FormParam("signalBoxTrackSection")
             @Size(min = 3, max = 120)
             @NotBlank
@@ -172,26 +153,21 @@ public class LocomotiveService {
     ) {
         int status = 200;
 
-        LocalDate ld = parse(commissioningDate);
-        if (ld != null) {
-            Locomotive oldLocomotive = DataHandler
-                    .readLocomotiveBySeriesAndProductionNumber(locomotive.getSeries(), locomotive.getOperationNumber());
-            if (oldLocomotive != null) {
-                SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(signalBoxTrackSection);
-                if (signalBox != null) {
-                    oldLocomotive.setRailwayCompany(locomotive.getRailwayCompany());
-                    oldLocomotive.setCommissioningDate(ld);
-                    oldLocomotive.setSignalBox(signalBoxTrackSection);
+        Locomotive oldLocomotive = DataHandler
+                .readLocomotiveBySeriesAndProductionNumber(locomotive.getSeries(), locomotive.getOperationNumber());
+        if (oldLocomotive != null) {
+            SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(signalBoxTrackSection);
+            if (signalBox != null) {
+                oldLocomotive.setRailwayCompany(locomotive.getRailwayCompany());
+                oldLocomotive.setCommissioningDate(locomotive.getCommissioningDate());
+                oldLocomotive.setSignalBox(signalBoxTrackSection);
 
-                    DataHandler.updateLocomotive();
-                } else {
-                    status = 400;
-                }
+                DataHandler.updateLocomotive();
             } else {
-                status = 410;
+                status = 400;
             }
         } else {
-            status = 400;
+            status = 410;
         }
 
         return Response
@@ -230,21 +206,5 @@ public class LocomotiveService {
                 .status(status)
                 .entity("")
                 .build();
-    }
-
-    /**
-     * converts a String into LocalDate
-     *
-     * @param localDate the String to be parsed
-     * @return LocalDate, null if doesn't match pattern
-     */
-    private LocalDate parse(String localDate) {
-        LocalDate ldt;
-        try {
-            ldt = LocalDate.parse(localDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        } catch (DateTimeParseException e) {
-            return null;
-        }
-        return ldt;
     }
 }

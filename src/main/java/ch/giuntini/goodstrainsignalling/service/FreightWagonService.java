@@ -11,9 +11,6 @@ import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.List;
 
 /**
@@ -91,7 +88,6 @@ public class FreightWagonService {
      * inserts a new freight wagon
      *
      * @param freightWagon to be inserted
-     * @param lastMaintenance of the freight wagon
      * @param aBoolean String representing a Boolean value
      * @return Response
      */
@@ -103,10 +99,6 @@ public class FreightWagonService {
             @BeanParam
             FreightWagon freightWagon,
 
-            @FormParam("lastMaintenance")
-            @NotNull
-            String lastMaintenance,
-
             @FormParam("handbrakeIsOn")
             @NotNull
             @OnlyTrueOrFalse
@@ -114,15 +106,11 @@ public class FreightWagonService {
     ) {
         int status = 200;
 
-        LocalDateTime ldt = parse(lastMaintenance);
-        if (ldt != null) {
-            freightWagon.setHandbrakeIsOn(Boolean.valueOf(aBoolean));
-            if (!DataHandler.insertFreightWagon(freightWagon)) {
-                status = 400;
-            }
-        } else {
+        freightWagon.setHandbrakeIsOn(Boolean.valueOf(aBoolean));
+        if (!DataHandler.insertFreightWagon(freightWagon)) {
             status = 400;
         }
+
         return Response
                 .status(status)
                 .entity("")
@@ -133,7 +121,6 @@ public class FreightWagonService {
      * updates a freight wagon
      *
      * @param freightWagon the updated freight wagon
-     * @param lastMaintenance of the freight wagon
      * @param aBoolean String representing a Boolean value
      * @return Response
      */
@@ -145,10 +132,6 @@ public class FreightWagonService {
             @BeanParam
             FreightWagon freightWagon,
 
-            @FormParam("lastMaintenance")
-            @NotNull
-            String lastMaintenance,
-
             @FormParam("handbrakeIsOn")
             @NotNull
             @OnlyTrueOrFalse
@@ -156,21 +139,16 @@ public class FreightWagonService {
     ) {
         int status = 200;
 
-        LocalDateTime ldt = parse(lastMaintenance);
-        if (ldt != null) {
-            freightWagon.setHandbrakeIsOn(Boolean.valueOf(aBoolean));
+        freightWagon.setHandbrakeIsOn(Boolean.valueOf(aBoolean));
 
-            FreightWagon oldFreightWagon = DataHandler.readFreightWagonByWaggonNumber(freightWagon.getWaggonNumber());
-            if (oldFreightWagon != null) {
-                oldFreightWagon.setLastMaintenance(freightWagon.getLastMaintenance());
-                oldFreightWagon.setHandbrakeIsOn(freightWagon.getHandbrakeIsOn());
+        FreightWagon oldFreightWagon = DataHandler.readFreightWagonByWaggonNumber(freightWagon.getWaggonNumber());
+        if (oldFreightWagon != null) {
+            oldFreightWagon.setLastMaintenance(freightWagon.getLastMaintenance());
+            oldFreightWagon.setHandbrakeIsOn(freightWagon.getHandbrakeIsOn());
 
-                DataHandler.updateFreightWagon();
-            } else {
-                status = 410;
-            }
+            DataHandler.updateFreightWagon();
         } else {
-            status = 400;
+            status = 410;
         }
 
         return Response
@@ -203,22 +181,5 @@ public class FreightWagonService {
                 .status(status)
                 .entity("")
                 .build();
-    }
-
-
-    /**
-     * converts a String into LocalDateTime
-     *
-     * @param localDateTime the String to be parsed
-     * @return LocalDateTime, null if doesn't match pattern
-     */
-    private LocalDateTime parse(String localDateTime) {
-        LocalDateTime ldt;
-        try {
-            ldt = LocalDateTime.parse(localDateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"));
-        } catch (DateTimeParseException e) {
-            return null;
-        }
-        return ldt;
     }
 }

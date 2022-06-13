@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
 import javax.ws.rs.FormParam;
 import java.time.LocalDateTime;
@@ -20,6 +21,8 @@ public class FreightWagon {
     @Pattern(regexp = "([0-9]{2} ){2}[0-9]{4} [0-9]{3}-[0-9]")
     private String waggonNumber;
 
+    @FormParam("lastMaintenance")
+    @PastOrPresent
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
