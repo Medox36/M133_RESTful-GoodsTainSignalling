@@ -106,8 +106,12 @@ public class FreightWagonService {
     ) {
         int status = 200;
 
-        freightWagon.setHandbrakeIsOn(Boolean.valueOf(aBoolean));
-        if (!DataHandler.insertFreightWagon(freightWagon)) {
+        if (freightWagon.getLastMaintenance() != null) {
+            freightWagon.setHandbrakeIsOn(Boolean.valueOf(aBoolean));
+            if (!DataHandler.insertFreightWagon(freightWagon)) {
+                status = 400;
+            }
+        } else {
             status = 400;
         }
 
@@ -139,16 +143,20 @@ public class FreightWagonService {
     ) {
         int status = 200;
 
-        freightWagon.setHandbrakeIsOn(Boolean.valueOf(aBoolean));
+        if (freightWagon.getLastMaintenance() != null) {
+            freightWagon.setHandbrakeIsOn(Boolean.valueOf(aBoolean));
 
-        FreightWagon oldFreightWagon = DataHandler.readFreightWagonByWaggonNumber(freightWagon.getWaggonNumber());
-        if (oldFreightWagon != null) {
-            oldFreightWagon.setLastMaintenance(freightWagon.getLastMaintenance());
-            oldFreightWagon.setHandbrakeIsOn(freightWagon.getHandbrakeIsOn());
+            FreightWagon oldFreightWagon = DataHandler.readFreightWagonByWaggonNumber(freightWagon.getWaggonNumber());
+            if (oldFreightWagon != null) {
+                oldFreightWagon.setLastMaintenance(freightWagon.getLastMaintenance());
+                oldFreightWagon.setHandbrakeIsOn(freightWagon.getHandbrakeIsOn());
 
-            DataHandler.updateFreightWagon();
+                DataHandler.updateFreightWagon();
+            } else {
+                status = 410;
+            }
         } else {
-            status = 410;
+            status = 400;
         }
 
         return Response

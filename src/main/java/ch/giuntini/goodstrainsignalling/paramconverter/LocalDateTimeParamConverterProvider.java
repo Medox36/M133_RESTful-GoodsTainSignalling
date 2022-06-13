@@ -5,7 +5,7 @@ import javax.ws.rs.ext.ParamConverterProvider;
 import javax.ws.rs.ext.Provider;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Provider
 public class LocalDateTimeParamConverterProvider implements ParamConverterProvider {
@@ -13,7 +13,7 @@ public class LocalDateTimeParamConverterProvider implements ParamConverterProvid
     @Override
     public <T> ParamConverter<T> getConverter(Class<T> rawType, Type genericType,
                                               Annotation[] annotations) {
-        if (rawType.equals(LocalDate.class))
+        if (rawType.equals(LocalDateTime.class))
             return (ParamConverter<T>) new LocalDateTimeConverter();
         return null;
     }

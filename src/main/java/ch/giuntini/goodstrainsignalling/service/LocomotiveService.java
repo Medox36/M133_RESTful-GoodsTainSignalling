@@ -113,16 +113,20 @@ public class LocomotiveService {
     ) {
         int status = 200;
 
-        SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(signalBoxTrackSection);
-        if (signalBox != null) {
-            locomotive.setSignalBox(signalBoxTrackSection);
-            locomotive.setCommissioningDate(locomotive.getCommissioningDate());
-            locomotive.setFreightWagons(new ArrayList<>());
-            if (!DataHandler.insertLocomotive(locomotive)) {
-                status = 400;
+        if (locomotive.getCommissioningDate() != null) {
+            SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(signalBoxTrackSection);
+            if (signalBox != null) {
+                locomotive.setSignalBox(signalBoxTrackSection);
+                locomotive.setCommissioningDate(locomotive.getCommissioningDate());
+                locomotive.setFreightWagons(new ArrayList<>());
+                if (!DataHandler.insertLocomotive(locomotive)) {
+                    status = 400;
+                }
+            } else {
+                status = 410;
             }
         } else {
-            status = 410;
+            status = 400;
         }
 
         return Response
@@ -153,21 +157,25 @@ public class LocomotiveService {
     ) {
         int status = 200;
 
-        Locomotive oldLocomotive = DataHandler
-                .readLocomotiveBySeriesAndProductionNumber(locomotive.getSeries(), locomotive.getOperationNumber());
-        if (oldLocomotive != null) {
-            SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(signalBoxTrackSection);
-            if (signalBox != null) {
-                oldLocomotive.setRailwayCompany(locomotive.getRailwayCompany());
-                oldLocomotive.setCommissioningDate(locomotive.getCommissioningDate());
-                oldLocomotive.setSignalBox(signalBoxTrackSection);
+        if (locomotive.getCommissioningDate() != null) {
+            Locomotive oldLocomotive = DataHandler
+                    .readLocomotiveBySeriesAndProductionNumber(locomotive.getSeries(), locomotive.getOperationNumber());
+            if (oldLocomotive != null) {
+                SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(signalBoxTrackSection);
+                if (signalBox != null) {
+                    oldLocomotive.setRailwayCompany(locomotive.getRailwayCompany());
+                    oldLocomotive.setCommissioningDate(locomotive.getCommissioningDate());
+                    oldLocomotive.setSignalBox(signalBoxTrackSection);
 
-                DataHandler.updateLocomotive();
+                    DataHandler.updateLocomotive();
+                } else {
+                    status = 400;
+                }
             } else {
-                status = 400;
+                status = 410;
             }
         } else {
-            status = 410;
+            status = 400;
         }
 
         return Response
