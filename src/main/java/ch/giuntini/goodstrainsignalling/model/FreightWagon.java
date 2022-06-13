@@ -2,6 +2,7 @@ package ch.giuntini.goodstrainsignalling.model;
 
 import ch.giuntini.goodstrainsignalling.util.LocalDateTimeDeserializer;
 import ch.giuntini.goodstrainsignalling.util.LocalDateTimeSerializer;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
