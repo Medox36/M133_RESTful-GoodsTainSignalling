@@ -1,7 +1,7 @@
 package ch.giuntini.goodstrainsignalling.service;
 
-import ch.giuntini.goodstrainsignalling.util.LocalDateParamConverterProvider;
-import ch.giuntini.goodstrainsignalling.util.LocalDateTimeParamConverterProvider;
+import ch.giuntini.goodstrainsignalling.paramconverter.LocalDateParamConverterProvider;
+import ch.giuntini.goodstrainsignalling.paramconverter.LocalDateTimeParamConverterProvider;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

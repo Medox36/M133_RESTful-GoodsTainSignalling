@@ -1,4 +1,4 @@
-package ch.giuntini.goodstrainsignalling.util;
+package ch.giuntini.goodstrainsignalling.paramconverter;
 
 import javax.ws.rs.ext.ParamConverter;
 import java.time.LocalDate;
