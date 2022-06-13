@@ -1,5 +1,6 @@
 package ch.giuntini.goodstrainsignalling.service;
 
+import ch.giuntini.goodstrainsignalling.exceptionmapper.MyExceptionMapper;
 import ch.giuntini.goodstrainsignalling.paramconverter.LocalDateParamConverterProvider;
 import ch.giuntini.goodstrainsignalling.paramconverter.LocalDateTimeParamConverterProvider;
 
@@ -34,6 +35,7 @@ public class Config extends Application {
         providers.add(SignalBoxService.class);
         providers.add(LocalDateParamConverterProvider.class);
         providers.add(LocalDateTimeParamConverterProvider.class);
+        providers.add(MyExceptionMapper.class);
 
         return providers;
     }
