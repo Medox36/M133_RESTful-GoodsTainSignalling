@@ -201,6 +201,7 @@ public class LocomotiveService {
             String series,
 
             @QueryParam("operationNumber")
+            @NotNull
             @Min(101)
             @Max(18841)
             Integer operationNumber

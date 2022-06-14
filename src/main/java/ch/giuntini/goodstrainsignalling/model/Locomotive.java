@@ -25,6 +25,7 @@ public class Locomotive {
     private String series;
 
     @FormParam("operationNumber")
+    @NotNull
     @Min(101)
     @Max(18841)
     private Integer operationNumber;

@@ -139,6 +139,7 @@ public class SignalBoxService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response delete(
             @QueryParam("trackSection")
+            @NotBlank
             @Size(min = 3, max = 120)
             String trackSection
     ) {

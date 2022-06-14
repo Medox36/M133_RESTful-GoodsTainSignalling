@@ -100,7 +100,7 @@ public class FreightWagonService {
             FreightWagon freightWagon,
 
             @FormParam("handbrakeIsOn")
-            @NotNull
+            @NotBlank
             @OnlyTrueOrFalse
             String aBoolean
     ) {
@@ -137,7 +137,7 @@ public class FreightWagonService {
             FreightWagon freightWagon,
 
             @FormParam("handbrakeIsOn")
-            @NotNull
+            @NotBlank
             @OnlyTrueOrFalse
             String aBoolean
     ) {
