@@ -207,6 +207,131 @@
 							"response": []
 						},
 						{
+							"name": "wrongParam_series_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "operationNumber",
+											"value": "102",
+											"type": "default"
+										},
+										{
+											"key": "railwayCompany",
+											"value": "SBB",
+											"type": "default"
+										},
+										{
+											"key": "commissioningDate",
+											"value": "1894-02-20",
+											"type": "default"
+										},
+										{
+											"key": "signalBoxTrackSection",
+											"value": "Bern",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"locomotive",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_series_blank",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "operationNumber",
+											"value": "102",
+											"type": "default"
+										},
+										{
+											"key": "railwayCompany",
+											"value": "SBB",
+											"type": "default"
+										},
+										{
+											"key": "commissioningDate",
+											"value": "1894-02-20",
+											"type": "default"
+										},
+										{
+											"key": "signalBoxTrackSection",
+											"value": "Bern",
+											"type": "default"
+										},
+										{
+											"key": "series",
+											"value": "   ",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"locomotive",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "wrongParam_operationNumber_min",
 							"event": [
 								{
@@ -300,6 +425,66 @@
 										{
 											"key": "operationNumber",
 											"value": "18842",
+											"type": "default"
+										},
+										{
+											"key": "railwayCompany",
+											"value": "SBB",
+											"type": "default"
+										},
+										{
+											"key": "commissioningDate",
+											"value": "1976-03-02",
+											"type": "default"
+										},
+										{
+											"key": "signalBoxTrackSection",
+											"value": "Basel",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"locomotive",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_operationNumber_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "series",
+											"value": "Am 6/6",
 											"type": "default"
 										},
 										{
@@ -445,6 +630,131 @@
 										{
 											"key": "signalBoxTrackSection",
 											"value": "Basel",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"locomotive",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_railwayCompanty_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "series",
+											"value": "Am 6/6",
+											"type": "default"
+										},
+										{
+											"key": "operationNumber",
+											"value": "18526",
+											"type": "default"
+										},
+										{
+											"key": "commissioningDate",
+											"value": "1976-03-02",
+											"type": "default"
+										},
+										{
+											"key": "signalBoxTrackSection",
+											"value": "Basel",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"locomotive",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_railwayCompanty_blank",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "series",
+											"value": "Am 6/6",
+											"type": "default"
+										},
+										{
+											"key": "operationNumber",
+											"value": "18526",
+											"type": "default"
+										},
+										{
+											"key": "commissioningDate",
+											"value": "1976-03-02",
+											"type": "default"
+										},
+										{
+											"key": "signalBoxTrackSection",
+											"value": "Basel",
+											"type": "default"
+										},
+										{
+											"key": "reilwayCompany",
+											"value": "     ",
 											"type": "default"
 										}
 									]
@@ -640,6 +950,131 @@
 										{
 											"key": "signalBoxTrackSection",
 											"value": "Bauselius",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"locomotive",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_signalBoxTrackSection_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "series",
+											"value": "Am 6/6",
+											"type": "default"
+										},
+										{
+											"key": "operationNumber",
+											"value": "18529",
+											"type": "default"
+										},
+										{
+											"key": "railwayCompany",
+											"value": "SBB",
+											"type": "default"
+										},
+										{
+											"key": "commissioningDate",
+											"value": "1976-03-02",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"locomotive",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_signalBoxTrackSection_blank",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "series",
+											"value": "Am 6/6",
+											"type": "default"
+										},
+										{
+											"key": "operationNumber",
+											"value": "18529",
+											"type": "default"
+										},
+										{
+											"key": "railwayCompany",
+											"value": "SBB",
+											"type": "default"
+										},
+										{
+											"key": "commissioningDate",
+											"value": "1976-03-02",
+											"type": "default"
+										},
+										{
+											"key": "signalBoxTrackSection",
+											"value": "    ",
 											"type": "default"
 										}
 									]
@@ -992,6 +1427,131 @@
 							"response": []
 						},
 						{
+							"name": "wrongParam_series_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "operationNumber",
+											"value": "102",
+											"type": "default"
+										},
+										{
+											"key": "railwayCompany",
+											"value": "SBB",
+											"type": "default"
+										},
+										{
+											"key": "commissioningDate",
+											"value": "1894-02-20",
+											"type": "default"
+										},
+										{
+											"key": "signalBoxTrackSection",
+											"value": "Bern",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"locomotive",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_series_blank",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "series",
+											"value": "   ",
+											"type": "default"
+										},
+										{
+											"key": "operationNumber",
+											"value": "102",
+											"type": "default"
+										},
+										{
+											"key": "railwayCompany",
+											"value": "SBB",
+											"type": "default"
+										},
+										{
+											"key": "commissioningDate",
+											"value": "1894-02-20",
+											"type": "default"
+										},
+										{
+											"key": "signalBoxTrackSection",
+											"value": "Bern",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"locomotive",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "wrongParam_operationNumber_min",
 							"event": [
 								{
@@ -1122,7 +1682,67 @@
 							"response": []
 						},
 						{
-							"name": "wrongParam_railwayCompanty_minSize",
+							"name": "wrongParam_operationNumber_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "series",
+											"value": "Am 3/5",
+											"type": "default"
+										},
+										{
+											"key": "railwayCompany",
+											"value": "SBB",
+											"type": "default"
+										},
+										{
+											"key": "commissioningDate",
+											"value": "1953-03-23",
+											"type": "default"
+										},
+										{
+											"key": "signalBoxTrackSection",
+											"value": "Basel",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"locomotive",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_railwayCompany_minSize",
 							"event": [
 								{
 									"listen": "test",
@@ -1187,7 +1807,7 @@
 							"response": []
 						},
 						{
-							"name": "wrongParam_railwayCompanty_maxSize",
+							"name": "wrongParam_railwayCompany_maxSize",
 							"event": [
 								{
 									"listen": "test",
@@ -1252,7 +1872,7 @@
 							"response": []
 						},
 						{
-							"name": "wrongParam_commissioningDate_notMatchingLocalDatePattern",
+							"name": "wrongParam_railwayCompany_null",
 							"event": [
 								{
 									"listen": "test",
@@ -1274,27 +1894,87 @@
 									"urlencoded": [
 										{
 											"key": "series",
-											"value": "D 3/3",
+											"value": "Am 3/5",
 											"type": "default"
 										},
 										{
 											"key": "operationNumber",
-											"value": "3416",
-											"type": "default"
-										},
-										{
-											"key": "railwayCompany",
-											"value": "SBB",
+											"value": "1953-03-23",
 											"type": "default"
 										},
 										{
 											"key": "commissioningDate",
-											"value": "20-3.12-03023",
+											"value": "1953-03-23",
 											"type": "default"
 										},
 										{
 											"key": "signalBoxTrackSection",
-											"value": "Zürich",
+											"value": "Basel",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"locomotive",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_railwayCompany_blank",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "series",
+											"value": "Am 3/5",
+											"type": "default"
+										},
+										{
+											"key": "operationNumber",
+											"value": "1953-03-23",
+											"type": "default"
+										},
+										{
+											"key": "railwayCompany",
+											"value": "    ",
+											"type": "default"
+										},
+										{
+											"key": "commissioningDate",
+											"value": "1953-03-23",
+											"type": "default"
+										},
+										{
+											"key": "signalBoxTrackSection",
+											"value": "Basel",
 											"type": "default"
 										}
 									]
@@ -1490,6 +2170,196 @@
 										{
 											"key": "signalBoxTrackSection",
 											"value": "Bauselius",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"locomotive",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_signalBoxTrackSection_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "series",
+											"value": "Am 3/5",
+											"type": "default"
+										},
+										{
+											"key": "operationNumber",
+											"value": "702",
+											"type": "default"
+										},
+										{
+											"key": "railwayCompany",
+											"value": "SBB",
+											"type": "default"
+										},
+										{
+											"key": "commissioningDate",
+											"value": "1953-03-23",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"locomotive",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_signalBoxTrackSection_blank",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "series",
+											"value": "Am 3/5",
+											"type": "default"
+										},
+										{
+											"key": "operationNumber",
+											"value": "702",
+											"type": "default"
+										},
+										{
+											"key": "railwayCompany",
+											"value": "SBB",
+											"type": "default"
+										},
+										{
+											"key": "commissioningDate",
+											"value": "1953-03-23",
+											"type": "default"
+										},
+										{
+											"key": "signalBoxTrackSection",
+											"value": "    ",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"locomotive",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_commissioningDate_notMatchingLocalDatePattern",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "series",
+											"value": "D 3/3",
+											"type": "default"
+										},
+										{
+											"key": "operationNumber",
+											"value": "3416",
+											"type": "default"
+										},
+										{
+											"key": "railwayCompany",
+											"value": "SBB",
+											"type": "default"
+										},
+										{
+											"key": "commissioningDate",
+											"value": "20-3.12-03023",
+											"type": "default"
+										},
+										{
+											"key": "signalBoxTrackSection",
+											"value": "Zürich",
 											"type": "default"
 										}
 									]
@@ -1782,6 +2652,47 @@
 							"response": []
 						},
 						{
+							"name": "wrongParam_series_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?operationNumber=3416",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"locomotive",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "operationNumber",
+											"value": "3416"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "wrongParam_operationNumber_min",
 							"event": [
 								{
@@ -1865,6 +2776,47 @@
 										{
 											"key": "operationNumber",
 											"value": "18842"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_operationNumber_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D 3/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"locomotive",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "series",
+											"value": "D 3/3"
 										}
 									]
 								}
@@ -2082,6 +3034,101 @@
 							"response": []
 						},
 						{
+							"name": "wrongParam_trackSection_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "workingSignalmen",
+											"value": "20",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"signalbox",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_trackSection_blank",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "trackSection",
+											"value": "    ",
+											"type": "default"
+										},
+										{
+											"key": "workingSignalmen",
+											"value": "20",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"signalbox",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "wrongParam_workingSignalmen_min",
 							"event": [
 								{
@@ -2160,6 +3207,51 @@
 										{
 											"key": "workingSignalmen",
 											"value": "256",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"signalbox",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_workingSignalmen_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "trackSection",
+											"value": "Frauenfeld",
 											"type": "default"
 										}
 									]
@@ -2387,6 +3479,101 @@
 							"response": []
 						},
 						{
+							"name": "wrongParam_trackSection_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "workingSignalmen",
+											"value": "20",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"signalbox",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_trackSection_blank",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "trackSection",
+											"value": "    ",
+											"type": "default"
+										},
+										{
+											"key": "workingSignalmen",
+											"value": "20",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"signalbox",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "wrongParam_workingSingalmen_min",
 							"event": [
 								{
@@ -2465,6 +3652,51 @@
 										{
 											"key": "workingSignalmen",
 											"value": "256",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"signalbox",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_workingSingalmen_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "trackSection",
+											"value": "Genf",
 											"type": "default"
 										}
 									]
@@ -2670,6 +3902,90 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "wrongParam_trackSection_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/delete",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"signalbox",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_trackSection_null Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/delete?tracksection=    ",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"signalbox",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "tracksection",
+											"value": "    "
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
@@ -2815,6 +4131,111 @@
 										{
 											"key": "waggonNumber",
 											"value": "53 043-4 9*0-8",
+											"type": "default"
+										},
+										{
+											"key": "lastMainenance",
+											"value": "2001-05-26T23:05:00",
+											"type": "default"
+										},
+										{
+											"key": "handbrakeIsOn",
+											"value": "true",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"freightwagon",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParams_wagonNumber_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "lastMainenance",
+											"value": "2001-05-26T23:05:00",
+											"type": "default"
+										},
+										{
+											"key": "handbrakeIsOn",
+											"value": "true",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"freightwagon",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParams_wagonNumber_blank",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "waggonNumber",
+											"value": "    ",
 											"type": "default"
 										},
 										{
@@ -3010,6 +4431,111 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "wrongParams_handbrakeIsOn_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "waggonNumber",
+											"value": "53 04 3729 491-8",
+											"type": "default"
+										},
+										{
+											"key": "lastMainenance",
+											"value": "2014-12-20T23:05:00",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"freightwagon",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParams_handbrakeIsOn_blank",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "waggonNumber",
+											"value": "53 04 3729 491-8",
+											"type": "default"
+										},
+										{
+											"key": "lastMainenance",
+											"value": "2014-12-20T23:05:00",
+											"type": "default"
+										},
+										{
+											"key": "handbrakeIsOn",
+											"value": "    ",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"freightwagon",
+										"create"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -3150,6 +4676,111 @@
 										{
 											"key": "waggonNumber",
 											"value": "8-- 2-5-4-2 59-9",
+											"type": "default"
+										},
+										{
+											"key": "lastMainenance",
+											"value": "2022-01-02T11:00:00",
+											"type": "default"
+										},
+										{
+											"key": "handbrakeIsOn",
+											"value": "false",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"freightwagon",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_waggonNumber_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "lastMainenance",
+											"value": "2022-01-02T11:00:00",
+											"type": "default"
+										},
+										{
+											"key": "handbrakeIsOn",
+											"value": "false",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"freightwagon",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_waggonNumber_blank",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "waggonNumber",
+											"value": "    ",
 											"type": "default"
 										},
 										{
@@ -3345,6 +4976,111 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "wrongParam_handbrakeIsOn_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "waggonNumber",
+											"value": "82 54 2522 589-8",
+											"type": "default"
+										},
+										{
+											"key": "lastMainenance",
+											"value": "2-23.30BT66:31..2",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"freightwagon",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParam_handbrakeIsOn_blank",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "waggonNumber",
+											"value": "82 54 2522 589-8",
+											"type": "default"
+										},
+										{
+											"key": "lastMainenance",
+											"value": "2-23.30BT66:31..2",
+											"type": "default"
+										},
+										{
+											"key": "handbrakeIsOn",
+											"value": "    ",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"freightwagon",
+										"update"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -3468,6 +5204,82 @@
 										{
 											"key": "waggonNumber",
 											"value": "74a7283--597-8"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParams_waggonNumber_null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/delete",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"freightwagon",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "wrongParams_waggonNumber_blank",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Expected status\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/delete?waggonNumber=    ",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"GoodsTrainSignalling-1.0-SNAPSHOT",
+										"resource",
+										"freightwagon",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "waggonNumber",
+											"value": "    "
 										}
 									]
 								}
