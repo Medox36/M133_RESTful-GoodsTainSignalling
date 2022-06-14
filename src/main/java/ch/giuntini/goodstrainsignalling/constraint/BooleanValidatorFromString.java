@@ -14,6 +14,9 @@ public class BooleanValidatorFromString implements ConstraintValidator<OnlyTrueO
      */
     @Override
     public boolean isValid(String string, ConstraintValidatorContext constraintValidatorContext) {
+        if (string == null) {
+            return false;
+        }
         return string.matches("^(true|false|TRUE|FALSE)$");
     }
 }
