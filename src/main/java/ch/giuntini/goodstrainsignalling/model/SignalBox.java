@@ -5,6 +5,10 @@ import javax.ws.rs.FormParam;
 
 /**
  * Signal box responsible for a specific track section with a number of working signalmen
+ *
+ * @author Lorenzo Giuntini (Medox36)
+ * @since 2022.05.18
+ * @version 1.4
  */
 public class SignalBox {
     @FormParam("trackSection")

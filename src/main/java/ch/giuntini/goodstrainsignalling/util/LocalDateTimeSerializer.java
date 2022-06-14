@@ -10,6 +10,10 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * custom Deserializer for jackson-databind
+ *
+ * @author Lorenzo Giuntini (Medox36)
+ * @since 2022.06.12
+ * @version 1.0
  */
 public class LocalDateTimeSerializer extends StdSerializer<LocalDateTime> {
 
@@ -29,7 +33,11 @@ public class LocalDateTimeSerializer extends StdSerializer<LocalDateTime> {
      * @throws IOException
      */
     @Override
-    public void serialize(LocalDateTime localDateTime, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
+    public void serialize(
+            LocalDateTime localDateTime,
+            JsonGenerator jsonGenerator,
+            SerializerProvider serializerProvider
+    ) throws IOException {
         jsonGenerator.writeString(localDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss")));
     }
 }

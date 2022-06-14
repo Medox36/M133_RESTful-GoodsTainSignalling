@@ -6,6 +6,13 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
+/**
+ * ExceptionMapper to assure the custom messages from own constraints are being sent to the client
+ *
+ * @author Lorenzo Giuntini (Medox36)
+ * @since 2022.06.13
+ * @version 1.0
+ */
 @Provider
 public class MyExceptionMapper implements ExceptionMapper<ConstraintViolationException> {
 

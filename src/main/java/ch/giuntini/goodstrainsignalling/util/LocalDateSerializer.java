@@ -10,6 +10,10 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * custom Serializer for jackson-databind
+ *
+ * @author Lorenzo Giuntini (Medox36)
+ * @since 2022.06.12
+ * @version 1.0
  */
 public class LocalDateSerializer extends StdSerializer<LocalDate> {
 

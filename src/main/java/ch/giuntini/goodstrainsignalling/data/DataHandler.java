@@ -20,6 +20,10 @@ import java.util.List;
 
 /**
  * reads and writes the data in the JSON-files
+ *
+ * @author Lorenzo Giuntini (Medox36)
+ * @since 2022.05.18
+ * @version 1.5
  */
 public final class DataHandler {
     private static List<Locomotive> locomotiveList;

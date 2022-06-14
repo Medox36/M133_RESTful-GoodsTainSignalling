@@ -16,6 +16,10 @@ import java.util.List;
 
 /**
  * a Locomotive belonging to a railway company that can pull 0 or more freight wagons
+ *
+ * @author Lorenzo Giuntini (Medox36)
+ * @since 2022.05.18
+ * @version 1.4
  */
 public class Locomotive {
     @FormParam("series")

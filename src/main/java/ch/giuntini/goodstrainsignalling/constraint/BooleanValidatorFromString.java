@@ -3,6 +3,15 @@ package ch.giuntini.goodstrainsignalling.constraint;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+/**
+ * ConstraintValidator for the constraint OnlyTrueOrFalse
+ * @see OnlyTrueOrFalse
+ * @see javax.validation.ConstraintValidator
+ *
+ * @author Lorenzo Giuntini (Medox36)
+ * @since 2022.06.12
+ * @version 1.1
+ */
 public class BooleanValidatorFromString implements ConstraintValidator<OnlyTrueOrFalse, String> {
 
     /**

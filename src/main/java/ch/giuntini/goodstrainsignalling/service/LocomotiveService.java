@@ -14,6 +14,10 @@ import java.util.List;
 
 /**
  * locomotive service
+ *
+ * @author Lorenzo Giuntini (Medox36)
+ * @since 2022.05.18
+ * @version 1.3
  */
 @Path("locomotive")
 public class LocomotiveService {
@@ -159,7 +163,9 @@ public class LocomotiveService {
 
         if (locomotive.getCommissioningDate() != null) {
             Locomotive oldLocomotive = DataHandler
-                    .readLocomotiveBySeriesAndProductionNumber(locomotive.getSeries(), locomotive.getOperationNumber());
+                    .readLocomotiveBySeriesAndProductionNumber(
+                            locomotive.getSeries(), locomotive.getOperationNumber()
+                    );
             if (oldLocomotive != null) {
                 SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(signalBoxTrackSection);
                 if (signalBox != null) {

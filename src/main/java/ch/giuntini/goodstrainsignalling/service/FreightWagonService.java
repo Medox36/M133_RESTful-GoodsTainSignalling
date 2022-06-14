@@ -6,7 +6,6 @@ import ch.giuntini.goodstrainsignalling.model.FreightWagon;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -15,6 +14,10 @@ import java.util.List;
 
 /**
  * freight wagon service
+ *
+ * @author Lorenzo Giuntini (Medox36)
+ * @since 2022.05.18
+ * @version 1.3
  */
 @Path("freightwagon")
 public class FreightWagonService {

@@ -13,6 +13,10 @@ import java.util.List;
 
 /**
  * signal box service
+ *
+ * @author Lorenzo Giuntini (Medox36)
+ * @since 2022.05.18
+ * @version 1.3
  */
 @Path("signalbox")
 public class SignalBoxService {

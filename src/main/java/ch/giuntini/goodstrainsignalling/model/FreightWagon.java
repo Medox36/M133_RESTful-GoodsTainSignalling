@@ -15,6 +15,10 @@ import java.time.LocalDateTime;
 
 /**
  * a FreightWagon that can pe pulled by a locomotive
+ *
+ * @author Lorenzo Giuntini (Medox36)
+ * @since 2022.05.18
+ * @version 1.5
  */
 public class FreightWagon {
     @FormParam("waggonNumber")

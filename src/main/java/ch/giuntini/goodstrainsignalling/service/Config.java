@@ -15,6 +15,10 @@ import java.util.Set;
 
 /**
  * configure the web services and properties
+ *
+ * @author Lorenzo Giuntini (Medox36)
+ * @since 2022.05.11
+ * @version 1.1
  */
 @ApplicationPath("/resource")
 public class Config extends Application {

@@ -8,6 +8,10 @@ import javax.ws.rs.core.Response;
 
 /**
  * test service
+ *
+ * @author Lorenzo Giuntini (Medox36)
+ * @since 2022.05.17
+ * @version 1.0
  */
 @Path("test")
 public class TestService {

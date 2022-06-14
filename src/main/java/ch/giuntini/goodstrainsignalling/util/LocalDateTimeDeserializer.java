@@ -10,6 +10,10 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * custom Deserializer for jackson-databind
+ *
+ * @author Lorenzo Giuntini (Medox36)
+ * @since 2022.06.12
+ * @version 1.0
  */
 public class LocalDateTimeDeserializer extends StdDeserializer<LocalDateTime> {
 
@@ -25,7 +29,7 @@ public class LocalDateTimeDeserializer extends StdDeserializer<LocalDateTime> {
      *
      * @param jsonParser
      * @param deserializationContext
-     * @return
+     * @return LocalDateTime
      * @throws IOException
      */
     @Override
