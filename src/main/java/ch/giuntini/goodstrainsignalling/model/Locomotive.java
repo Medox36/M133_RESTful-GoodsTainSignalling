@@ -19,7 +19,8 @@ import java.util.List;
  */
 public class Locomotive {
     @FormParam("series")
-    @Pattern(regexp = "([A-Za-z]{1,5}) (([1-9]+[x]?[1-9]*/[1-9]+)|([0-9]{1,3})|(TEE))([\\^]?)([IV]{0,3})")
+    @Pattern(regexp = "([A-Za-z]{1,5}) (([1-9]+[x]?[1-9]*/[1-9]+)|([0-9]{1,3})|(TEE))([\\^]?)([IV]{0,3})",
+            message = "Must be a series of the SBB CFF FFS naming standard")
     @NotBlank
     private String series;
 

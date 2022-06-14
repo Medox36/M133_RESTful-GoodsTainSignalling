@@ -19,7 +19,8 @@ import java.time.LocalDateTime;
 public class FreightWagon {
     @FormParam("waggonNumber")
     @NotBlank
-    @Pattern(regexp = "([0-9]{2} ){2}[0-9]{4} [0-9]{3}-[0-9]")
+    @Pattern(regexp = "([0-9]{2} ){2}[0-9]{4} [0-9]{3}-[0-9]",
+            message = "Must be a waggon number according to the UIC-Waggon number standard")
     private String waggonNumber;
 
     @FormParam("lastMaintenance")
