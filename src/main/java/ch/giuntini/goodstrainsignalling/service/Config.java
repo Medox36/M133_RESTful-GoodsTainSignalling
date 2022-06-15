@@ -1,5 +1,9 @@
 package ch.giuntini.goodstrainsignalling.service;
 
+import ch.giuntini.goodstrainsignalling.exceptionmapper.MyExceptionMapper;
+import ch.giuntini.goodstrainsignalling.paramconverter.LocalDateParamConverterProvider;
+import ch.giuntini.goodstrainsignalling.paramconverter.LocalDateTimeParamConverterProvider;
+
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.io.FileInputStream;
@@ -11,6 +15,10 @@ import java.util.Set;
 
 /**
  * configure the web services and properties
+ *
+ * @author Lorenzo Giuntini (Medox36)
+ * @since 2022.05.11
+ * @version 1.1
  */
 @ApplicationPath("/resource")
 public class Config extends Application {
@@ -29,6 +37,9 @@ public class Config extends Application {
         providers.add(LocomotiveService.class);
         providers.add(FreightWagonService.class);
         providers.add(SignalBoxService.class);
+        providers.add(LocalDateParamConverterProvider.class);
+        providers.add(LocalDateTimeParamConverterProvider.class);
+        providers.add(MyExceptionMapper.class);
 
         return providers;
     }
@@ -57,7 +68,7 @@ public class Config extends Application {
         try {
             inputStream = new FileInputStream(PROPERTIES_PATH);
             properties.load(inputStream);
-            if (inputStream != null) inputStream.close();
+            inputStream.close();
         } catch (IOException ex) {
             ex.printStackTrace();
             throw new RuntimeException();

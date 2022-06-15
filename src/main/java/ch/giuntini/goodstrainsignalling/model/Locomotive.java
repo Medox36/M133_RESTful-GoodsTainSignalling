@@ -1,26 +1,51 @@
 package ch.giuntini.goodstrainsignalling.model;
 
+import ch.giuntini.goodstrainsignalling.data.DataHandler;
+import ch.giuntini.goodstrainsignalling.util.LocalDateDeserializer;
+import ch.giuntini.goodstrainsignalling.util.LocalDateSerializer;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
+import javax.validation.constraints.*;
+import javax.ws.rs.FormParam;
 import java.time.LocalDate;
 import java.util.List;
 
 /**
  * a Locomotive belonging to a railway company that can pull 0 or more freight wagons
+ *
+ * @author Lorenzo Giuntini (Medox36)
+ * @since 2022.05.18
+ * @version 1.4
  */
 public class Locomotive {
+    @FormParam("series")
+    @Pattern(regexp = "([A-Za-z]{1,5}) (([1-9]+[x]?[1-9]*/[1-9]+)|([0-9]{1,3})|(TEE))([\\^]?)([IV]{0,3})",
+            message = "Must be a series of the SBB CFF FFS naming standard")
+    @NotBlank
     private String series;
+
+    @FormParam("operationNumber")
+    @NotNull
+    @Min(101)
+    @Max(18841)
     private Integer operationNumber;
+
+    @FormParam("railwayCompany")
+    @NotBlank
+    @Size(min = 2, max = 10)
     private String railwayCompany;
 
+    @FormParam("commissioningDate")
+    @Past
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate commissioningDate;
+
     private SignalBox signalBox;
     private List<FreightWagon> freightWagons;
 
@@ -115,6 +140,19 @@ public class Locomotive {
      */
     public void setSignalBox(SignalBox signalBox) {
         this.signalBox = signalBox;
+    }
+
+    /**
+     * sets signalBox
+     *
+     * @param trackSection the value to set
+     */
+    @JsonIgnore
+    public void setSignalBox(String trackSection) {
+        setSignalBox(new SignalBox());
+        SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(trackSection);
+        getSignalBox().setTrackSection(trackSection);
+        getSignalBox().setWorkingSignalmen(signalBox.getWorkingSignalmen());
     }
 
     /**

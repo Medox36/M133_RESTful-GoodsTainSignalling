@@ -1,21 +1,23 @@
 package ch.giuntini.goodstrainsignalling.service;
 
+import ch.giuntini.goodstrainsignalling.constraint.OnlyTrueOrFalse;
 import ch.giuntini.goodstrainsignalling.data.DataHandler;
 import ch.giuntini.goodstrainsignalling.model.FreightWagon;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /**
  * freight wagon service
+ *
+ * @author Lorenzo Giuntini (Medox36)
+ * @since 2022.05.18
+ * @version 1.3
  */
 @Path("freightwagon")
 public class FreightWagonService {
@@ -34,52 +36,28 @@ public class FreightWagonService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response list(
-            @QueryParam("contains") String filter,
-            @QueryParam("sortBy") String sortBy,
-            @QueryParam("sort") String sort
-    ) {
-        List<FreightWagon> freightWagons = DataHandler.getInstance().readAllFreightWagons();
-        List<FreightWagon> copy = new ArrayList<>(freightWagons);
+            @QueryParam("contains")
+            String filter,
 
-        if (filter != null && !filter.isEmpty()) {
-            for (int i = 0; i < copy.size(); i++) {
-                copy.removeIf(
-                        freightWagon -> !freightWagon.getWaggonNumber().contains(filter)
-                );
-            }
-        }
-        if (sortBy == null) {
-            sortBy = "waggonNumber";
-        }
-        if (sort == null) {
-            sort = "a";
-        }
-        if (sort.isEmpty() || (!sort.equals("a") && !sort.equals("d"))) {
+            @QueryParam("sortBy")
+            @DefaultValue("waggonNumber")
+            String sortBy,
+
+            @QueryParam("sort")
+            @DefaultValue("a")
+            String sort
+    ) {
+        if ((sort.isEmpty() || (!sort.equals("a") && !sort.equals("d")))
+                || (!sortBy.matches("waggonNumber") && !sortBy.matches("lastMainenance"))) {
             return Response
                     .status(400)
                     .build();
         }
-        if (sortBy.matches("waggonNumber") || sortBy.isEmpty()) {
-            if (sort.equals("a")) {
-                copy.sort(Comparator.comparing(FreightWagon::getWaggonNumber));
-            } else {
-                copy.sort(Collections.reverseOrder(Comparator.comparing(FreightWagon::getWaggonNumber)));
-            }
-        } else if (sortBy.matches("lastMainenance")) {
-            if (sort.equals("a")) {
-                copy.sort(Comparator.comparing(FreightWagon::getLastMaintenance));
-            } else {
-                copy.sort(Collections.reverseOrder(Comparator.comparing(FreightWagon::getLastMaintenance)));
-            }
-        } else {
-            return Response
-                    .status(400)
-                    .build();
-        }
+        List<FreightWagon> list = DataHandler.readAllFreightWagonsWithFilterAndSort(filter, sortBy, sort);
 
         return Response
                 .status(200)
-                .entity(copy)
+                .entity(list)
                 .build();
     }
 
@@ -92,13 +70,12 @@ public class FreightWagonService {
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response read(@QueryParam("wn") String wagonNumber) {
-        if (!wagonNumber.matches("([0-9]{2} ){2}[0-9]{4} [0-9]{3}-[0-9]{1}")) {
-            return Response
-                    .status(400)
-                    .build();
-        }
-        FreightWagon freightWagon = DataHandler.getInstance().readFreightWagonByWaggonNumber(wagonNumber);
+    public Response read(
+            @QueryParam("wn")
+            @Pattern(regexp = "([0-9]{2} ){2}[0-9]{4} [0-9]{3}-[0-9]")
+            String wagonNumber
+    ) {
+        FreightWagon freightWagon = DataHandler.readFreightWagonByWaggonNumber(wagonNumber);
         if (freightWagon == null) {
             return Response
                     .status(404)
@@ -107,6 +84,113 @@ public class FreightWagonService {
         return Response
                 .status(200)
                 .entity(freightWagon)
+                .build();
+    }
+
+    /**
+     * inserts a new freight wagon
+     *
+     * @param freightWagon to be inserted
+     * @param aBoolean String representing a Boolean value
+     * @return Response
+     */
+    @POST
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response create(
+            @Valid
+            @BeanParam
+            FreightWagon freightWagon,
+
+            @FormParam("handbrakeIsOn")
+            @NotBlank
+            @OnlyTrueOrFalse
+            String aBoolean
+    ) {
+        int status = 200;
+
+        if (freightWagon.getLastMaintenance() != null) {
+            freightWagon.setHandbrakeIsOn(Boolean.valueOf(aBoolean));
+            if (!DataHandler.insertFreightWagon(freightWagon)) {
+                status = 400;
+            }
+        } else {
+            status = 400;
+        }
+
+        return Response
+                .status(status)
+                .entity("")
+                .build();
+    }
+
+    /**
+     * updates a freight wagon
+     *
+     * @param freightWagon the updated freight wagon
+     * @param aBoolean String representing a Boolean value
+     * @return Response
+     */
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response update(
+            @Valid
+            @BeanParam
+            FreightWagon freightWagon,
+
+            @FormParam("handbrakeIsOn")
+            @NotBlank
+            @OnlyTrueOrFalse
+            String aBoolean
+    ) {
+        int status = 200;
+
+        if (freightWagon.getLastMaintenance() != null) {
+            freightWagon.setHandbrakeIsOn(Boolean.valueOf(aBoolean));
+
+            FreightWagon oldFreightWagon = DataHandler.readFreightWagonByWaggonNumber(freightWagon.getWaggonNumber());
+            if (oldFreightWagon != null) {
+                oldFreightWagon.setLastMaintenance(freightWagon.getLastMaintenance());
+                oldFreightWagon.setHandbrakeIsOn(freightWagon.getHandbrakeIsOn());
+
+                DataHandler.updateFreightWagon();
+            } else {
+                status = 410;
+            }
+        } else {
+            status = 400;
+        }
+
+        return Response
+                .status(status)
+                .entity("")
+                .build();
+    }
+
+    /**
+     * deletes a freight wagon identified by its waggon number
+     *
+     * @param waggonNumber of the freight wagon
+     * @return Response
+     */
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response delete(
+            @QueryParam("waggonNumber")
+            @Pattern(regexp = "([0-9]{2} ){2}[0-9]{4} [0-9]{3}-[0-9]")
+            @NotBlank
+            String waggonNumber
+    ) {
+        int status = 200;
+        if (!DataHandler.deleteFreightWagon(waggonNumber)) {
+            status = 400;
+        }
+
+        return Response
+                .status(status)
+                .entity("")
                 .build();
     }
 }
