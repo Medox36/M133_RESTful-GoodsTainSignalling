@@ -44,18 +44,26 @@ public class SignalBoxService {
 
             @QueryParam("sort")
             @DefaultValue("a")
-            String sort
+            String sort,
+
+            @CookieParam("auth") String auth,
+            @CookieParam("userRole") String role
     ) {
-        if ((sort.isEmpty() || (!sort.equals("a") && !sort.equals("d")))
-                || (!sortBy.matches("trackSection") && !sortBy.matches("workingSignalmen"))) {
-            return Response
-                    .status(400)
-                    .build();
+        int status = 200;
+        List<SignalBox> list = null;
+
+        if (UserService.isUserAuthorized(role, auth)) {
+            if ((sort.isEmpty() || (!sort.equals("a") && !sort.equals("d")))
+                    || (!sortBy.matches("trackSection") && !sortBy.matches("workingSignalmen"))) {
+                status = 400;
+            }
+            list = DataHandler.readAllSignalBoxesWithFilterAndSort(filter, sortBy, sort);
+        } else {
+            status = 403;
         }
-        List<SignalBox> list = DataHandler.readAllSignalBoxesWithFilterAndSort(filter, sortBy, sort);
 
         return Response
-                .status(200)
+                .status(status)
                 .entity(list)
                 .build();
     }
@@ -73,12 +81,20 @@ public class SignalBoxService {
             @QueryParam("section")
             @Size(min = 3, max = 120)
             @NotBlank
-            String trackSection
+            String trackSection,
+
+            @CookieParam("auth") String auth,
+            @CookieParam("userRole") String role
     ) {
         int status = 200;
-        SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(trackSection);
-        if (signalBox == null) {
-            status = 404;
+        SignalBox signalBox = null;
+        if (UserService.isUserAuthorized(role, auth)) {
+            signalBox = DataHandler.readSignalBoxByTrackSection(trackSection);
+            if (signalBox == null) {
+                status = 404;
+            }
+        } else {
+            status = 403;
         }
         return Response
                 .status(status)
@@ -95,10 +111,19 @@ public class SignalBoxService {
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response create(@Valid @BeanParam SignalBox signalBox) {
+    public Response create(
+            @Valid @BeanParam SignalBox signalBox,
+            @CookieParam("auth") String auth,
+            @CookieParam("userRole") String role
+    ) {
         int status = 200;
-        if (!DataHandler.insertSignalBox(signalBox)) {
-            status = 400;
+
+        if (UserService.isUserAuthorizedAdmin(role, auth)) {
+            if (!DataHandler.insertSignalBox(signalBox)) {
+                status = 400;
+            }
+        } else {
+            status = 403;
         }
 
         return Response
@@ -116,14 +141,23 @@ public class SignalBoxService {
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response update(@Valid @BeanParam SignalBox signalBox) {
+    public Response update(
+            @Valid @BeanParam SignalBox signalBox,
+            @CookieParam("auth") String auth,
+            @CookieParam("userRole") String role
+    ) {
         int status = 200;
-        SignalBox oldSignalBox = DataHandler.readSignalBoxByTrackSection(signalBox.getTrackSection());
-        if (oldSignalBox != null) {
-            oldSignalBox.setWorkingSignalmen(signalBox.getWorkingSignalmen());
-            DataHandler.updateSignalBox();
+
+        if (UserService.isUserAuthorizedAdmin(role, auth)) {
+            SignalBox oldSignalBox = DataHandler.readSignalBoxByTrackSection(signalBox.getTrackSection());
+            if (oldSignalBox != null) {
+                oldSignalBox.setWorkingSignalmen(signalBox.getWorkingSignalmen());
+                DataHandler.updateSignalBox();
+            } else {
+                status = 410;
+            }
         } else {
-            status = 410;
+            status = 403;
         }
 
         return Response
@@ -145,11 +179,19 @@ public class SignalBoxService {
             @QueryParam("trackSection")
             @NotBlank
             @Size(min = 3, max = 120)
-            String trackSection
+            String trackSection,
+
+            @CookieParam("auth") String auth,
+            @CookieParam("userRole") String role
     ) {
         int status = 200;
-        if (!DataHandler.deleteSignalBox(trackSection)) {
-            status = 400;
+
+        if (UserService.isUserAuthorizedAdmin(role, auth)) {
+            if (!DataHandler.deleteSignalBox(trackSection)) {
+                status = 400;
+            }
+        } else {
+            status = 403;
         }
 
         return Response

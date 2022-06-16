@@ -45,20 +45,28 @@ public class FreightWagonService {
 
             @QueryParam("sort")
             @DefaultValue("a")
-            String sort
-    ) {
-        if ((sort.isEmpty() || (!sort.equals("a") && !sort.equals("d")))
-                || (!sortBy.matches("waggonNumber") && !sortBy.matches("lastMainenance"))) {
-            return Response
-                    .status(400)
-                    .build();
-        }
-        List<FreightWagon> list = DataHandler.readAllFreightWagonsWithFilterAndSort(filter, sortBy, sort);
+            String sort,
 
+            @CookieParam("auth") String auth,
+            @CookieParam("userRole") String role
+    ) {
+        int status = 200;
+        List<FreightWagon> list = null;
+
+        if (UserService.isUserAuthorized(role, auth)) {
+            if ((sort.isEmpty() || (!sort.equals("a") && !sort.equals("d")))
+                    || (!sortBy.matches("waggonNumber") && !sortBy.matches("lastMainenance"))) {
+                status = 400;
+            } else {
+                list = DataHandler.readAllFreightWagonsWithFilterAndSort(filter, sortBy, sort);
+            }
+        } else {
+            status = 403;
+        }
         return Response
-                .status(200)
-                .entity(list)
-                .build();
+                    .status(status)
+                    .entity(list)
+                    .build();
     }
 
     /**
@@ -73,16 +81,24 @@ public class FreightWagonService {
     public Response read(
             @QueryParam("wn")
             @Pattern(regexp = "([0-9]{2} ){2}[0-9]{4} [0-9]{3}-[0-9]")
-            String wagonNumber
+            String wagonNumber,
+
+            @CookieParam("auth") String auth,
+            @CookieParam("userRole") String role
     ) {
-        FreightWagon freightWagon = DataHandler.readFreightWagonByWaggonNumber(wagonNumber);
-        if (freightWagon == null) {
-            return Response
-                    .status(404)
-                    .build();
+        int status = 200;
+        FreightWagon freightWagon = null;
+
+        if (UserService.isUserAuthorized(role, auth)) {
+            freightWagon = DataHandler.readFreightWagonByWaggonNumber(wagonNumber);
+            if (freightWagon == null) {
+                status = 404;
+            }
+        } else {
+            status = 403;
         }
         return Response
-                .status(200)
+                .status(status)
                 .entity(freightWagon)
                 .build();
     }
@@ -105,17 +121,24 @@ public class FreightWagonService {
             @FormParam("handbrakeIsOn")
             @NotBlank
             @OnlyTrueOrFalse
-            String aBoolean
+            String aBoolean,
+
+            @CookieParam("auth") String auth,
+            @CookieParam("userRole") String role
     ) {
         int status = 200;
 
-        if (freightWagon.getLastMaintenance() != null) {
-            freightWagon.setHandbrakeIsOn(Boolean.valueOf(aBoolean));
-            if (!DataHandler.insertFreightWagon(freightWagon)) {
+        if (UserService.isUserAuthorizedAdmin(role, auth)) {
+            if (freightWagon.getLastMaintenance() != null) {
+                freightWagon.setHandbrakeIsOn(Boolean.valueOf(aBoolean));
+                if (!DataHandler.insertFreightWagon(freightWagon)) {
+                    status = 400;
+                }
+            } else {
                 status = 400;
             }
         } else {
-            status = 400;
+            status = 403;
         }
 
         return Response
@@ -142,24 +165,31 @@ public class FreightWagonService {
             @FormParam("handbrakeIsOn")
             @NotBlank
             @OnlyTrueOrFalse
-            String aBoolean
+            String aBoolean,
+
+            @CookieParam("auth") String auth,
+            @CookieParam("userRole") String role
     ) {
         int status = 200;
 
-        if (freightWagon.getLastMaintenance() != null) {
-            freightWagon.setHandbrakeIsOn(Boolean.valueOf(aBoolean));
+        if (UserService.isUserAuthorizedAdmin(role, auth)) {
+            if (freightWagon.getLastMaintenance() != null) {
+                freightWagon.setHandbrakeIsOn(Boolean.valueOf(aBoolean));
 
-            FreightWagon oldFreightWagon = DataHandler.readFreightWagonByWaggonNumber(freightWagon.getWaggonNumber());
-            if (oldFreightWagon != null) {
-                oldFreightWagon.setLastMaintenance(freightWagon.getLastMaintenance());
-                oldFreightWagon.setHandbrakeIsOn(freightWagon.getHandbrakeIsOn());
+                FreightWagon oldFreightWagon = DataHandler.readFreightWagonByWaggonNumber(freightWagon.getWaggonNumber());
+                if (oldFreightWagon != null) {
+                    oldFreightWagon.setLastMaintenance(freightWagon.getLastMaintenance());
+                    oldFreightWagon.setHandbrakeIsOn(freightWagon.getHandbrakeIsOn());
 
-                DataHandler.updateFreightWagon();
+                    DataHandler.updateFreightWagon();
+                } else {
+                    status = 410;
+                }
             } else {
-                status = 410;
+                status = 400;
             }
         } else {
-            status = 400;
+            status = 403;
         }
 
         return Response
@@ -181,11 +211,19 @@ public class FreightWagonService {
             @QueryParam("waggonNumber")
             @Pattern(regexp = "([0-9]{2} ){2}[0-9]{4} [0-9]{3}-[0-9]")
             @NotBlank
-            String waggonNumber
+            String waggonNumber,
+
+            @CookieParam("auth") String auth,
+            @CookieParam("userRole") String role
     ) {
         int status = 200;
-        if (!DataHandler.deleteFreightWagon(waggonNumber)) {
-            status = 400;
+
+        if (UserService.isUserAuthorizedAdmin(role, auth)) {
+            if (!DataHandler.deleteFreightWagon(waggonNumber)) {
+                status = 400;
+            }
+        } else {
+            status = 403;
         }
 
         return Response

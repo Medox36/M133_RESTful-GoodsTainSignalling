@@ -45,20 +45,28 @@ public class LocomotiveService {
 
             @QueryParam("sort")
             @DefaultValue("a")
-            String sort
+            String sort,
+
+            @CookieParam("auth") String auth,
+            @CookieParam("userRole") String role
     ) {
-        if ((sort.isEmpty() || (!sort.equals("a") && !sort.equals("d")))
-                || ((!sortBy.matches("series") && !sortBy.matches("operationNumber")
+        int status = 200;
+        List<Locomotive> list = null;
+
+        if (UserService.isUserAuthorized(role, auth)) {
+            if ((sort.isEmpty() || (!sort.equals("a") && !sort.equals("d")))
+                    || ((!sortBy.matches("series") && !sortBy.matches("operationNumber")
                     && !sortBy.matches("railwayCompany") && !sortBy.matches("commissioningDate")))
-        ) {
-            return Response
-                    .status(400)
-                    .build();
+            ) {
+                status = 400;
+            }
+            list = DataHandler.readAllLocomotivesWithFilterAndSort(filter, sortBy, sort);
+        } else {
+            status = 403;
         }
-        List<Locomotive> list = DataHandler.readAllLocomotivesWithFilterAndSort(filter, sortBy, sort);
 
         return Response
-                .status(200)
+                .status(status)
                 .entity(list)
                 .build();
     }
@@ -81,16 +89,24 @@ public class LocomotiveService {
             @QueryParam("opn")
             @Min(101)
             @Max(18841)
-            Integer operationNumber
+            Integer operationNumber,
+
+            @CookieParam("auth") String auth,
+            @CookieParam("userRole") String role
     ) {
-        Locomotive locomotive = DataHandler.readLocomotiveBySeriesAndProductionNumber(series, operationNumber);
-        if (locomotive == null) {
-            return Response
-                    .status(404)
-                    .build();
+        int status = 200;
+        Locomotive locomotive = null;
+
+        if (UserService.isUserAuthorized(role, auth)) {
+            locomotive = DataHandler.readLocomotiveBySeriesAndProductionNumber(series, operationNumber);
+            if (locomotive == null) {
+                status = 404;
+            }
+        } else {
+            status = 403;
         }
         return Response
-                .status(200)
+                .status(status)
                 .entity(locomotive)
                 .build();
     }
@@ -113,24 +129,31 @@ public class LocomotiveService {
             @FormParam("signalBoxTrackSection")
             @Size(min = 3, max = 120)
             @NotBlank
-            String signalBoxTrackSection
+            String signalBoxTrackSection,
+
+            @CookieParam("auth") String auth,
+            @CookieParam("userRole") String role
     ) {
         int status = 200;
 
-        if (locomotive.getCommissioningDate() != null) {
-            SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(signalBoxTrackSection);
-            if (signalBox != null) {
-                locomotive.setSignalBox(signalBoxTrackSection);
-                locomotive.setCommissioningDate(locomotive.getCommissioningDate());
-                locomotive.setFreightWagons(new ArrayList<>());
-                if (!DataHandler.insertLocomotive(locomotive)) {
-                    status = 400;
+        if (UserService.isUserAuthorizedAdmin(role, auth)) {
+            if (locomotive.getCommissioningDate() != null) {
+                SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(signalBoxTrackSection);
+                if (signalBox != null) {
+                    locomotive.setSignalBox(signalBoxTrackSection);
+                    locomotive.setCommissioningDate(locomotive.getCommissioningDate());
+                    locomotive.setFreightWagons(new ArrayList<>());
+                    if (!DataHandler.insertLocomotive(locomotive)) {
+                        status = 400;
+                    }
+                } else {
+                    status = 410;
                 }
             } else {
-                status = 410;
+                status = 400;
             }
         } else {
-            status = 400;
+            status = 403;
         }
 
         return Response
@@ -157,31 +180,38 @@ public class LocomotiveService {
             @FormParam("signalBoxTrackSection")
             @Size(min = 3, max = 120)
             @NotBlank
-            String signalBoxTrackSection
+            String signalBoxTrackSection,
+
+            @CookieParam("auth") String auth,
+            @CookieParam("userRole") String role
     ) {
         int status = 200;
 
-        if (locomotive.getCommissioningDate() != null) {
-            Locomotive oldLocomotive = DataHandler
-                    .readLocomotiveBySeriesAndProductionNumber(
-                            locomotive.getSeries(), locomotive.getOperationNumber()
-                    );
-            if (oldLocomotive != null) {
-                SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(signalBoxTrackSection);
-                if (signalBox != null) {
-                    oldLocomotive.setRailwayCompany(locomotive.getRailwayCompany());
-                    oldLocomotive.setCommissioningDate(locomotive.getCommissioningDate());
-                    oldLocomotive.setSignalBox(signalBoxTrackSection);
+        if (UserService.isUserAuthorizedAdmin(role, auth)) {
+            if (locomotive.getCommissioningDate() != null) {
+                Locomotive oldLocomotive = DataHandler
+                        .readLocomotiveBySeriesAndProductionNumber(
+                                locomotive.getSeries(), locomotive.getOperationNumber()
+                        );
+                if (oldLocomotive != null) {
+                    SignalBox signalBox = DataHandler.readSignalBoxByTrackSection(signalBoxTrackSection);
+                    if (signalBox != null) {
+                        oldLocomotive.setRailwayCompany(locomotive.getRailwayCompany());
+                        oldLocomotive.setCommissioningDate(locomotive.getCommissioningDate());
+                        oldLocomotive.setSignalBox(signalBoxTrackSection);
 
-                    DataHandler.updateLocomotive();
+                        DataHandler.updateLocomotive();
+                    } else {
+                        status = 400;
+                    }
                 } else {
-                    status = 400;
+                    status = 410;
                 }
             } else {
-                status = 410;
+                status = 400;
             }
         } else {
-            status = 400;
+            status = 403;
         }
 
         return Response
@@ -210,11 +240,19 @@ public class LocomotiveService {
             @NotNull
             @Min(101)
             @Max(18841)
-            Integer operationNumber
+            Integer operationNumber,
+
+            @CookieParam("auth") String auth,
+            @CookieParam("userRole") String role
     ) {
         int status = 200;
-        if (!DataHandler.deleteLocomotive(series, operationNumber)) {
-            status = 400;
+
+        if (UserService.isUserAuthorizedAdmin(role, auth)) {
+            if (!DataHandler.deleteLocomotive(series, operationNumber)) {
+                status = 400;
+            }
+        } else {
+            status = 403;
         }
 
         return Response
