@@ -42,7 +42,7 @@ public class UserService {
 
             return Response
                     .status(status)
-                    .entity(String.valueOf(wordNo))
+                    .entity(String.valueOf(wordNo + 1))
                     .cookie(userRoleCookie(user.getRole(), 60),
                             wordCookie(String.valueOf(wordNo), 60))
                     .build();
@@ -50,7 +50,7 @@ public class UserService {
     }
 
     @POST
-    @Path("loginForm")
+    @Path("2factor")
     @Produces(MediaType.TEXT_PLAIN)
     public Response twoFactor(
             @CookieParam("twoFacWord") String word,
@@ -86,13 +86,11 @@ public class UserService {
                             authCookie("true", 600))
                     .build();
         } else {
-            status = 404;
+            status = 400;
 
             return Response
                     .status(status)
                     .entity("")
-                    .cookie(userRoleCookie("guest", 1),
-                            wordCookie("word", 1))
                     .build();
         }
 
@@ -107,7 +105,8 @@ public class UserService {
                 .status(200)
                 .entity("")
                 .cookie(userRoleCookie("guest", 1),
-                        authCookie("false", 1))
+                        authCookie("false", 1),
+                        wordCookie("word", 1))
                 .build();
     }
 
