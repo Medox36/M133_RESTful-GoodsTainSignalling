@@ -17,7 +17,7 @@ public class UserData {
     private static List<User> userList;
 
     public static User findUser(String username, String password) {
-        for (User user : userList) {
+        for (User user : getUserList()) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                 return user;
             }
@@ -27,7 +27,7 @@ public class UserData {
 
     private static void readUserJSON() {
         try {
-            byte[] jsonData = Files.readAllBytes(Paths.get(Config.getProperty("locoUserJSON")));
+            byte[] jsonData = Files.readAllBytes(Paths.get(Config.getProperty("locoUsersJSON")));
             ObjectMapper objectMapper = new ObjectMapper();
             User[] users = objectMapper.readValue(jsonData, User[].class);
             userList.addAll(Arrays.asList(users));
