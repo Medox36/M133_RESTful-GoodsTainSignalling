@@ -141,7 +141,7 @@ public class UserService {
                 AESEncrypt.encrypt(word),
                 "/",
                 "", //z.B. abc.ch
-                "Fancy-2Factor-Cookie",
+                "Fancy-2Factor-Word-Cookie",
                 maxAge,
                 false
         );
