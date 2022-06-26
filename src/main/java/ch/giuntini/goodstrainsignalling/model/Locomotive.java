@@ -4,6 +4,8 @@ import ch.giuntini.goodstrainsignalling.data.DataHandler;
 import ch.giuntini.goodstrainsignalling.util.LocalDateDeserializer;
 import ch.giuntini.goodstrainsignalling.util.LocalDateSerializer;
 
+import ch.giuntini.goodstrainsignalling.util.SignalBoxDeserializer;
+import ch.giuntini.goodstrainsignalling.util.SignalBoxSerializer;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -46,7 +48,10 @@ public class Locomotive {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate commissioningDate;
 
+    @JsonSerialize(using = SignalBoxSerializer.class)
+    @JsonDeserialize(using = SignalBoxDeserializer.class)
     private SignalBox signalBox;
+
     private List<FreightWagon> freightWagons;
 
 
