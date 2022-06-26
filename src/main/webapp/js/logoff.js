@@ -10,7 +10,7 @@ function sendLogoff() {
             dataType: "text",
             type: "DELETE"
         })
-        .data(function () {
+        .done(function () {
             window.location.href = "./index.html";
         })
         .fail(function (xhr, status, errorThrown) {
