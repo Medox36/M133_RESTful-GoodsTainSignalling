@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Lorenzo Giuntini"/>
+    <title>Lokomotivliste</title>
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/util.js"></script>
+    <script src="./js/logoff.js"></script>
+    <script src="./js/locomotiveList.js"></script>
+    <style>table {border-collapse: separate;border-spacing: 50px 0;}  td {padding: 4px 0;}</style>
+</head>
+<body>
+<nav id="nav">
+    <button type="button" id="logoff">Abmelden</button>
+    <span id="userrole"></span>
+    <span id="message" style="color: red;"></span>
+</nav>
+<h3>Bücherliste</h3>
+<form id="shelfForm">
+    <table id="bookshelf">
+        <thead>
+        <tr>
+            <th>Serie</th>
+            <th>Betriebsnummer</th>
+            <th>Eisenbahngesellschaft</th>
+            <th>Inbetriebnahme</th>
+            <th>Stelwerk-Gleisabschnitt</th>
+        </tr>
+        </thead>
+        <tbody id="locolist">
+
+        </tbody>
+    </table>
+    <p>
+        <a href="./locomotiveEdit.html">Neue Lokomotive</a>
+    </p>
+</form>
+</body>
+</html>

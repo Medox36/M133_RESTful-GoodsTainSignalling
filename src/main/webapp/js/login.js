@@ -1,3 +1,7 @@
+/**
+ * view-controller for login-form and 2factorForm
+ * @author Lorenzo Giuntini (Medox36)
+ */
 $(document).ready(function () {
     $("#loginForm").submit(sendLogin);
     $("#2factorForm").submit(send2factor);
@@ -7,6 +11,10 @@ $(document).ready(function () {
     document.getElementById("cancel").style.display = "none";
 });
 
+/**
+ * tries to log in with the values entered by the user
+ * @param form  login information/values from the user
+ */
 function sendLogin(form) {
     form.preventDefault();
 
@@ -32,6 +40,10 @@ function sendLogin(form) {
         })
 }
 
+/**
+ * sends the information for two factor authentication
+ * @param form  information from the user
+ */
 function send2factor(form) {
     form.preventDefault();
 
@@ -43,7 +55,7 @@ function send2factor(form) {
             data: $("form").serialize()
         })
         .done(function () {
-            window.location.href = "./locoList.html";
+            window.location.href = "../locomotiveList.html";
         })
         .fail(function (xhr, status, errorThrown) {
             if (xhr.status = 400) {
@@ -53,20 +65,5 @@ function send2factor(form) {
                 document.getElementById("cancel").style.display = "block";
 
             }
-        })
-}
-
-function sendLogoff() {
-    $
-        .ajax({
-            url: "./resource/user/logoff",
-            dataType: "text",
-            type: "DELETE"
-        })
-        .data(function () {
-            window.location.href = "./index.html";
-        })
-        .fail(function (xhr, status, errorThrown) {
-            alert("Something went wrong");
         })
 }
