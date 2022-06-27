@@ -1,5 +1,5 @@
 /**
- * view-controller for locomotiveList.html
+ * view-controller for signalBoxList.html
  * @author Lorenzo Giuntini (Medox36)
  */
 document.addEventListener("DOMContentLoaded", () => {
@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
- * reads all locomotives
+ * reads all signalBox
  */
 function readSignalBoxes() {
     fetch("./resource/signalbox/list")
@@ -28,7 +28,7 @@ function readSignalBoxes() {
 }
 
 /**
- * shows the locomotiveList as a table
+ * shows the signalBoxList as a table
  * @param data  the books
  */
 function showSignalBoxList(data) {
@@ -75,7 +75,7 @@ function editSignalBox(event) {
 }
 
 /**
- * deletes a locomotive
+ * deletes a signalBox
  * @param event  the click-event
  */
 function deleteSignalBox(event) {

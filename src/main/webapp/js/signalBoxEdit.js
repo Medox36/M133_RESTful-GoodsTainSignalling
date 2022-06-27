@@ -1,5 +1,5 @@
 /**
- * view-controller for locomotiveEdit.html
+ * view-controller for signalBoxEdit.html
  * @author Lorenzo Giuntini (Medox36)
  */
 document.addEventListener("DOMContentLoaded", () => {
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
- * saves the data of a locomotive
+ * saves the data of a signalBox
  */
 function saveSignalBox(event) {
     event.preventDefault();
@@ -50,7 +50,7 @@ function saveSignalBox(event) {
 }
 
 /**
- * reads a locomotive
+ * reads a signalBox
  */
 function readSignalBox() {
     const trackSection = getQueryParam("trackSection");
@@ -72,8 +72,8 @@ function readSignalBox() {
 }
 
 /**
- * show the data of a locomotive
- * @param data  the locomotive-data
+ * show the data of a signalBox
+ * @param data  the signalBox-data
  */
 function showSignalBox(data) {
     document.getElementById("trackSection").value = data.trackSection;
