@@ -37,7 +37,9 @@
         </tr>
         <tr>
             <td><label for="commissioningDate">Inbetriebnahme</label></td>
-            <td><input id="commissioningDate" name="commissioningDate" type="date"/></td>
+            <td><input id="commissioningDate" name="commissioningDate" type="text" size="5"
+                    pattern="^\d{4}-(02-(0[1-9]|[12][0-9])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))$"/>
+            </td>
         </tr>
         <tr>
             <td><label for="signalBoxTrackSection">Stelwerk-Gleisabschnitt</label></td>
