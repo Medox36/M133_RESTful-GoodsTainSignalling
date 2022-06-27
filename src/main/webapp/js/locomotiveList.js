@@ -32,6 +32,7 @@ function readLocomotives() {
  * @param data  the books
  */
 function showLocomotiveList(data) {
+    const userRole = getCookie("plainUserRole");
     let tBody = document.getElementById("locolist");
     data.forEach(locomotive => {
         let row = tBody.insertRow(-1);
@@ -45,6 +46,9 @@ function showLocomotiveList(data) {
         button.innerHTML = "Bearbeiten ...";
         button.type = "button";
         button.name = "editLoco";
+        if (userRole !== "admin") {
+            button.innerHTML = "&#128065;";
+        }
         button.setAttribute("data-series", locomotive.series);
         button.setAttribute("data-oN", locomotive.operationNumber);
         button.addEventListener("click", editLoco);
@@ -54,6 +58,9 @@ function showLocomotiveList(data) {
         button.innerHTML = "Löschen ...";
         button.type = "button";
         button.name = "deleteLoco";
+        if (userRole !== "admin") {
+            button.disabled = true;
+        }
         button.setAttribute("data-series", locomotive.series);
         button.setAttribute("data-oN", locomotive.operationNumber);
         button.addEventListener("click", deleteLoco);
@@ -88,7 +95,7 @@ function deleteLoco(event) {
         })
         .then(function (response) {
             if (response.ok) {
-                window.location.href = "../locomotiveList.html";
+                window.location.href = "./locomotiveList.html";
             } else {
                 console.log(response);
             }

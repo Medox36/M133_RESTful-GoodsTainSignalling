@@ -8,6 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("locoeditForm").addEventListener("submit", saveLoco);
     document.getElementById("cancel").addEventListener("click", cancelEdit);
+
+    /*if (getCookie("plainUserRole") !== "admin") {
+        document.getElementById("save").disable = true;
+        document.getElementById("reset").disable = true;
+    }*/
 });
 
 /**
@@ -84,6 +89,10 @@ function showLoco(data) {
     document.getElementById("railwayCompany").value = data.railwayCompany;
     document.getElementById("commissioningDate").value = data.commissioningDate;
     document.getElementById("signalBoxTrackSection").value = data.signalBox.trackSection;
+
+    const userRole = getCookie("plainUserRole");
+    const locked =  !(userRole === "admin");
+    lockForm("locoeditForm", locked);
 }
 
 /**
@@ -127,5 +136,5 @@ function showSignalBoxes(data) {
  * @param event  the click-event
  */
 function cancelEdit(event) {
-    window.location.href = "../locomotiveList.html";
+    window.location.href = "./locomotiveList.html";
 }

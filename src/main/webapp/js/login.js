@@ -55,7 +55,7 @@ function send2factor(form) {
             data: $("form").serialize()
         })
         .done(function () {
-            window.location.href = "../locomotiveList.html";
+            window.location.href = "./locomotiveList.html";
         })
         .fail(function (xhr, status, errorThrown) {
             if (xhr.status = 400) {
