@@ -59,7 +59,7 @@ public class SignalBoxService {
             }
             list = DataHandler.readAllSignalBoxesWithFilterAndSort(filter, sortBy, sort);
         } else {
-            status = 403;
+            status = 401;
         }
 
         return Response
@@ -94,7 +94,7 @@ public class SignalBoxService {
                 status = 404;
             }
         } else {
-            status = 403;
+            status = 401;
         }
         return Response
                 .status(status)
@@ -123,7 +123,7 @@ public class SignalBoxService {
                 status = 400;
             }
         } else {
-            status = 403;
+            status = 401;
         }
 
         return Response
@@ -157,7 +157,7 @@ public class SignalBoxService {
                 status = 410;
             }
         } else {
-            status = 403;
+            status = 401;
         }
 
         return Response
@@ -191,7 +191,7 @@ public class SignalBoxService {
                 status = 400;
             }
         } else {
-            status = 403;
+            status = 401;
         }
 
         return Response

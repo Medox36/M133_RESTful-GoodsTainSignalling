@@ -62,7 +62,7 @@ public class LocomotiveService {
             }
             list = DataHandler.readAllLocomotivesWithFilterAndSort(filter, sortBy, sort);
         } else {
-            status = 403;
+            status = 401;
         }
 
         return Response
@@ -103,7 +103,7 @@ public class LocomotiveService {
                 status = 404;
             }
         } else {
-            status = 403;
+            status = 401;
         }
         return Response
                 .status(status)
@@ -153,7 +153,7 @@ public class LocomotiveService {
                 status = 400;
             }
         } else {
-            status = 403;
+            status = 401;
         }
 
         return Response
@@ -211,7 +211,7 @@ public class LocomotiveService {
                 status = 400;
             }
         } else {
-            status = 403;
+            status = 401;
         }
 
         return Response
@@ -252,7 +252,7 @@ public class LocomotiveService {
                 status = 400;
             }
         } else {
-            status = 403;
+            status = 401;
         }
 
         return Response

@@ -85,7 +85,7 @@ public class UserService {
         User user = UserData.findUser(username, password);
 
         if (role == null || role.equals("guest") || user == null || word == null || word.equals("word")) {
-            status = 403;
+            status = 401;
 
             return Response
                     .status(status)
