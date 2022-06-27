@@ -89,5 +89,5 @@ function showSignalBox(data) {
  * @param event  the click-event
  */
 function cancelEdit(event) {
-    window.location.href = "./locomotiveList.html";
+    window.location.href = "./signalBoxList.html";
 }
