@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Lorenzo Giuntini"/>
+    <title>Stellwerkliste</title>
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/util.js"></script>
+    <script src="./js/logoff.js"></script>
+    <script src="./js/signalBoxList.js"></script>
+    <style>table {border-collapse: separate;border-spacing: 50px 0;}  td {padding: 4px 0;}</style>
+</head>
+<body>
+<nav id="nav">
+    <button type="button" id="logoff">Abmelden</button>
+    <span id="userrole"></span>
+    <span id="message" style="color: red;"></span>
+</nav>
+<h3>Stellwerkliste</h3>
+<form id="shelfForm">
+    <table id="bookshelf">
+        <thead>
+        <tr>
+            <th>Stelwerk-Gleisabschnitt</th>
+            <th>Arbeitenede Stellwerker*innen</th>
+        </tr>
+        </thead>
+        <tbody id="signalList">
+
+        </tbody>
+    </table>
+    <p>
+        <a href="./signalBoxEdit.html">Neues Stellwerk</a>
+    </p>
+</form>
+</body>
+</html>
