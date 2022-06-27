@@ -78,7 +78,7 @@ public class SignalBoxService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response read(
-            @QueryParam("section")
+            @QueryParam("trackSection")
             @Size(min = 3, max = 120)
             @NotBlank
             String trackSection,
