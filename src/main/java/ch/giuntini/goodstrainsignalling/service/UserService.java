@@ -163,7 +163,7 @@ public class UserService {
      */
     private NewCookie plainUserRoleCookie(String userRole, int maxAge) {
         return new NewCookie(
-                "userRole",
+                "plainUserRole",
                 userRole,
                 "/",
                 "", //z.B. abc.ch
