@@ -50,7 +50,9 @@ function saveLoco(event) {
                 console.log(response);
             } else return response;
         })
-        .then()
+        .then(function () {
+            window.location.href = "./locomotiveList.html";
+        })
         .catch(function (error) {
             console.log(error);
         });

@@ -43,7 +43,9 @@ function saveSignalBox(event) {
                 console.log(response);
             } else return response;
         })
-        .then()
+        .then(function () {
+            window.location.href = "./signalBoxList.html";
+        })
         .catch(function (error) {
             console.log(error);
         });
