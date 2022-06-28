@@ -1,0 +1,3697 @@
+{
+	"info": {
+		"_postman_id": "f01499d8-eb93-4458-b461-ad08f4a0ceb4",
+		"name": "RESTful GoodsTrainSignalling Milestone-3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "wrong_logIns",
+			"item": [
+				{
+					"name": "logInAsNotExistingUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "bob",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logIn_allNull",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "a",
+									"value": "",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logIn_passwordNull",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "usename",
+									"value": "",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logIn_usernameNull",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/login?password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"user",
+								"login"
+							],
+							"query": [
+								{
+									"key": "password",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logIn_asUserForThe2faTests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "alice",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "geheim",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logIn_2fa_allNull",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Logged in as User\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "a",
+									"value": "",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/2factor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"user",
+								"2factor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logIn_2fa_userNameNull",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Logged in as User\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "a",
+									"value": "",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/2factor?pasword=geheim&word=one",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"user",
+								"2factor"
+							],
+							"query": [
+								{
+									"key": "pasword",
+									"value": "geheim"
+								},
+								{
+									"key": "word",
+									"value": "one"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logIn_2fa_passwordNull",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Logged in as User\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "alice",
+									"type": "default"
+								},
+								{
+									"key": "word",
+									"value": "one",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/2factor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"user",
+								"2factor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logIn_2fa_wordNull",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Logged in as User\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "alice",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "geheim",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/2factor?username=maxm&password=secret",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"user",
+								"2factor"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "maxm"
+								},
+								{
+									"key": "password",
+									"value": "secret"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logOff",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/logoff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"user",
+								"logoff"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "NotLoggedIn",
+			"item": [
+				{
+					"name": "listLocomotive_motLoggedIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "readLocomotive_motLoggedIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/read?series=Ce 6/8^III&opn=14305",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"read"
+							],
+							"query": [
+								{
+									"key": "series",
+									"value": "Ce 6/8^III"
+								},
+								{
+									"key": "opn",
+									"value": "14305"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "locomotive_create_notLoggedIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "series",
+									"value": "Am 6/6",
+									"type": "default"
+								},
+								{
+									"key": "operationNumber",
+									"value": "18118",
+									"type": "default"
+								},
+								{
+									"key": "railwayCompany",
+									"value": "SBB",
+									"type": "default"
+								},
+								{
+									"key": "commissioningDate",
+									"value": "1976-03-02",
+									"type": "default"
+								},
+								{
+									"key": "signalBoxTrackSection",
+									"value": "Basel",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "locomotive_update_notLoggedIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "series",
+									"value": "A 3/5",
+									"type": "default"
+								},
+								{
+									"key": "operationNumber",
+									"value": "702",
+									"type": "default"
+								},
+								{
+									"key": "railwayCompany",
+									"value": "SBB",
+									"type": "default"
+								},
+								{
+									"key": "commissioningDate",
+									"value": "1953-03-23",
+									"type": "default"
+								},
+								{
+									"key": "signalBoxTrackSection",
+									"value": "Bern",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "locomotive_delete_notLoggedIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D 3/3&operationNumber=3416",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "series",
+									"value": "D 3/3"
+								},
+								{
+									"key": "operationNumber",
+									"value": "3416"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listSignalBox_motLoggedIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "readSignalBox_motLoggedIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/read?trackSection=Zürich",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"read"
+							],
+							"query": [
+								{
+									"key": "trackSection",
+									"value": "Zürich"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signalBox_create_notLoggedIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "trackSection",
+									"value": "Fraunenfeld",
+									"type": "default"
+								},
+								{
+									"key": "workingSignalmen",
+									"value": "20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signalBox_update_notLoggedIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "trackSection",
+									"value": "Genf",
+									"type": "default"
+								},
+								{
+									"key": "workingSignalmen",
+									"value": "20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signalBox_delete_notLoggedIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/delete?trackSection=Basel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "trackSection",
+									"value": "Basel"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listFreightWagon_motLoggedIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "readFreightWagon_motLoggedIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/read?wn=53%2004%202344%20920-8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"read"
+							],
+							"query": [
+								{
+									"key": "wn",
+									"value": "53%2004%202344%20920-8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "freightWagon_create_notLoggedIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "waggonNumber",
+									"value": "53 04 2344 921-8",
+									"type": "default"
+								},
+								{
+									"key": "lastMaintenance",
+									"value": "2014-04-26T23:05:00",
+									"type": "default"
+								},
+								{
+									"key": "handbrakeIsOn",
+									"value": "true",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "freightWagon_update_notLoggedIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "waggonNumber",
+									"value": "82 54 2522 589-8",
+									"type": "default"
+								},
+								{
+									"key": "lastMaintenance",
+									"value": "2022-01-02T11:00:00",
+									"type": "default"
+								},
+								{
+									"key": "handbrakeIsOn",
+									"value": "false",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "freightWagon_delete_notLoggedIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/delete?waggonNumber=74 72 8320 597-7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "waggonNumber",
+									"value": "74 72 8320 597-7"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LoggedInAsGuest",
+			"item": [
+				{
+					"name": "logInAsGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Logged in as Guest\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "maxm",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "secret",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listLocomotive_loggedInAsGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "readLocomotive_loggedInAsGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/read?series=Ce 6/8^III&opn=14305",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"read"
+							],
+							"query": [
+								{
+									"key": "series",
+									"value": "Ce 6/8^III"
+								},
+								{
+									"key": "opn",
+									"value": "14305"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "locomotive_create_loggedInAsGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "series",
+									"value": "Am 6/6",
+									"type": "default"
+								},
+								{
+									"key": "operationNumber",
+									"value": "18118",
+									"type": "default"
+								},
+								{
+									"key": "railwayCompany",
+									"value": "SBB",
+									"type": "default"
+								},
+								{
+									"key": "commissioningDate",
+									"value": "1976-03-02",
+									"type": "default"
+								},
+								{
+									"key": "signalBoxTrackSection",
+									"value": "Basel",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "locomotive_update_loggedInAsGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "series",
+									"value": "A 3/5",
+									"type": "default"
+								},
+								{
+									"key": "operationNumber",
+									"value": "702",
+									"type": "default"
+								},
+								{
+									"key": "railwayCompany",
+									"value": "SBB",
+									"type": "default"
+								},
+								{
+									"key": "commissioningDate",
+									"value": "1953-03-23",
+									"type": "default"
+								},
+								{
+									"key": "signalBoxTrackSection",
+									"value": "Bern",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "locomotive_delete_loggedInAsGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D 3/3&operationNumber=3416",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "series",
+									"value": "D 3/3"
+								},
+								{
+									"key": "operationNumber",
+									"value": "3416"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listSignalBox_loggedInAsGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "readSignalBox_loggedInAsGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/read?trackSection=Zürich",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"read"
+							],
+							"query": [
+								{
+									"key": "trackSection",
+									"value": "Zürich"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signalBox_create_loggedInAsGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "trackSection",
+									"value": "Fraunenfeld",
+									"type": "default"
+								},
+								{
+									"key": "workingSignalmen",
+									"value": "20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signalBox_update_loggedInAsGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "trackSection",
+									"value": "Genf",
+									"type": "default"
+								},
+								{
+									"key": "workingSignalmen",
+									"value": "20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signalBox_delete_loggedInAsGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/delete?trackSection=Basel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "trackSection",
+									"value": "Basel"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listFreightWagon_loggedInAsGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "readFreightWagon_loggedInAsGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/read?wn=53%2004%202344%20920-8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"read"
+							],
+							"query": [
+								{
+									"key": "wn",
+									"value": "53%2004%202344%20920-8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "freightWagon_create_loggedInAsGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "waggonNumber",
+									"value": "53 04 2344 921-8",
+									"type": "default"
+								},
+								{
+									"key": "lastMaintenance",
+									"value": "2014-04-26T23:05:00",
+									"type": "default"
+								},
+								{
+									"key": "handbrakeIsOn",
+									"value": "true",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "freightWagon_update_loggedInAsGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "waggonNumber",
+									"value": "82 54 2522 589-8",
+									"type": "default"
+								},
+								{
+									"key": "lastMaintenance",
+									"value": "2022-01-02T11:00:00",
+									"type": "default"
+								},
+								{
+									"key": "handbrakeIsOn",
+									"value": "false",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "freightWagon_delete_loggedInAsGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/delete?waggonNumber=74 72 8320 597-7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "waggonNumber",
+									"value": "74 72 8320 597-7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logOff",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/logoff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"user",
+								"logoff"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LoggedInAsUser",
+			"item": [
+				{
+					"name": "logInAsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "bob",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logInAsUser_2fa",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Logged in as User\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "bob",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "default"
+								},
+								{
+									"key": "word",
+									"value": "one",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/2factor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"user",
+								"2factor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listLocomotive_loggedInAsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "readLocomotive_loggedInAsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/read?series=Ce 6/8^III&opn=14305",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"read"
+							],
+							"query": [
+								{
+									"key": "series",
+									"value": "Ce 6/8^III"
+								},
+								{
+									"key": "opn",
+									"value": "14305"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "locomotive_create_loggedInAsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "series",
+									"value": "Am 6/6",
+									"type": "default"
+								},
+								{
+									"key": "operationNumber",
+									"value": "18118",
+									"type": "default"
+								},
+								{
+									"key": "railwayCompany",
+									"value": "SBB",
+									"type": "default"
+								},
+								{
+									"key": "commissioningDate",
+									"value": "1976-03-02",
+									"type": "default"
+								},
+								{
+									"key": "signalBoxTrackSection",
+									"value": "Basel",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "locomotive_update_loggedInAsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "series",
+									"value": "A 3/5",
+									"type": "default"
+								},
+								{
+									"key": "operationNumber",
+									"value": "702",
+									"type": "default"
+								},
+								{
+									"key": "railwayCompany",
+									"value": "SBB",
+									"type": "default"
+								},
+								{
+									"key": "commissioningDate",
+									"value": "1953-03-23",
+									"type": "default"
+								},
+								{
+									"key": "signalBoxTrackSection",
+									"value": "Bern",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "locomotive_delete_loggedInAsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D 3/3&operationNumber=3416",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "series",
+									"value": "D 3/3"
+								},
+								{
+									"key": "operationNumber",
+									"value": "3416"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listSignalBox_loggedInAsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "readSignalBox_loggedInAsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/read?trackSection=Zürich",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"read"
+							],
+							"query": [
+								{
+									"key": "trackSection",
+									"value": "Zürich"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signalBox_create_loggedInAsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "trackSection",
+									"value": "Fraunenfeld",
+									"type": "default"
+								},
+								{
+									"key": "workingSignalmen",
+									"value": "20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signalBox_update_loggedInAsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "trackSection",
+									"value": "Genf",
+									"type": "default"
+								},
+								{
+									"key": "workingSignalmen",
+									"value": "20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signalBox_delete_loggedInAsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/delete?trackSection=Basel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "trackSection",
+									"value": "Basel"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listFreightWagon_loggedInAsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "readFreightWagon_loggedInAsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/read?wn=53%2004%202344%20920-8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"read"
+							],
+							"query": [
+								{
+									"key": "wn",
+									"value": "53%2004%202344%20920-8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "freightWagon_create_loggedInAsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "waggonNumber",
+									"value": "53 04 2344 921-8",
+									"type": "default"
+								},
+								{
+									"key": "lastMaintenance",
+									"value": "2014-04-26T23:05:00",
+									"type": "default"
+								},
+								{
+									"key": "handbrakeIsOn",
+									"value": "true",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "freightWagon_update_loggedInAsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "waggonNumber",
+									"value": "82 54 2522 589-8",
+									"type": "default"
+								},
+								{
+									"key": "lastMaintenance",
+									"value": "2022-01-02T11:00:00",
+									"type": "default"
+								},
+								{
+									"key": "handbrakeIsOn",
+									"value": "false",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "freightWagon_delete_loggedInAsUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/delete?waggonNumber=74 72 8320 597-7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "waggonNumber",
+									"value": "74 72 8320 597-7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logOff",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/logoff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"user",
+								"logoff"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LoggedInAsAdmin",
+			"item": [
+				{
+					"name": "logInAsAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "tyler",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logInAsAdmin_2fa",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Logged in as User\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "tyler",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "default"
+								},
+								{
+									"key": "word",
+									"value": "one",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/2factor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"user",
+								"2factor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listLocomotive_loggedInAsAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "readLocomotive_loggedInAsAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/read?series=Ce 6/8^III&opn=14305",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"read"
+							],
+							"query": [
+								{
+									"key": "series",
+									"value": "Ce 6/8^III"
+								},
+								{
+									"key": "opn",
+									"value": "14305"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "locomotive_create_loggedInAsAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "series",
+									"value": "Am 6/6",
+									"type": "default"
+								},
+								{
+									"key": "operationNumber",
+									"value": "18118",
+									"type": "default"
+								},
+								{
+									"key": "railwayCompany",
+									"value": "SBB",
+									"type": "default"
+								},
+								{
+									"key": "commissioningDate",
+									"value": "1976-03-02",
+									"type": "default"
+								},
+								{
+									"key": "signalBoxTrackSection",
+									"value": "Basel",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "locomotive_update_loggedInAsAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "series",
+									"value": "A 3/5",
+									"type": "default"
+								},
+								{
+									"key": "operationNumber",
+									"value": "702",
+									"type": "default"
+								},
+								{
+									"key": "railwayCompany",
+									"value": "SBB",
+									"type": "default"
+								},
+								{
+									"key": "commissioningDate",
+									"value": "1953-03-23",
+									"type": "default"
+								},
+								{
+									"key": "signalBoxTrackSection",
+									"value": "Bern",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "locomotive_delete_loggedInAsAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D 3/3&operationNumber=3416",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"locomotive",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "series",
+									"value": "D 3/3"
+								},
+								{
+									"key": "operationNumber",
+									"value": "3416"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listSignalBox_loggedInAsAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "readSignalBox_loggedInAsAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/read?trackSection=Zürich",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"read"
+							],
+							"query": [
+								{
+									"key": "trackSection",
+									"value": "Zürich"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signalBox_create_loggedInAsAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "trackSection",
+									"value": "Fraunenfeld",
+									"type": "default"
+								},
+								{
+									"key": "workingSignalmen",
+									"value": "20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signalBox_update_loggedInAsAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "trackSection",
+									"value": "Genf",
+									"type": "default"
+								},
+								{
+									"key": "workingSignalmen",
+									"value": "20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signalBox_delete_loggedInAsAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/delete?trackSection=Basel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"signalbox",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "trackSection",
+									"value": "Basel"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listFreightWagon_loggedInAsAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "readFreightWagon_loggedInAsAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Works as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/read?wn=53%2004%202344%20920-8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"read"
+							],
+							"query": [
+								{
+									"key": "wn",
+									"value": "53%2004%202344%20920-8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "freightWagon_create_loggedInAsAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "waggonNumber",
+									"value": "53 04 2344 921-8",
+									"type": "default"
+								},
+								{
+									"key": "lastMaintenance",
+									"value": "2014-04-26T23:05:00",
+									"type": "default"
+								},
+								{
+									"key": "handbrakeIsOn",
+									"value": "true",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "freightWagon_update_loggedInAsAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "waggonNumber",
+									"value": "82 54 2522 589-8",
+									"type": "default"
+								},
+								{
+									"key": "lastMaintenance",
+									"value": "2022-01-02T11:00:00",
+									"type": "default"
+								},
+								{
+									"key": "handbrakeIsOn",
+									"value": "false",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "freightWagon_delete_loggedInAsAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/delete?waggonNumber=74 72 8320 597-7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"freightwagon",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "waggonNumber",
+									"value": "74 72 8320 597-7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logOff",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Expected status\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/logoff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GoodsTrainSignalling-1.0-SNAPSHOT",
+								"resource",
+								"user",
+								"logoff"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

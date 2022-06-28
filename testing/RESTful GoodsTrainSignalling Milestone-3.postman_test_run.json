@@ -1,0 +1,2436 @@
+{
+	"id": "755136e4-d01c-4a3f-b385-191ad36f5359",
+	"name": "RESTful GoodsTrainSignalling Milestone-3",
+	"timestamp": "2022-06-28T20:33:10.676Z",
+	"collection_id": "0-f01499d8-eb93-4458-b461-ad08f4a0ceb4",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 78,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "443f2607-b154-42e0-8650-a40ef08d5576",
+			"name": "logInAsNotExistingUser",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/login",
+			"time": 721,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				721
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "6a787a88-03d4-4cdb-823a-0eccfd0bb8da",
+			"name": "logIn_allNull",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/login",
+			"time": 104,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				104
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "6acc27e6-94d4-48a7-9590-84a506095cc3",
+			"name": "logIn_passwordNull",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/login",
+			"time": 9,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "e130f43d-7785-499c-afd2-ea7cf160d49d",
+			"name": "logIn_usernameNull",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/login?password",
+			"time": 13,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "b1c3eecf-a58f-44c5-823d-33e32201c8a2",
+			"name": "logIn_asUserForThe2faTests",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/login",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "15089ce1-49a1-4c17-906c-5a68632234cb",
+			"name": "logIn_2fa_allNull",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/2factor",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Logged in as User": true
+			},
+			"testPassFailCounts": {
+				"Logged in as User": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Logged in as User": true
+				}
+			]
+		},
+		{
+			"id": "bdc064f2-abfb-4e2c-aee4-d0569b3eb254",
+			"name": "logIn_2fa_userNameNull",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/2factor?pasword=geheim&word=one",
+			"time": 11,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Logged in as User": true
+			},
+			"testPassFailCounts": {
+				"Logged in as User": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Logged in as User": true
+				}
+			]
+		},
+		{
+			"id": "bb13f00f-f263-45b1-93ea-b6b1204b62a0",
+			"name": "logIn_2fa_passwordNull",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/2factor",
+			"time": 5,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Logged in as User": true
+			},
+			"testPassFailCounts": {
+				"Logged in as User": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Logged in as User": true
+				}
+			]
+		},
+		{
+			"id": "83919ec1-57bb-4d0c-9170-04a428b5a9f8",
+			"name": "logIn_2fa_wordNull",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/2factor?username=maxm&password=secret",
+			"time": 15,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Logged in as User": true
+			},
+			"testPassFailCounts": {
+				"Logged in as User": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Logged in as User": true
+				}
+			]
+		},
+		{
+			"id": "d2e65628-074c-4edc-ae93-426ce6be5550",
+			"name": "logOff",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/logoff",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "2df6790a-ae0d-4664-b591-d31cc393b04d",
+			"name": "listLocomotive_motLoggedIn",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/list",
+			"time": 273,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				273
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "549d2898-0cd6-4f6f-ad04-13976efa2a29",
+			"name": "readLocomotive_motLoggedIn",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/read?series=Ce%206/8^III&opn=14305",
+			"time": 13,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "f5f9cda3-0ab2-4298-aced-8f2f9baf0d63",
+			"name": "locomotive_create_notLoggedIn",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+			"time": 329,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				329
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "d0637290-051a-4fb6-b20b-3423cfc03e56",
+			"name": "locomotive_update_notLoggedIn",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+			"time": 7,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "3eae2795-2d48-4ff3-a4d5-fdc7facb0e1c",
+			"name": "locomotive_delete_notLoggedIn",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D%203/3&operationNumber=3416",
+			"time": 7,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "0c94e9e9-1782-4e0b-b707-60c4e7f2b2b2",
+			"name": "listSignalBox_motLoggedIn",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/list",
+			"time": 14,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "82832aad-0869-4dbe-b0b2-fe7d82aef757",
+			"name": "readSignalBox_motLoggedIn",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/read?trackSection=Z%C3%BCrich",
+			"time": 5,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "3732d74d-2734-453c-880a-a78170aab339",
+			"name": "signalBox_create_notLoggedIn",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
+			"time": 17,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				17
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "48b562fc-7872-4f25-8c2a-33411c2709cf",
+			"name": "signalBox_update_notLoggedIn",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
+			"time": 5,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "7ae09898-7818-4840-88e6-1dfd2a671ffb",
+			"name": "signalBox_delete_notLoggedIn",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/delete?trackSection=Basel",
+			"time": 17,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				17
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "aa396b67-752a-4f08-828e-f5c36763c1d3",
+			"name": "listFreightWagon_motLoggedIn",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/list",
+			"time": 32,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				32
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "d3927455-5223-4224-9e3d-6df0fbd164a5",
+			"name": "readFreightWagon_motLoggedIn",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/read?wn=53%2004%202344%20920-8",
+			"time": 6,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "f76aafab-f5c6-40c9-8499-484ed9be7381",
+			"name": "freightWagon_create_notLoggedIn",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
+			"time": 18,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "1dfc6ec8-024d-4cb7-bf7d-9ce3e33b4bf0",
+			"name": "freightWagon_update_notLoggedIn",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
+			"time": 7,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "92b2a22b-75dc-4515-bcd2-349b51dc67e1",
+			"name": "freightWagon_delete_notLoggedIn",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/delete?waggonNumber=74%2072%208320%20597-7",
+			"time": 5,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "6b2fc871-7460-4263-b630-bf64db77e798",
+			"name": "logInAsGuest",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/login",
+			"time": 9,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Logged in as Guest": true
+			},
+			"testPassFailCounts": {
+				"Logged in as Guest": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Logged in as Guest": true
+				}
+			]
+		},
+		{
+			"id": "42beafd7-e9d8-42f0-8a21-22f327321a48",
+			"name": "listLocomotive_loggedInAsGuest",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/list",
+			"time": 6,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "3f1ceb53-7609-4eea-be85-7f5531072230",
+			"name": "readLocomotive_loggedInAsGuest",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/read?series=Ce%206/8^III&opn=14305",
+			"time": 6,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "63200bce-01a5-4400-8635-fa0f5b7c5f12",
+			"name": "locomotive_create_loggedInAsGuest",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+			"time": 6,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "8711c4a4-7716-4928-a5e6-91d852acf666",
+			"name": "locomotive_update_loggedInAsGuest",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+			"time": 13,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "bdc91c46-8c56-476f-a360-a0a6edfdc724",
+			"name": "locomotive_delete_loggedInAsGuest",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D%203/3&operationNumber=3416",
+			"time": 8,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "67e1b27d-45e6-485b-a0e3-c6f7f5292e49",
+			"name": "listSignalBox_loggedInAsGuest",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/list",
+			"time": 6,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "41e430b8-a3c0-4b40-ace1-c0590fd10187",
+			"name": "readSignalBox_loggedInAsGuest",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/read?trackSection=Z%C3%BCrich",
+			"time": 6,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "5831109e-898c-41cc-badd-36c69e78d84c",
+			"name": "signalBox_create_loggedInAsGuest",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
+			"time": 9,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "1a1e7ac3-337c-4460-ade4-3d56a9936f75",
+			"name": "signalBox_update_loggedInAsGuest",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
+			"time": 9,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "1236f6c6-5117-4418-aa25-ab5d65f335f9",
+			"name": "signalBox_delete_loggedInAsGuest",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/delete?trackSection=Basel",
+			"time": 14,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "d54e8568-91ff-4320-8c4a-8cc26268e7ad",
+			"name": "listFreightWagon_loggedInAsGuest",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/list",
+			"time": 5,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "aeadaf67-a0af-4d07-8ae1-2b247cdbb6cb",
+			"name": "readFreightWagon_loggedInAsGuest",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/read?wn=53%2004%202344%20920-8",
+			"time": 5,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "3f8eed57-b96a-4812-b9aa-7eb5e881784b",
+			"name": "freightWagon_create_loggedInAsGuest",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
+			"time": 9,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "dbad47c0-cd1e-498c-b3df-bfc028df6131",
+			"name": "freightWagon_update_loggedInAsGuest",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
+			"time": 9,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "9d2eb21e-9e73-423c-b650-9c5f7f0bd169",
+			"name": "freightWagon_delete_loggedInAsGuest",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/delete?waggonNumber=74%2072%208320%20597-7",
+			"time": 10,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "67950e0b-1dfc-4e17-ae1a-23cc45796d60",
+			"name": "logOff",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/logoff",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "f0ded579-84ac-4206-811f-40580d2d0569",
+			"name": "logInAsUser",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/login",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "91d9b67b-ab8d-4642-bc33-8f78420aee70",
+			"name": "logInAsUser_2fa",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/2factor",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Logged in as User": true
+			},
+			"testPassFailCounts": {
+				"Logged in as User": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Logged in as User": true
+				}
+			]
+		},
+		{
+			"id": "1a138511-ab84-48e0-b8f1-6d5329a95c43",
+			"name": "listLocomotive_loggedInAsUser",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/list",
+			"time": 317,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				317
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "f54c227e-7200-4634-9e83-8fbc1fa90ca2",
+			"name": "readLocomotive_loggedInAsUser",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/read?series=Ce%206/8^III&opn=14305",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "41df77ad-cf06-434d-9afe-6d1e19676702",
+			"name": "locomotive_create_loggedInAsUser",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+			"time": 6,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "5c0fa463-5044-41cd-a651-dce033cecb75",
+			"name": "locomotive_update_loggedInAsUser",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+			"time": 9,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "6013af5b-9b96-4d01-8f4b-9e83d952bb20",
+			"name": "locomotive_delete_loggedInAsUser",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D%203/3&operationNumber=3416",
+			"time": 5,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "4056dcb0-549c-46bc-8978-3f1a365b7f51",
+			"name": "listSignalBox_loggedInAsUser",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/list",
+			"time": 23,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				23
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "aeca5d09-ff45-4635-a8cb-17fe74bfd817",
+			"name": "readSignalBox_loggedInAsUser",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/read?trackSection=Z%C3%BCrich",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "955c1d9b-f3fd-49e5-9c7b-fcf894e35903",
+			"name": "signalBox_create_loggedInAsUser",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
+			"time": 49,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				49
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "24144259-c93f-4a2e-bf1b-163838a556db",
+			"name": "signalBox_update_loggedInAsUser",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
+			"time": 5,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "58b6401d-a522-422f-82c3-f1bf6e5721cd",
+			"name": "signalBox_delete_loggedInAsUser",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/delete?trackSection=Basel",
+			"time": 6,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "0aa1b12b-6a5f-461f-aedb-58738af60b9c",
+			"name": "listFreightWagon_loggedInAsUser",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/list",
+			"time": 25,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				25
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "95f85422-9da9-406d-a606-41b01532ff33",
+			"name": "readFreightWagon_loggedInAsUser",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/read?wn=53%2004%202344%20920-8",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "e360d702-ad22-4511-9b1e-b57448855757",
+			"name": "freightWagon_create_loggedInAsUser",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
+			"time": 8,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "4e5a3ab2-b7d1-4829-8064-ee53c29e50f9",
+			"name": "freightWagon_update_loggedInAsUser",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
+			"time": 5,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "b65b957f-4cae-4ab9-8b4a-6f5ce08d1832",
+			"name": "freightWagon_delete_loggedInAsUser",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/delete?waggonNumber=74%2072%208320%20597-7",
+			"time": 5,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "66e08606-f7a3-4cd1-b815-b44d3aa714fb",
+			"name": "logOff",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/logoff",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "067912a4-b0a0-4ac7-be7f-33565032be4d",
+			"name": "logInAsAdmin",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/login",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "99656188-29e1-41a6-8552-e01457cb323d",
+			"name": "logInAsAdmin_2fa",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/2factor",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Logged in as User": true
+			},
+			"testPassFailCounts": {
+				"Logged in as User": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Logged in as User": true
+				}
+			]
+		},
+		{
+			"id": "31d49d48-344b-4b40-8641-9892556258fb",
+			"name": "listLocomotive_loggedInAsAdmin",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/list",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "b95aab2c-6acb-4313-bcb8-d9e37bdfaa0f",
+			"name": "readLocomotive_loggedInAsAdmin",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/read?series=Ce%206/8^III&opn=14305",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "c3a6a956-34bb-471b-be9d-ca3f5e52c093",
+			"name": "locomotive_create_loggedInAsAdmin",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/create",
+			"time": 52,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				52
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "09066fc6-7f0b-4f4c-8cef-bbe2e6441531",
+			"name": "locomotive_update_loggedInAsAdmin",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/update",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "24618ea6-9235-48b0-b40f-54e120f3a2b3",
+			"name": "locomotive_delete_loggedInAsAdmin",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/locomotive/delete?series=D%203/3&operationNumber=3416",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "f221f63d-8593-468a-8e1f-3fe00fa01d35",
+			"name": "listSignalBox_loggedInAsAdmin",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/list",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "09434e93-9d3e-46ad-8386-8bb0a442b3e3",
+			"name": "readSignalBox_loggedInAsAdmin",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/read?trackSection=Z%C3%BCrich",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "5b39b0b2-f7fd-4ecd-9223-208a53a573a3",
+			"name": "signalBox_create_loggedInAsAdmin",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/create",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "c6dab6d4-5915-4468-9cdf-bb133994775e",
+			"name": "signalBox_update_loggedInAsAdmin",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/update",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "d2ed3cd2-f29e-44c0-8547-abe8d1cf296a",
+			"name": "signalBox_delete_loggedInAsAdmin",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/signalbox/delete?trackSection=Basel",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "5b64290e-0814-485e-bc58-f2eae553628e",
+			"name": "listFreightWagon_loggedInAsAdmin",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/list",
+			"time": 19,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "5d2b42dd-4826-4e82-b780-1444ba8e876d",
+			"name": "readFreightWagon_loggedInAsAdmin",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/read?wn=53%2004%202344%20920-8",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Works as expected": true
+			},
+			"testPassFailCounts": {
+				"Works as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Works as expected": true
+				}
+			]
+		},
+		{
+			"id": "32e27a1b-eeea-48e5-bc00-ee24d5bf12f5",
+			"name": "freightWagon_create_loggedInAsAdmin",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/create",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "a8d4df38-0342-4551-be50-2257790dea90",
+			"name": "freightWagon_update_loggedInAsAdmin",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/update",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "05ae8f7e-b345-4855-a252-450274ed31f0",
+			"name": "freightWagon_delete_loggedInAsAdmin",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/freightwagon/delete?waggonNumber=74%2072%208320%20597-7",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		},
+		{
+			"id": "eb53d2a3-ac75-4608-9a9a-45432abc5d91",
+			"name": "logOff",
+			"url": "http://localhost:8080/GoodsTrainSignalling-1.0-SNAPSHOT/resource/user/logoff",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Expected status": true
+			},
+			"testPassFailCounts": {
+				"Expected status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Expected status": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 2486,
+	"collection": {
+		"requests": [
+			{
+				"id": "443f2607-b154-42e0-8650-a40ef08d5576",
+				"method": "POST"
+			},
+			{
+				"id": "6a787a88-03d4-4cdb-823a-0eccfd0bb8da",
+				"method": "POST"
+			},
+			{
+				"id": "6acc27e6-94d4-48a7-9590-84a506095cc3",
+				"method": "POST"
+			},
+			{
+				"id": "e130f43d-7785-499c-afd2-ea7cf160d49d",
+				"method": "POST"
+			},
+			{
+				"id": "b1c3eecf-a58f-44c5-823d-33e32201c8a2",
+				"method": "POST"
+			},
+			{
+				"id": "15089ce1-49a1-4c17-906c-5a68632234cb",
+				"method": "POST"
+			},
+			{
+				"id": "bdc064f2-abfb-4e2c-aee4-d0569b3eb254",
+				"method": "POST"
+			},
+			{
+				"id": "bb13f00f-f263-45b1-93ea-b6b1204b62a0",
+				"method": "POST"
+			},
+			{
+				"id": "83919ec1-57bb-4d0c-9170-04a428b5a9f8",
+				"method": "POST"
+			},
+			{
+				"id": "d2e65628-074c-4edc-ae93-426ce6be5550",
+				"method": "DELETE"
+			},
+			{
+				"id": "2df6790a-ae0d-4664-b591-d31cc393b04d",
+				"method": "GET"
+			},
+			{
+				"id": "549d2898-0cd6-4f6f-ad04-13976efa2a29",
+				"method": "GET"
+			},
+			{
+				"id": "f5f9cda3-0ab2-4298-aced-8f2f9baf0d63",
+				"method": "POST"
+			},
+			{
+				"id": "d0637290-051a-4fb6-b20b-3423cfc03e56",
+				"method": "PUT"
+			},
+			{
+				"id": "3eae2795-2d48-4ff3-a4d5-fdc7facb0e1c",
+				"method": "DELETE"
+			},
+			{
+				"id": "0c94e9e9-1782-4e0b-b707-60c4e7f2b2b2",
+				"method": "GET"
+			},
+			{
+				"id": "82832aad-0869-4dbe-b0b2-fe7d82aef757",
+				"method": "GET"
+			},
+			{
+				"id": "3732d74d-2734-453c-880a-a78170aab339",
+				"method": "POST"
+			},
+			{
+				"id": "48b562fc-7872-4f25-8c2a-33411c2709cf",
+				"method": "PUT"
+			},
+			{
+				"id": "7ae09898-7818-4840-88e6-1dfd2a671ffb",
+				"method": "DELETE"
+			},
+			{
+				"id": "aa396b67-752a-4f08-828e-f5c36763c1d3",
+				"method": "GET"
+			},
+			{
+				"id": "d3927455-5223-4224-9e3d-6df0fbd164a5",
+				"method": "GET"
+			},
+			{
+				"id": "f76aafab-f5c6-40c9-8499-484ed9be7381",
+				"method": "POST"
+			},
+			{
+				"id": "1dfc6ec8-024d-4cb7-bf7d-9ce3e33b4bf0",
+				"method": "PUT"
+			},
+			{
+				"id": "92b2a22b-75dc-4515-bcd2-349b51dc67e1",
+				"method": "DELETE"
+			},
+			{
+				"id": "6b2fc871-7460-4263-b630-bf64db77e798",
+				"method": "POST"
+			},
+			{
+				"id": "42beafd7-e9d8-42f0-8a21-22f327321a48",
+				"method": "GET"
+			},
+			{
+				"id": "3f1ceb53-7609-4eea-be85-7f5531072230",
+				"method": "GET"
+			},
+			{
+				"id": "63200bce-01a5-4400-8635-fa0f5b7c5f12",
+				"method": "POST"
+			},
+			{
+				"id": "8711c4a4-7716-4928-a5e6-91d852acf666",
+				"method": "PUT"
+			},
+			{
+				"id": "bdc91c46-8c56-476f-a360-a0a6edfdc724",
+				"method": "DELETE"
+			},
+			{
+				"id": "67e1b27d-45e6-485b-a0e3-c6f7f5292e49",
+				"method": "GET"
+			},
+			{
+				"id": "41e430b8-a3c0-4b40-ace1-c0590fd10187",
+				"method": "GET"
+			},
+			{
+				"id": "5831109e-898c-41cc-badd-36c69e78d84c",
+				"method": "POST"
+			},
+			{
+				"id": "1a1e7ac3-337c-4460-ade4-3d56a9936f75",
+				"method": "PUT"
+			},
+			{
+				"id": "1236f6c6-5117-4418-aa25-ab5d65f335f9",
+				"method": "DELETE"
+			},
+			{
+				"id": "d54e8568-91ff-4320-8c4a-8cc26268e7ad",
+				"method": "GET"
+			},
+			{
+				"id": "aeadaf67-a0af-4d07-8ae1-2b247cdbb6cb",
+				"method": "GET"
+			},
+			{
+				"id": "3f8eed57-b96a-4812-b9aa-7eb5e881784b",
+				"method": "POST"
+			},
+			{
+				"id": "dbad47c0-cd1e-498c-b3df-bfc028df6131",
+				"method": "PUT"
+			},
+			{
+				"id": "9d2eb21e-9e73-423c-b650-9c5f7f0bd169",
+				"method": "DELETE"
+			},
+			{
+				"id": "67950e0b-1dfc-4e17-ae1a-23cc45796d60",
+				"method": "DELETE"
+			},
+			{
+				"id": "f0ded579-84ac-4206-811f-40580d2d0569",
+				"method": "POST"
+			},
+			{
+				"id": "91d9b67b-ab8d-4642-bc33-8f78420aee70",
+				"method": "POST"
+			},
+			{
+				"id": "1a138511-ab84-48e0-b8f1-6d5329a95c43",
+				"method": "GET"
+			},
+			{
+				"id": "f54c227e-7200-4634-9e83-8fbc1fa90ca2",
+				"method": "GET"
+			},
+			{
+				"id": "41df77ad-cf06-434d-9afe-6d1e19676702",
+				"method": "POST"
+			},
+			{
+				"id": "5c0fa463-5044-41cd-a651-dce033cecb75",
+				"method": "PUT"
+			},
+			{
+				"id": "6013af5b-9b96-4d01-8f4b-9e83d952bb20",
+				"method": "DELETE"
+			},
+			{
+				"id": "4056dcb0-549c-46bc-8978-3f1a365b7f51",
+				"method": "GET"
+			},
+			{
+				"id": "aeca5d09-ff45-4635-a8cb-17fe74bfd817",
+				"method": "GET"
+			},
+			{
+				"id": "955c1d9b-f3fd-49e5-9c7b-fcf894e35903",
+				"method": "POST"
+			},
+			{
+				"id": "24144259-c93f-4a2e-bf1b-163838a556db",
+				"method": "PUT"
+			},
+			{
+				"id": "58b6401d-a522-422f-82c3-f1bf6e5721cd",
+				"method": "DELETE"
+			},
+			{
+				"id": "0aa1b12b-6a5f-461f-aedb-58738af60b9c",
+				"method": "GET"
+			},
+			{
+				"id": "95f85422-9da9-406d-a606-41b01532ff33",
+				"method": "GET"
+			},
+			{
+				"id": "e360d702-ad22-4511-9b1e-b57448855757",
+				"method": "POST"
+			},
+			{
+				"id": "4e5a3ab2-b7d1-4829-8064-ee53c29e50f9",
+				"method": "PUT"
+			},
+			{
+				"id": "b65b957f-4cae-4ab9-8b4a-6f5ce08d1832",
+				"method": "DELETE"
+			},
+			{
+				"id": "66e08606-f7a3-4cd1-b815-b44d3aa714fb",
+				"method": "DELETE"
+			},
+			{
+				"id": "067912a4-b0a0-4ac7-be7f-33565032be4d",
+				"method": "POST"
+			},
+			{
+				"id": "99656188-29e1-41a6-8552-e01457cb323d",
+				"method": "POST"
+			},
+			{
+				"id": "31d49d48-344b-4b40-8641-9892556258fb",
+				"method": "GET"
+			},
+			{
+				"id": "b95aab2c-6acb-4313-bcb8-d9e37bdfaa0f",
+				"method": "GET"
+			},
+			{
+				"id": "c3a6a956-34bb-471b-be9d-ca3f5e52c093",
+				"method": "POST"
+			},
+			{
+				"id": "09066fc6-7f0b-4f4c-8cef-bbe2e6441531",
+				"method": "PUT"
+			},
+			{
+				"id": "24618ea6-9235-48b0-b40f-54e120f3a2b3",
+				"method": "DELETE"
+			},
+			{
+				"id": "f221f63d-8593-468a-8e1f-3fe00fa01d35",
+				"method": "GET"
+			},
+			{
+				"id": "09434e93-9d3e-46ad-8386-8bb0a442b3e3",
+				"method": "GET"
+			},
+			{
+				"id": "5b39b0b2-f7fd-4ecd-9223-208a53a573a3",
+				"method": "POST"
+			},
+			{
+				"id": "c6dab6d4-5915-4468-9cdf-bb133994775e",
+				"method": "PUT"
+			},
+			{
+				"id": "d2ed3cd2-f29e-44c0-8547-abe8d1cf296a",
+				"method": "DELETE"
+			},
+			{
+				"id": "5b64290e-0814-485e-bc58-f2eae553628e",
+				"method": "GET"
+			},
+			{
+				"id": "5d2b42dd-4826-4e82-b780-1444ba8e876d",
+				"method": "GET"
+			},
+			{
+				"id": "32e27a1b-eeea-48e5-bc00-ee24d5bf12f5",
+				"method": "POST"
+			},
+			{
+				"id": "a8d4df38-0342-4551-be50-2257790dea90",
+				"method": "PUT"
+			},
+			{
+				"id": "05ae8f7e-b345-4855-a252-450274ed31f0",
+				"method": "DELETE"
+			},
+			{
+				"id": "eb53d2a3-ac75-4608-9a9a-45432abc5d91",
+				"method": "DELETE"
+			}
+		]
+	}
+}
