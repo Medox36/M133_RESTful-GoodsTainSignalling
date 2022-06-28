@@ -89,7 +89,7 @@ function deleteLoco(event) {
     const series = button.getAttribute("data-series");
     const oN = button.getAttribute("data-oN");
 
-    fetch("./resource/book/delete?series=" + series + "&opn=" + oN,
+    fetch("./resource/locomotive/delete?series=" + series + "&operationNumber=" + oN,
         {
             method: "DELETE"
         })

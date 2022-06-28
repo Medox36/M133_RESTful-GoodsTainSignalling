@@ -87,10 +87,15 @@ function readLoco() {
  */
 function showLoco(data) {
     document.getElementById("series").value = data.series;
-    document.getElementById("oN").value = data.operationNumber;
+    document.getElementById("operationNumber").value = data.operationNumber;
     document.getElementById("railwayCompany").value = data.railwayCompany;
     document.getElementById("commissioningDate").value = data.commissioningDate;
     document.getElementById("signalBoxTrackSection").value = data.signalBox.trackSection;
+
+    if (getQueryParam("series") != null || getQueryParam("opn") != null) {
+        document.getElementById("series").disabled = true;
+        document.getElementById("operationNumber").disabled = true;
+    }
 
     const userRole = getCookie("plainUserRole");
     const locked =  !(userRole === "admin");

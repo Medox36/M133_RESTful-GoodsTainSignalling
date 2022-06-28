@@ -81,6 +81,10 @@ function showSignalBox(data) {
     document.getElementById("trackSection").value = data.trackSection;
     document.getElementById("workingSignalmen").value = data.workingSignalmen;
 
+    if (getQueryParam("trackSection") != null) {
+        document.getElementById("trackSection").disabled = true;
+    }
+
     const userRole = getCookie("plainUserRole");
     const locked =  !(userRole === "admin");
     lockForm("signalBoxEditForm", locked);
