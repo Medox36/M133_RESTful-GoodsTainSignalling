@@ -4,6 +4,7 @@ import ch.giuntini.goodstrainsignalling.data.UserData;
 import ch.giuntini.goodstrainsignalling.model.User;
 import ch.giuntini.goodstrainsignalling.util.AESEncrypt;
 
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.NewCookie;
@@ -31,8 +32,8 @@ public class UserService {
     @Path("login")
     @Produces(MediaType.TEXT_PLAIN)
     public Response login(
-            @FormParam("username") String username,
-            @FormParam("password") String password
+            @NotNull @FormParam("username") String username,
+            @NotNull @FormParam("password") String password
     ) {
         int status = 200;
 
@@ -73,9 +74,9 @@ public class UserService {
     public Response twoFactor(
             @CookieParam("twoFacWord") String word,
             @CookieParam("userRole") String role,
-            @FormParam("username") String username,
-            @FormParam("password") String password,
-            @FormParam("word") String clientWord
+            @NotNull @FormParam("username") String username,
+            @NotNull @FormParam("password") String password,
+            @NotNull @FormParam("word") String clientWord
     ) {
         int status = 200;
 
