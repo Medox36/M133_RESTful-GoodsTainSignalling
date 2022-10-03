@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Lorenzo Giuntini"/>
+    <title>Stellwerk bearbeiten</title>
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/util.js"></script>
+    <script src="./js/logoff.js"></script>
+    <script src="./js/signalBoxEdit.js"></script>
+</head>
+<body>
+<nav id="nav">
+    <button type="button" id="logoff">Abmelden</button>
+    <span><a href="./locomotiveList.html">Lokomotiven</a></span>
+    <span><a href="./signalBoxList.html">Stellwerke</a></span>
+    <span id="message" style="color: red;"></span>
+</nav>
+<h3>Buch bearbeiten</h3>
+<form id="signalBoxEditForm" name="signalBoxEdit">
+    <table>
+        <tr>
+            <td><label for="trackSection">Stelwerk-Gleisabschnitt</label></td>
+            <td><input id="trackSection" name="trackSection" type="text" minlength="3" maxlength="120"/></td>
+        </tr>
+        <tr>
+            <td><label for="workingSignalmen">Arbeitenede Stellwerker*innen</label></td>
+            <td><input id="workingSignalmen" name="workingSignalmen" type="number" min="0" max="255"/></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <button id="save" type="submit">Speichern</button>
+            </td>
+            <td>
+                <button id="reset" type="reset">Zurücksetzen</button>
+            </td>
+            <td>
+                <button id="cancel" type="button">Abbruch</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

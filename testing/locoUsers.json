@@ -1,0 +1,25 @@
+[ {
+  "userUUID" : "762a07a4-a72b-4bed-830e-80b9f91dc72f",
+  "username" : "bob",
+  "password" : "password",
+  "role" : "user",
+  "words" : [ "one", "two", "three", "four", "five" ]
+}, {
+  "userUUID" : "5000400f-b7d8-4034-8461-7682719ff466",
+  "username" : "tyler",
+  "password" : "12345",
+  "role" : "admin",
+  "words" : [ "one", "two", "three", "four", "five" ]
+}, {
+  "userUUID" : "67694925-c7c3-4632-9fc8-8df355bf53f7",
+  "username" : "alice",
+  "password" : "geheim",
+  "role" : "user",
+  "words" : [ "one", "two", "three", "four", "five" ]
+},{
+  "userUUID" : "67645938-f7c3-4632-9fc8-8df355bf53f7",
+  "username" : "maxm",
+  "password" : "secret",
+  "role" : "guest",
+  "words" : [ "one", "two", "three", "four", "five" ]
+} ]
